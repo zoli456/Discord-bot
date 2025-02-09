@@ -77,7 +77,7 @@
     "youtube-sr": "^4.3.11"
   },
   "devDependencies": {
-    "prettier": "3.4.2"
+    "prettier": "3.5.0"
   },
   "overrides": {
     "node-fetch": "npm:node-fetch-native@latest",
