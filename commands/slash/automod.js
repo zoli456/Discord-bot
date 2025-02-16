@@ -3,6 +3,7 @@ const {
   InteractionContextType,
   PermissionsBitField,
   ChannelType,
+  MessageFlags,
 } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 const command = new SlashCommand()
@@ -669,10 +670,16 @@ command.setRun(async (client, interaction) => {
           inline: true,
         });
       }
-      interaction.reply({
-        embeds: [settingsEmbed],
-        ephemeral: hidden_answer,
-      });
+      if (hidden_answer) {
+        interaction.reply({
+          embeds: [settingsEmbed],
+          flags: MessageFlags.Ephemeral,
+        });
+      } else {
+        interaction.reply({
+          embeds: [settingsEmbed],
+        });
+      }
     } else {
       return interaction.reply({
         embeds: [
