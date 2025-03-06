@@ -1,11 +1,7 @@
 const SlashCommand = require("../../lib/SlashCommand");
 const moment = require("moment");
 require("moment-duration-format");
-const {
-  EmbedBuilder,
-  MessageFlags,
-  InteractionContextType,
-} = require("discord.js");
+const { EmbedBuilder, MessageFlags, InteractionContextType } = require("discord.js");
 const os = require("os");
 
 const command = new SlashCommand()
@@ -31,9 +27,7 @@ const command = new SlashCommand()
       .setRequired(false),
   )
   .setRun(async (client, interaction) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -42,7 +36,9 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -61,21 +57,17 @@ const command = new SlashCommand()
         .format("d[ Days]・h[ Hrs]・m[ Mins]・s[ Secs]");
       // show lavalink uptime in a nice format
       const lavauptime = moment
-        .duration(
-          client.manager.nodeManager.nodes.values().next().value.stats.uptime,
-        )
+        .duration(client.manager.nodeManager.nodes.values().next().value.stats.uptime)
         .format(" D[d], H[h], m[m]");
       // show lavalink memory usage in a nice format
       const lavaram = (
-        client.manager.nodeManager.nodes.values().next().value.stats.memory
-          .used /
+        client.manager.nodeManager.nodes.values().next().value.stats.memory.used /
         1024 /
         1024
       ).toFixed(2);
       // sow lavalink memory alocated in a nice format
       const lavamemalocated = (
-        client.manager.nodeManager.nodes.values().next().value.stats.memory
-          .allocated /
+        client.manager.nodeManager.nodes.values().next().value.stats.memory.allocated /
         1024 /
         1024
       ).toFixed(2);
@@ -87,10 +79,7 @@ const command = new SlashCommand()
       // get commit hash and date
       let gitHash = "unknown";
       try {
-        gitHash = require("child_process")
-          .execSync("git rev-parse HEAD")
-          .toString()
-          .trim();
+        gitHash = require("child_process").execSync("git rev-parse HEAD").toString().trim();
       } catch (e) {
         // do nothing
         gitHash = "unknown";
@@ -106,15 +95,10 @@ const command = new SlashCommand()
           {
             name: `Lavalink stats`,
             value: `\`\`\`yml\nUptime: ${lavauptime}\nRAM: ${lavaram} MB\nPlaying: ${
-              client.manager.nodeManager.nodes.values().next().value.stats
-                .playingPlayers
-            } out of ${
-              client.manager.nodeManager.nodes.values().next().value.stats
-                .players
-            }\`\`\``,
+              client.manager.nodeManager.nodes.values().next().value.stats.playingPlayers
+            } out of ${client.manager.nodeManager.nodes.values().next().value.stats.players}\`\`\``,
             inline: true,
-          },
-          {
+          }, {
             name: "Bot stats",
             value: `\`\`\`yml\nGuilds: ${
               client.guilds.cache.size
@@ -122,26 +106,27 @@ const command = new SlashCommand()
               require("../../package.json").dependencies["discord.js"]
             }\`\`\``,
             inline: true,
-          },
-          {
+          }, {
             name: "System stats",
             value: `\`\`\`yml\nOS: ${osver}\nUptime: ${sysuptime}\n\`\`\``,
             inline: false,
           },
         ])
         .setFooter({
-          text: `Build: ${gitHash} Caitlyn Bot: v${
-            require("../../package.json").version
-          }`,
+          text: `Build: ${gitHash} Caitlyn Bot: v${require("../../package.json").version}`,
         });
       if (hidden_answer) {
         return interaction.reply({
-          embeds: [statsEmbed],
+          embeds: [
+            statsEmbed,
+          ],
           flags: MessageFlags.Ephemeral,
         });
       } else {
         return interaction.reply({
-          embeds: [statsEmbed],
+          embeds: [
+            statsEmbed,
+          ],
         });
       }
     } else {

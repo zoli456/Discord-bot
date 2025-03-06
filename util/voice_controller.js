@@ -12,21 +12,16 @@ const { doesContainBadWords, textToLatin } = require("deep-profanity-filter");
 const colors = require("@colors/colors");
 
 module.exports = async (client, interaction) => {
-  const _db = client.guild_settings.find(
-    (e) => e.guildId === interaction.guildId,
-  );
+  const _db = client.guild_settings.find((e) => e.guildId === interaction.guildId);
 
   if (!(await _db.settings_db.exists("/voice_controller"))) {
     return;
   }
 
-  const voice_controller_config =
-    await _db.settings_db.getData("/voice_controller");
+  const voice_controller_config = await _db.settings_db.getData("/voice_controller");
 
   const property = interaction.customId.split(":")[2];
-  const lang = client.localization_manager.getLanguage(
-    await _db.settings_db.getData("/language"),
-  );
+  const lang = client.localization_manager.getLanguage(await _db.settings_db.getData("/language"));
 
   if (!interaction.member.voice.channel) {
     return interaction
@@ -47,10 +42,7 @@ module.exports = async (client, interaction) => {
     return interaction
       .reply({
         embeds: [
-          client.ErrorEmbed(
-            lang.error_title,
-            lang.temp_channel_not_tempchannel,
-          ),
+          client.ErrorEmbed(lang.error_title, lang.temp_channel_not_tempchannel),
         ],
         flags: MessageFlags.Ephemeral,
       })
@@ -80,10 +72,7 @@ module.exports = async (client, interaction) => {
         return interaction
           .reply({
             embeds: [
-              client.ErrorEmbed(
-                lang.error_title,
-                lang.temp_channel_owner_still_here,
-              ),
+              client.ErrorEmbed(lang.error_title, lang.temp_channel_owner_still_here),
             ],
             flags: MessageFlags.Ephemeral,
           })
@@ -96,12 +85,9 @@ module.exports = async (client, interaction) => {
           channelID: interaction.member.voice.channel.id,
           owner: interaction.user.id,
         };
-        await interaction.member.voice.channel.permissionOverwrites.edit(
-          interaction.user.id,
-          {
-            Connect: true,
-          },
-        );
+        await interaction.member.voice.channel.permissionOverwrites.edit(interaction.user.id, {
+          Connect: true,
+        });
 
         client.logger.log(
           `${colors.blue(interaction.guild.name)}(${interaction.guild.id}) | ${colors.blue(interaction.user.username)}(${interaction.user.id}) took the ownership of a channel(${interaction.member.voice.channel.id}).`,
@@ -109,7 +95,9 @@ module.exports = async (client, interaction) => {
 
         return interaction
           .reply({
-            embeds: [client.SuccessEmbed(lang.temp_channel_successful_claim)],
+            embeds: [
+              client.SuccessEmbed(lang.temp_channel_successful_claim),
+            ],
             flags: MessageFlags.Ephemeral,
           })
           .then((msg) => setTimeout(() => msg.delete(), 20000));
@@ -119,10 +107,7 @@ module.exports = async (client, interaction) => {
     if (property === "Claim") {
       return interaction.reply({
         embeds: [
-          client.ErrorEmbed(
-            lang.error_title,
-            lang.temp_channel_your_are_the_owner,
-          ),
+          client.ErrorEmbed(lang.error_title, lang.temp_channel_your_are_the_owner),
         ],
         flags: MessageFlags.Ephemeral,
       });
@@ -154,36 +139,22 @@ module.exports = async (client, interaction) => {
       })
       .then(async (i) => {
         if (i) {
-          const name = i.fields
-            .getTextInputValue(`name:${interaction.guild.id}`)
-            .trim();
-          if (
-            doesContainBadWords(textToLatin(name), client.strongword_filter)
-          ) {
+          const name = i.fields.getTextInputValue(`name:${interaction.guild.id}`).trim();
+          if (doesContainBadWords(textToLatin(name), client.strongword_filter)) {
             return i
               .reply({
                 embeds: [
-                  client.ErrorEmbed(
-                    lang.error_title,
-                    lang.temp_channel_not_appropriate,
-                  ),
+                  client.ErrorEmbed(lang.error_title, lang.temp_channel_not_appropriate),
                 ],
                 flags: MessageFlags.Ephemeral,
               })
               .then((msg) => setTimeout(() => msg.delete(), 20000));
           } else {
-            if (
-              client.tempchannel_namechange_Limiter.take(
-                interaction.member.voice.channel.id,
-              )
-            ) {
+            if (client.tempchannel_namechange_Limiter.take(interaction.member.voice.channel.id)) {
               return i
                 .reply({
                   embeds: [
-                    client.WarningEmbed(
-                      lang.warning_title,
-                      lang.temp_channel_change_limit,
-                    ),
+                    client.WarningEmbed(lang.warning_title, lang.temp_channel_change_limit),
                   ],
                   flags: MessageFlags.Ephemeral,
                 })
@@ -196,9 +167,7 @@ module.exports = async (client, interaction) => {
             return i
               .reply({
                 embeds: [
-                  client.SuccessEmbed(
-                    `${lang.temp_channel_successful_rename}${name}`,
-                  ),
+                  client.SuccessEmbed(`${lang.temp_channel_successful_rename}${name}`),
                 ],
                 flags: MessageFlags.Ephemeral,
               })
@@ -234,17 +203,12 @@ module.exports = async (client, interaction) => {
       })
       .then(async (i) => {
         if (i) {
-          const user_limit = i.fields
-            .getTextInputValue(`limit:${interaction.guild.id}`)
-            .trim();
+          const user_limit = i.fields.getTextInputValue(`limit:${interaction.guild.id}`).trim();
           if (!/\d/.test(user_limit)) {
             return i
               .reply({
                 embeds: [
-                  client.ErrorEmbed(
-                    lang.error_title,
-                    lang.temp_channel_limit_not_number,
-                  ),
+                  client.ErrorEmbed(lang.error_title, lang.temp_channel_limit_not_number),
                 ],
                 flags: MessageFlags.Ephemeral,
               })
@@ -254,27 +218,20 @@ module.exports = async (client, interaction) => {
               return i
                 .reply({
                   embeds: [
-                    client.ErrorEmbed(
-                      lang.error_title,
-                      lang.temp_channel_limit_bad_number,
-                    ),
+                    client.ErrorEmbed(lang.error_title, lang.temp_channel_limit_bad_number),
                   ],
                   flags: MessageFlags.Ephemeral,
                 })
                 .then((msg) => setTimeout(() => msg.delete(), 20000));
             }
-            await interaction.member.voice.channel.setUserLimit(
-              Number(user_limit),
-            );
+            await interaction.member.voice.channel.setUserLimit(Number(user_limit));
             client.logger.log(
               `${colors.blue(interaction.guild.name)}(${interaction.guild.id}) | ${colors.blue(interaction.user.username)}(${interaction.user.id}) changed the userlimit in his channel to ${user_limit}`,
             );
             return i
               .reply({
                 embeds: [
-                  client.SuccessEmbed(
-                    `${lang.temp_channel_successful_limit}${user_limit}`,
-                  ),
+                  client.SuccessEmbed(`${lang.temp_channel_successful_limit}${user_limit}`),
                 ],
                 flags: MessageFlags.Ephemeral,
               })
@@ -296,7 +253,9 @@ module.exports = async (client, interaction) => {
 
     return interaction
       .reply({
-        embeds: [client.SuccessEmbed(lang.temp_channel_successful_hide)],
+        embeds: [
+          client.SuccessEmbed(lang.temp_channel_successful_hide),
+        ],
         flags: MessageFlags.Ephemeral,
       })
       .then((msg) => setTimeout(() => msg.delete(), 20000));
@@ -314,7 +273,9 @@ module.exports = async (client, interaction) => {
 
     return interaction
       .reply({
-        embeds: [client.SuccessEmbed(lang.temp_channel_successful_unhide)],
+        embeds: [
+          client.SuccessEmbed(lang.temp_channel_successful_unhide),
+        ],
         flags: MessageFlags.Ephemeral,
       })
       .then((msg) => setTimeout(() => msg.delete(), 20000));
@@ -331,7 +292,9 @@ module.exports = async (client, interaction) => {
     );
     return interaction
       .reply({
-        embeds: [client.SuccessEmbed(lang.temp_channel_successful_lock)],
+        embeds: [
+          client.SuccessEmbed(lang.temp_channel_successful_lock),
+        ],
         flags: MessageFlags.Ephemeral,
       })
       .then((msg) => setTimeout(() => msg.delete(), 20000));
@@ -348,7 +311,9 @@ module.exports = async (client, interaction) => {
 
     return interaction
       .reply({
-        embeds: [client.SuccessEmbed(lang.temp_channel_successful_unlock)],
+        embeds: [
+          client.SuccessEmbed(lang.temp_channel_successful_unlock),
+        ],
         flags: MessageFlags.Ephemeral,
       })
       .then((msg) => setTimeout(() => msg.delete(), 20000));
@@ -357,9 +322,7 @@ module.exports = async (client, interaction) => {
   if (property === "Kick" || property === "Ban") {
     const usersOnChannel = [];
     interaction.guild.members.cache
-      .filter(
-        (member) => member.voice.channel === interaction.member.voice.channel,
-      )
+      .filter((member) => member.voice.channel === interaction.member.voice.channel)
       .forEach((member) => {
         if (
           member.id !== interaction.user.id &&
@@ -379,10 +342,7 @@ module.exports = async (client, interaction) => {
       return interaction
         .reply({
           embeds: [
-            client.WarningEmbed(
-              lang.warning_title,
-              lang.temp_channel_no_appropriate_target,
-            ),
+            client.WarningEmbed(lang.warning_title, lang.temp_channel_no_appropriate_target),
           ],
           flags: MessageFlags.Ephemeral,
         })
@@ -402,18 +362,19 @@ module.exports = async (client, interaction) => {
           .setColor("#00FFFF")
           .setDescription(lang.temp_channel_select_somebody_description),
       ],
-      components: [menu],
+      components: [
+        menu,
+      ],
       flags: MessageFlags.Ephemeral,
       withResponse: true,
     });
 
     const filter = (button) => button.user.id === interaction.user.id;
 
-    const targetCollector =
-      chosenTarget.resource.message.createMessageComponentCollector({
-        filter,
-        time: 30000,
-      });
+    const targetCollector = chosenTarget.resource.message.createMessageComponentCollector({
+      filter,
+      time: 30000,
+    });
     targetCollector.on("collect", async (i) => {
       if (i.isStringSelectMenu()) {
         await i.deferUpdate();
@@ -431,10 +392,7 @@ module.exports = async (client, interaction) => {
             content: null,
             embeds: [
               client.SuccessEmbed(
-                lang.temp_channel_successful_kick.replace(
-                  "{target}",
-                  `<@${i.values[0]}>`,
-                ),
+                lang.temp_channel_successful_kick.replace("{target}", `<@${i.values[0]}>`),
               ),
             ],
             components: [],
@@ -446,23 +404,17 @@ module.exports = async (client, interaction) => {
             `${colors.blue(interaction.guild.name)}(${interaction.guild.id}) ☠️ ${colors.blue(interaction.user.username)}(${interaction.user.username}) banned ${colors.red(targetUser.username)}(${targetUser.id}) from his channel.`,
           );
 
-          await interaction.member.voice.channel.permissionOverwrites.delete(
-            targetUser.id,
-          );
+          await interaction.member.voice.channel.permissionOverwrites.delete(targetUser.id);
 
-          await interaction.member.voice.channel.permissionOverwrites.edit(
-            i.values[0],
-            { Connect: false },
-          );
+          await interaction.member.voice.channel.permissionOverwrites.edit(i.values[0], {
+            Connect: false,
+          });
 
           i.editReply({
             content: null,
             embeds: [
               client.SuccessEmbed(
-                lang.temp_channel_successful_ban.replace(
-                  "{target}",
-                  `<@${i.values[0]}>`,
-                ),
+                lang.temp_channel_successful_ban.replace("{target}", `<@${i.values[0]}>`),
               ),
             ],
             components: [],
@@ -478,10 +430,7 @@ module.exports = async (client, interaction) => {
         await chosenTarget.edit({
           content: null,
           embeds: [
-            client.WarningEmbed(
-              lang.warning_title,
-              lang.temp_channel_you_didnt_select,
-            ),
+            client.WarningEmbed(lang.warning_title, lang.temp_channel_you_didnt_select),
           ],
           components: [],
           flags: MessageFlags.Ephemeral,

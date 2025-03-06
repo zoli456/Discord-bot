@@ -4,15 +4,11 @@ const { EmbedBuilder, AuditLogEvent } = require("discord.js");
 module.exports = async (client, member) => {
   if (member.user.bot) return;
 
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === member.guild.id,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === member.guild.id);
   const settingsDb = await guildSettings.settings_db.getData("/");
 
   if (settingsDb.leave_text) {
-    const leaveTextChannel = client.channels.cache.get(
-      settingsDb.leave_text.leave_channel_id,
-    );
+    const leaveTextChannel = client.channels.cache.get(settingsDb.leave_text.leave_channel_id);
     if (leaveTextChannel) {
       const leaveMessage = settingsDb.leave_text.leave_channel_leave_text
         .replace("{n}", `<@${member.id}>`)
@@ -25,9 +21,7 @@ module.exports = async (client, member) => {
 
   if (settingsDb.log_channel && member.id !== client.config.clientId) {
     const lang = client.localization_manager.getLanguage(settingsDb.language);
-    const logChannel = client.channels.cache.get(
-      settingsDb.log_channel.log_channel_id,
-    );
+    const logChannel = client.channels.cache.get(settingsDb.log_channel.log_channel_id);
     moment.locale(settingsDb.language);
 
     const fetchedLogs = await member.guild.fetchAuditLogs({
@@ -37,12 +31,9 @@ module.exports = async (client, member) => {
     const kickLog = fetchedLogs.entries.first();
 
     const kickLogValid =
-      kickLog &&
-      kickLog.target.id === member.user.id &&
-      kickLog.createdAt > member.joinedAt;
+      kickLog && kickLog.target.id === member.user.id && kickLog.createdAt > member.joinedAt;
 
-    const reason =
-      kickLogValid && kickLog.reason ? kickLog.reason : lang.no_reason_given;
+    const reason = kickLogValid && kickLog.reason ? kickLog.reason : lang.no_reason_given;
     const description = kickLogValid
       ? lang.log_member_kicked.replace("{u}", `<@${member.id}>`)
       : lang.log_user_left.replace("{u}", `<@${member.id}>`);
@@ -52,8 +43,7 @@ module.exports = async (client, member) => {
             name: lang.responsible_moderator,
             value: `<@${kickLog.executor.id}>`,
             inline: true,
-          },
-          { name: lang.reason, value: reason, inline: true },
+          }, { name: lang.reason, value: reason, inline: true },
         ]
       : [];
 
@@ -72,7 +62,11 @@ module.exports = async (client, member) => {
         iconURL: member.guild.iconURL(),
       });
 
-    logChannel.send({ embeds: [embed] });
+    logChannel.send({
+      embeds: [
+        embed,
+      ],
+    });
 
     moment.locale("en");
   }

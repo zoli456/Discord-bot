@@ -1,8 +1,4 @@
-const {
-  EmbedBuilder,
-  MessageFlags,
-  InteractionContextType,
-} = require("discord.js");
+const { EmbedBuilder, MessageFlags, InteractionContextType } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 const fs = require("fs");
 const path = require("path");
@@ -12,9 +8,7 @@ const command = new SlashCommand()
   .setDescription("Reload all commands")
   .setContexts(InteractionContextType.Guild)
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -23,7 +17,9 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -32,9 +28,7 @@ const command = new SlashCommand()
         let ContextCommandsDirectory = path.join(__dirname, "..", "context");
         fs.readdir(ContextCommandsDirectory, (err, files) => {
           files.forEach((file) => {
-            delete require.cache[
-              require.resolve(ContextCommandsDirectory + "/" + file)
-            ];
+            delete require.cache[require.resolve(ContextCommandsDirectory + "/" + file)];
             let cmd = require(ContextCommandsDirectory + "/" + file);
             if (!cmd.command || !cmd.run) {
               return this.warn(
@@ -50,9 +44,7 @@ const command = new SlashCommand()
         let SlashCommandsDirectory = path.join(__dirname, "..", "slash");
         fs.readdir(SlashCommandsDirectory, (err, files) => {
           files.forEach((file) => {
-            delete require.cache[
-              require.resolve(SlashCommandsDirectory + "/" + file)
-            ];
+            delete require.cache[require.resolve(SlashCommandsDirectory + "/" + file)];
             let cmd = require(SlashCommandsDirectory + "/" + file);
 
             if (!cmd || !cmd.run) {
@@ -66,8 +58,7 @@ const command = new SlashCommand()
           });
         });
 
-        const totalCmds =
-          client.slashCommands.size + client.contextCommands.size;
+        const totalCmds = client.slashCommands.size + client.contextCommands.size;
         client.log(`Reloaded ${totalCmds} commands!`);
         return interaction.reply({
           embeds: [
@@ -87,9 +78,7 @@ const command = new SlashCommand()
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "An error has occured. For more details please check console.",
-              ),
+              .setDescription("An error has occured. For more details please check console."),
           ],
           flags: MessageFlags.Ephemeral,
         });

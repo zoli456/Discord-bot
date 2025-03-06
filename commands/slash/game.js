@@ -39,12 +39,9 @@ const command = new SlashCommand()
   })
   .setContexts(InteractionContextType.Guild)
   .addSubcommand((subcommand) =>
-    subcommand
-      .setName("2048")
-      .setDescription("Start the 2048")
-      .setDescriptionLocalizations({
-        hu: "Elindítja a 2048 játékot.",
-      }),
+    subcommand.setName("2048").setDescription("Start the 2048").setDescriptionLocalizations({
+      hu: "Elindítja a 2048 játékot.",
+    }),
   )
   .addSubcommand((subcommand) =>
     subcommand
@@ -293,9 +290,7 @@ const command = new SlashCommand()
       }),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -304,33 +299,30 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
-    if (
-      !(await client.is_it_game_channel(interaction.channel, guildSettings))
-    ) {
+    if (!(await client.is_it_game_channel(interaction.channel, guildSettings))) {
       const temp = await guildSettings.settings_db.getData("/game_channel");
       return interaction.reply({
         embeds: [
           client.ErrorEmbed(
-            lang.cant_use_in_this_channel.replace(
-              "%channel%",
-              temp.game_channel_id,
-            ),
+            lang.cant_use_in_this_channel.replace("%channel%", temp.game_channel_id),
           ),
         ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
-    if (
-      await client.is_it_word_game_channel(interaction.channel, guildSettings)
-    ) {
+    if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -372,7 +364,10 @@ const command = new SlashCommand()
         timeoutTime: timeoutTime,
         hideEmojiTime: 5000,
         buttonStyle: "PRIMARY",
-        emojis: ["🍉", "🍇", "🍊", "🍋", "🥭", "🍎", "🍏", "🥝"],
+        emojis: [
+          "🍉", "🍇", "🍊", "🍋",
+          "🥭", "🍎", "🍏", "🥝",
+        ],
         winMessage: "You won! You selected the correct emoji. {emoji}",
         loseMessage: "You lost! You selected the wrong emoji. {emoji}",
         timeoutMessage: "You lost! You ran out of time. The emoji is {emoji}",
@@ -434,8 +429,7 @@ const command = new SlashCommand()
         embed: {
           title: "Minesweeper",
           color: "#5865F2",
-          description:
-            "Click on the buttons to reveal the blocks except mines.",
+          description: "Click on the buttons to reveal the blocks except mines.",
         },
         emojis: { flag: "🚩", mine: "💣" },
         mines: 5,
@@ -475,8 +469,7 @@ const command = new SlashCommand()
         winMessage: "**{player}** won the Game! Congratulations!",
         tieMessage: "The Game tied! No one won the Game!",
         timeoutMessage: "The Game went unfinished! No one won the Game!",
-        playerOnlyMessage:
-          "Only {player} and {opponent} can use these buttons.",
+        playerOnlyMessage: "Only {player} and {opponent} can use these buttons.",
       });
 
       await Game.startGame();
@@ -490,7 +483,9 @@ const command = new SlashCommand()
           title: "Slot Machine",
           color: "#5865F2",
         },
-        slots: ["🍇", "🍊", "🍋", "🍌"],
+        slots: [
+          "🍇", "🍊", "🍋", "🍌",
+        ],
       });
 
       await Game.startGame();
@@ -522,7 +517,10 @@ const command = new SlashCommand()
           right: "➡️",
         },
         snake: { head: "🟢", body: "🟩", tail: "🟢", over: "💀" },
-        foods: ["🍎", "🍇", "🍊", "🫐", "🥕", "🥝", "🌽"],
+        foods: [
+          "🍎", "🍇", "🍊", "🫐",
+          "🥕", "🥝", "🌽",
+        ],
         stopButton: "Stop",
         timeoutTime: timeoutTime,
         playerOnlyMessage: "Only {player} can use these buttons.",
@@ -553,8 +551,7 @@ const command = new SlashCommand()
         winMessage: "{emoji} | **{player}** won the Connect4 Game.",
         tieMessage: "The Game tied! No one won the Game!",
         timeoutMessage: "The Game went unfinished! No one won the Game!",
-        playerOnlyMessage:
-          "Only {player} and {opponent} can use these buttons.",
+        playerOnlyMessage: "Only {player} and {opponent} can use these buttons.",
       });
 
       await Game.startGame();
@@ -585,29 +582,17 @@ const command = new SlashCommand()
         embed: {
           title: "Match Pairs",
           color: "#5865F2",
-          description:
-            "**Click on the buttons to match emojis with their pairs.**",
+          description: "**Click on the buttons to match emojis with their pairs.**",
         },
         timeoutTime: timeoutTime,
         emojis: [
-          "🍉",
-          "🍇",
-          "🍊",
-          "🥭",
-          "🍎",
-          "🍏",
-          "🥝",
-          "🥥",
-          "🍓",
-          "🫐",
-          "🍍",
-          "🥕",
+          "🍉", "🍇", "🍊", "🥭",
+          "🍎", "🍏", "🥝", "🥥",
+          "🍓", "🫐", "🍍", "🥕",
           "🥔",
         ],
-        winMessage:
-          "**You won the Game! You turned a total of `{tilesTurned}` tiles.**",
-        loseMessage:
-          "**You lost the Game! You turned a total of `{tilesTurned}` tiles.**",
+        winMessage: "**You won the Game! You turned a total of `{tilesTurned}` tiles.**",
+        loseMessage: "**You lost the Game! You turned a total of `{tilesTurned}` tiles.**",
         playerOnlyMessage: "Only {player} can use these buttons.",
       });
       await Game.startGame();
@@ -619,8 +604,7 @@ const command = new SlashCommand()
     }
     if (interaction.options.getSubcommand() === "flag") {
       let language = await guildSettings.settings_db.getData("/language");
-      const getRandomCountryIndex = () =>
-        Math.floor(Math.random() * client.country_data.length);
+      const getRandomCountryIndex = () => Math.floor(Math.random() * client.country_data.length);
       const getButtonText = (index, language) =>
         language === "hu"
           ? client.country_data[index].translations.hun.common
@@ -628,7 +612,9 @@ const command = new SlashCommand()
 
       const generateButtonTexts = (correctIndex, language) => {
         const button_text = [];
-        const usedIndexes = new Set([correctIndex]);
+        const usedIndexes = new Set([
+          correctIndex,
+        ]);
         while (button_text.length < 5) {
           const tempIndex = getRandomCountryIndex();
           if (!usedIndexes.has(tempIndex)) {
@@ -666,15 +652,14 @@ const command = new SlashCommand()
               })
               .setTimestamp(),
           ],
-          components: [buttons],
+          components: [
+            buttons,
+          ],
         });
       };
 
       let correctIndex = getRandomCountryIndex();
-      let { button_text, right_answer } = generateButtonTexts(
-        correctIndex,
-        language,
-      );
+      let { button_text, right_answer } = generateButtonTexts(correctIndex, language);
       let flag_message = await sendFlagMessage(correctIndex, button_text);
       let counter = 0;
       let t = true;
@@ -689,10 +674,7 @@ const command = new SlashCommand()
       collector.on("collect", async (iter) => {
         if (iter.customId === `button${right_answer}`) {
           correctIndex = getRandomCountryIndex();
-          ({ button_text, right_answer } = generateButtonTexts(
-            correctIndex,
-            language,
-          ));
+          ({ button_text, right_answer } = generateButtonTexts(correctIndex, language));
           flag_message = await iter.update({
             embeds: [
               new EmbedBuilder()
@@ -709,7 +691,9 @@ const command = new SlashCommand()
                 })
                 .setTimestamp(),
             ],
-            components: [createButtons(button_text)],
+            components: [
+              createButtons(button_text),
+            ],
           });
           counter++;
         } else {
@@ -724,9 +708,7 @@ const command = new SlashCommand()
                   iconURL: interaction.user.avatarURL(),
                 })
                 .setTitle(lang.flags)
-                .setDescription(
-                  `${lang.flags_wrong} **${button_text[right_answer]}**`,
-                )
+                .setDescription(`${lang.flags_wrong} **${button_text[right_answer]}**`)
                 .setThumbnail(client.country_data[correctIndex].flags.png)
                 .addFields({
                   name: lang.guessed_flags,
@@ -755,9 +737,7 @@ const command = new SlashCommand()
                   iconURL: interaction.user.avatarURL(),
                 })
                 .setTitle(lang.flags)
-                .setDescription(
-                  `${lang.flags_time_is_up} **${button_text[right_answer]}**`,
-                )
+                .setDescription(`${lang.flags_time_is_up} **${button_text[right_answer]}**`)
                 .setThumbnail(client.country_data[correctIndex].flags.png)
                 .addFields({
                   name: lang.guessed_flags,
@@ -790,8 +770,7 @@ const command = new SlashCommand()
         },
         timeoutTime: timeoutTime,
         sentence: sentence,
-        winMessage:
-          "You won! You finished the type race in {time} seconds with wpm of {wpm}.",
+        winMessage: "You won! You finished the type race in {time} seconds with wpm of {wpm}.",
         loseMessage: "You lost! You didn't type the correct sentence in time.",
       });
 
@@ -800,42 +779,28 @@ const command = new SlashCommand()
     }
     if (interaction.options.getSubcommand() === "logo") {
       const getRandomIndex = (length) => Math.floor(Math.random() * length);
-      const getRandomLogo = () =>
-        client.logo_data[getRandomIndex(client.logo_data.length)];
+      const getRandomLogo = () => client.logo_data[getRandomIndex(client.logo_data.length)];
 
       const createButton = (id, label) =>
-        new ButtonBuilder()
-          .setCustomId(id)
-          .setLabel(label)
-          .setStyle(ButtonStyle.Primary);
+        new ButtonBuilder().setCustomId(id).setLabel(label).setStyle(ButtonStyle.Primary);
 
       const createButtons = (buttonText) =>
         new ActionRowBuilder().addComponents(
-          buttonText.map((text, index) =>
-            createButton(`button${index}`, text.name),
-          ),
+          buttonText.map((text, index) => createButton(`button${index}`, text.name)),
         );
 
       const selectWrongAnswers = (correctLogo, numberOfAnswers) => {
         const answers = [];
         while (answers.length < numberOfAnswers) {
           const tempLogo = getRandomLogo();
-          if (
-            !answers.includes(tempLogo) &&
-            tempLogo.name !== correctLogo.name
-          ) {
+          if (!answers.includes(tempLogo) && tempLogo.name !== correctLogo.name) {
             answers.push(tempLogo);
           }
         }
         return answers;
       };
 
-      const updateLogoMessage = async (
-        interaction,
-        logo,
-        buttonText,
-        description,
-      ) => {
+      const updateLogoMessage = async (interaction, logo, buttonText, description) => {
         const buttons = createButtons(buttonText);
         await interaction.update({
           embeds: [
@@ -851,7 +816,9 @@ const command = new SlashCommand()
               })
               .setTimestamp(),
           ],
-          components: [buttons],
+          components: [
+            buttons,
+          ],
         });
       };
 
@@ -875,7 +842,9 @@ const command = new SlashCommand()
             })
             .setTimestamp(),
         ],
-        components: [createButtons(buttonText)],
+        components: [
+          createButtons(buttonText),
+        ],
       });
 
       const filter = (button) => button.user.id === interaction.user.id;
@@ -904,9 +873,7 @@ const command = new SlashCommand()
                   iconURL: interaction.user.avatarURL(),
                 })
                 .setTitle(lang.logos)
-                .setDescription(
-                  `${lang.logos_wrong} [${logo.name}](${logo.url})`,
-                )
+                .setDescription(`${lang.logos_wrong} [${logo.name}](${logo.url})`)
                 .setThumbnail(
                   `https://raw.githubusercontent.com/zoli456/logos/master/logos/${logo.files[0]}`,
                 )
@@ -937,9 +904,7 @@ const command = new SlashCommand()
                   iconURL: interaction.user.avatarURL(),
                 })
                 .setTitle(lang.logos)
-                .setDescription(
-                  `${lang.logos_time_is_up} [${logo.name}](${logo.url})`,
-                )
+                .setDescription(`${lang.logos_time_is_up} [${logo.name}](${logo.url})`)
                 .setThumbnail(
                   `https://raw.githubusercontent.com/zoli456/logos/master/logos/${logo.files[0]}`,
                 )

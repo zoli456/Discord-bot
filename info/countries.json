@@ -1,3752 +1,3752 @@
 [
- {
-   "name": {
+  {
+    "name": {
       "common": "Jordan",
       "official": "Hashemite Kingdom of Jordan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Jordánia",
-         "common": "Jordánia"
+        "official": "Jordánia",
+        "common": "Jordánia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/jo.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Northern Mariana Islands",
       "official": "Commonwealth of the Northern Mariana Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Északi-Mariana-szigetek",
-         "common": "Északi-Mariana-szigetek"
+        "official": "Északi-Mariana-szigetek",
+        "common": "Északi-Mariana-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mp.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Serbia",
       "official": "Republic of Serbia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szerb Köztársaság",
-         "common": "Szerbia"
+        "official": "Szerb Köztársaság",
+        "common": "Szerbia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/rs.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Andorra",
       "official": "Principality of Andorra"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Andorra",
-         "common": "Andorra"
+        "official": "Andorra",
+        "common": "Andorra"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ad.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Turks and Caicos Islands",
       "official": "Turks and Caicos Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Turks- és Caicos-szigetek",
-         "common": "Turks- és Caicos-szigetek"
+        "official": "Turks- és Caicos-szigetek",
+        "common": "Turks- és Caicos-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tc.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Bermuda",
       "official": "Bermuda"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Bermuda",
-         "common": "Bermuda"
+        "official": "Bermuda",
+        "common": "Bermuda"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Antarctica",
       "official": "Antarctica"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Antarktisz",
-         "common": "Antarktisz"
+        "official": "Antarktisz",
+        "common": "Antarktisz"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/aq.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Bolivia",
       "official": "Plurinational State of Bolivia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Bolíviai Többnemzetiségű Állam",
-         "common": "Bolívia"
+        "official": "Bolíviai Többnemzetiségű Állam",
+        "common": "Bolívia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bo.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Libya",
       "official": "State of Libya"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Líbia Állam",
-         "common": "Líbia"
+        "official": "Líbia Állam",
+        "common": "Líbia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ly.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Mali",
       "official": "Republic of Mali"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Mali Köztársaság",
-         "common": "Mali"
+        "official": "Mali Köztársaság",
+        "common": "Mali"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ml.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Armenia",
       "official": "Republic of Armenia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Örményország",
-         "common": "Örményország"
+        "official": "Örményország",
+        "common": "Örményország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/am.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Mauritius",
       "official": "Republic of Mauritius"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Mauritiusi Köztársaság",
-         "common": "Mauritius"
+        "official": "Mauritiusi Köztársaság",
+        "common": "Mauritius"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mu.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Maldives",
       "official": "Republic of the Maldives"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Maldív-szigetek",
-         "common": "Maldív-szigetek"
+        "official": "Maldív-szigetek",
+        "common": "Maldív-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mv.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "American Samoa",
       "official": "American Samoa"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szamoa",
-         "common": "Szamoa"
+        "official": "Szamoa",
+        "common": "Szamoa"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/as.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "North Macedonia",
       "official": "Republic of North Macedonia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Észak-macedón Köztársaság",
-         "common": "Észak-Macedónia"
+        "official": "Észak-macedón Köztársaság",
+        "common": "Észak-Macedónia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mk.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Ethiopia",
       "official": "Federal Democratic Republic of Ethiopia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Etióp Szövetségi Demokratikus Köztársaság",
-         "common": "Etiópia"
+        "official": "Etióp Szövetségi Demokratikus Köztársaság",
+        "common": "Etiópia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/et.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Greenland",
       "official": "Greenland"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Grönland",
-         "common": "Grönland"
+        "official": "Grönland",
+        "common": "Grönland"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gl.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Iraq",
       "official": "Republic of Iraq"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Iraki Köztársaság",
-         "common": "Irak"
+        "official": "Iraki Köztársaság",
+        "common": "Irak"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/iq.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Guatemala",
       "official": "Republic of Guatemala"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Guatemalai Köztársaság",
-         "common": "Guatemala"
+        "official": "Guatemalai Köztársaság",
+        "common": "Guatemala"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gt.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Trinidad and Tobago",
       "official": "Republic of Trinidad and Tobago"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Trinidad és Tobago Köztársaság",
-         "common": "Trinidad és Tobago"
+        "official": "Trinidad és Tobago Köztársaság",
+        "common": "Trinidad és Tobago"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tt.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Peru",
       "official": "Republic of Peru"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Perui Köztársaság",
-         "common": "Peru"
+        "official": "Perui Köztársaság",
+        "common": "Peru"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pe.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Suriname",
       "official": "Republic of Suriname"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Suriname Köztársaság",
-         "common": "Suriname"
+        "official": "Suriname Köztársaság",
+        "common": "Suriname"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Sweden",
       "official": "Kingdom of Sweden"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Svéd Királyság",
-         "common": "Svédország"
+        "official": "Svéd Királyság",
+        "common": "Svédország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/se.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "New Caledonia",
       "official": "New Caledonia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Új-Kaledónia",
-         "common": "Új-Kaledónia"
+        "official": "Új-Kaledónia",
+        "common": "Új-Kaledónia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/nc.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "French Polynesia",
       "official": "French Polynesia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Francia Polinézia",
-         "common": "Francia Polinézia"
+        "official": "Francia Polinézia",
+        "common": "Francia Polinézia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pf.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Benin",
       "official": "Republic of Benin"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Benini Köztársaság",
-         "common": "Benin"
+        "official": "Benini Köztársaság",
+        "common": "Benin"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bj.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Estonia",
       "official": "Republic of Estonia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Észt Köztársaság",
-         "common": "Észtország"
+        "official": "Észt Köztársaság",
+        "common": "Észtország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ee.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Falkland Islands",
       "official": "Falkland Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Falkland-szigetek",
-         "common": "Falkland-szigetek"
+        "official": "Falkland-szigetek",
+        "common": "Falkland-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/fk.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Guam",
       "official": "Guam"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Guam",
-         "common": "Guam"
+        "official": "Guam",
+        "common": "Guam"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gu.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Zimbabwe",
       "official": "Republic of Zimbabwe"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Zimbabwei Köztársaság",
-         "common": "Zimbabwe"
+        "official": "Zimbabwei Köztársaság",
+        "common": "Zimbabwe"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/zw.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Slovakia",
       "official": "Slovak Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szlovák Köztársaság",
-         "common": "Szlovákia"
+        "official": "Szlovák Köztársaság",
+        "common": "Szlovákia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sk.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Netherlands",
       "official": "Kingdom of the Netherlands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Holland Királyság",
-         "common": "Hollandia"
+        "official": "Holland Királyság",
+        "common": "Hollandia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/nl.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Ecuador",
       "official": "Republic of Ecuador"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Ecuadori Köztársaság",
-         "common": "Ecuador"
+        "official": "Ecuadori Köztársaság",
+        "common": "Ecuador"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ec.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Saudi Arabia",
       "official": "Kingdom of Saudi Arabia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szaúd-Arábia",
-         "common": "Szaúd-Arábia"
+        "official": "Szaúd-Arábia",
+        "common": "Szaúd-Arábia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sa.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "United Arab Emirates",
       "official": "United Arab Emirates"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Egyesült Arab Emírségek",
-         "common": "Egyesült Arab Emírségek"
+        "official": "Egyesült Arab Emírségek",
+        "common": "Egyesült Arab Emírségek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ae.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Afghanistan",
       "official": "Islamic Republic of Afghanistan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Afganisztáni Iszlám Köztársaság",
-         "common": "Afganisztán"
+        "official": "Afganisztáni Iszlám Köztársaság",
+        "common": "Afganisztán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/320px-Flag_of_the_Taliban.svg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "United States Minor Outlying Islands",
       "official": "United States Minor Outlying Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Az Amerikai Egyesült Államok lakatlan külbirtokai",
-         "common": "Az Amerikai Egyesült Államok lakatlan külbirtokai"
+        "official": "Az Amerikai Egyesült Államok lakatlan külbirtokai",
+        "common": "Az Amerikai Egyesült Államok lakatlan külbirtokai"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/um.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Central African Republic",
       "official": "Central African Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Közép-afrikai Köztársaság",
-         "common": "Közép-afrikai Köztársaság"
+        "official": "Közép-afrikai Köztársaság",
+        "common": "Közép-afrikai Köztársaság"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cf.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Panama",
       "official": "Republic of Panama"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Panamai Köztársaság",
-         "common": "Panama"
+        "official": "Panamai Köztársaság",
+        "common": "Panama"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pa.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Vatican City",
       "official": "Vatican City State"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Vatikán Állam",
-         "common": "Vatikán"
+        "official": "Vatikán Állam",
+        "common": "Vatikán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/va.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Syria",
       "official": "Syrian Arab Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szíriai Arab Köztársaság",
-         "common": "Szíria"
+        "official": "Szíriai Arab Köztársaság",
+        "common": "Szíria"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sy.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Vanuatu",
       "official": "Republic of Vanuatu"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Vanuatui Köztársaság",
-         "common": "Vanuatu"
+        "official": "Vanuatui Köztársaság",
+        "common": "Vanuatu"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/vu.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Honduras",
       "official": "Republic of Honduras"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Hondurasi Köztársaság",
-         "common": "Honduras"
+        "official": "Hondurasi Köztársaság",
+        "common": "Honduras"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/hn.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Kiribati",
       "official": "Independent and Sovereign Republic of Kiribati"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kiribati Köztársaság",
-         "common": "Kiribati"
+        "official": "Kiribati Köztársaság",
+        "common": "Kiribati"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ki.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Chile",
       "official": "Republic of Chile"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Chilei Köztársaság",
-         "common": "Chile"
+        "official": "Chilei Köztársaság",
+        "common": "Chile"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cl.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Burkina Faso",
       "official": "Burkina Faso"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Burkina Faso",
-         "common": "Burkina"
+        "official": "Burkina Faso",
+        "common": "Burkina"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bf.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Saint Kitts and Nevis",
       "official": "Federation of Saint Christopher and Nevis"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Saint Christopher és Nevis Államszövetség",
-         "common": "Saint Kitts és Nevis"
+        "official": "Saint Christopher és Nevis Államszövetség",
+        "common": "Saint Kitts és Nevis"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/kn.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Saint Barthélemy",
       "official": "Collectivity of Saint Barthélemy"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Saint-Barthélemy",
-         "common": "Saint-Barthélemy"
+        "official": "Saint-Barthélemy",
+        "common": "Saint-Barthélemy"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bl.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Mexico",
       "official": "United Mexican States"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Mexikói Egyesült Államok",
-         "common": "Mexikó"
+        "official": "Mexikói Egyesült Államok",
+        "common": "Mexikó"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mx.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "China",
       "official": "People's Republic of China"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kínai Népköztársaság",
-         "common": "Kína"
+        "official": "Kínai Népköztársaság",
+        "common": "Kína"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cn.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Timor-Leste",
       "official": "Democratic Republic of Timor-Leste"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kelet-timori Demokratikus Köztársaság",
-         "common": "Kelet-Timor"
+        "official": "Kelet-timori Demokratikus Köztársaság",
+        "common": "Kelet-Timor"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tl.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "British Indian Ocean Territory",
       "official": "British Indian Ocean Territory"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Brit Indiai-óceáni Terület",
-         "common": "Brit Indiai-óceáni Terület"
+        "official": "Brit Indiai-óceáni Terület",
+        "common": "Brit Indiai-óceáni Terület"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/io.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "South Sudan",
       "official": "Republic of South Sudan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Dél-szudáni Köztársaság",
-         "common": "Dél-Szudán"
+        "official": "Dél-szudáni Köztársaság",
+        "common": "Dél-Szudán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ss.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Eswatini",
       "official": "Kingdom of Eswatini"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szváziföldi Királyság",
-         "common": "Szváziföld"
+        "official": "Szváziföldi Királyság",
+        "common": "Szváziföld"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sz.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Uzbekistan",
       "official": "Republic of Uzbekistan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Üzbég Köztársaság",
-         "common": "Üzbegisztán"
+        "official": "Üzbég Köztársaság",
+        "common": "Üzbegisztán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/uz.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Indonesia",
       "official": "Republic of Indonesia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Indonéz Köztársaság",
-         "common": "Indonézia"
+        "official": "Indonéz Köztársaság",
+        "common": "Indonézia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/id.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Paraguay",
       "official": "Republic of Paraguay"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Paraguayi Köztársaság",
-         "common": "Paraguay"
+        "official": "Paraguayi Köztársaság",
+        "common": "Paraguay"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/py.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Monaco",
       "official": "Principality of Monaco"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Monacói Hercegség",
-         "common": "Monaco"
+        "official": "Monacói Hercegség",
+        "common": "Monaco"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mc.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Grenada",
       "official": "Grenada"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Grenada",
-         "common": "Grenada"
+        "official": "Grenada",
+        "common": "Grenada"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gd.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Croatia",
       "official": "Republic of Croatia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Horvát Köztársaság",
-         "common": "Horvátország"
+        "official": "Horvát Köztársaság",
+        "common": "Horvátország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/hr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Poland",
       "official": "Republic of Poland"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Lengyel Köztársaság",
-         "common": "Lengyelország"
+        "official": "Lengyel Köztársaság",
+        "common": "Lengyelország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pl.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Bosnia and Herzegovina",
       "official": "Bosnia and Herzegovina"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Bosznia-Hercegovina",
-         "common": "Bosznia-Hercegovina"
+        "official": "Bosznia-Hercegovina",
+        "common": "Bosznia-Hercegovina"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ba.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Canada",
       "official": "Canada"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kanada",
-         "common": "Kanada"
+        "official": "Kanada",
+        "common": "Kanada"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ca.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Portugal",
       "official": "Portuguese Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Portugál Köztársaság",
-         "common": "Portugália"
+        "official": "Portugál Köztársaság",
+        "common": "Portugália"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pt.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Brazil",
       "official": "Federative Republic of Brazil"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Brazil Szövetségi Köztársaság",
-         "common": "Brazília"
+        "official": "Brazil Szövetségi Köztársaság",
+        "common": "Brazília"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/br.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Mauritania",
       "official": "Islamic Republic of Mauritania"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Mauritániai Iszlám Köztársaság",
-         "common": "Mauritánia"
+        "official": "Mauritániai Iszlám Köztársaság",
+        "common": "Mauritánia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Israel",
       "official": "State of Israel"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Izrael",
-         "common": "Izrael"
+        "official": "Izrael",
+        "common": "Izrael"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/il.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Curaçao",
       "official": "Country of Curaçao"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Curaçao",
-         "common": "Curaçao"
+        "official": "Curaçao",
+        "common": "Curaçao"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cw.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Brunei",
       "official": "Nation of Brunei, Abode of Peace"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Brunei Szultanátus",
-         "common": "Brunei"
+        "official": "Brunei Szultanátus",
+        "common": "Brunei"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bn.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Angola",
       "official": "Republic of Angola"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Angola",
-         "common": "Angola"
+        "official": "Angola",
+        "common": "Angola"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ao.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Malta",
       "official": "Republic of Malta"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Máltai Köztársaság",
-         "common": "Málta"
+        "official": "Máltai Köztársaság",
+        "common": "Málta"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mt.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Belarus",
       "official": "Republic of Belarus"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Fehérorosz Köztársaság",
-         "common": "Fehéroroszország"
+        "official": "Fehérorosz Köztársaság",
+        "common": "Fehéroroszország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/by.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Turkey",
       "official": "Republic of Turkey"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Török Köztársaság",
-         "common": "Törökország"
+        "official": "Török Köztársaság",
+        "common": "Törökország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Finland",
       "official": "Republic of Finland"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Finn Köztársaság",
-         "common": "Finnország"
+        "official": "Finn Köztársaság",
+        "common": "Finnország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/fi.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Gibraltar",
       "official": "Gibraltar"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Gibraltár",
-         "common": "Gibraltár"
+        "official": "Gibraltár",
+        "common": "Gibraltár"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gi.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Bhutan",
       "official": "Kingdom of Bhutan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Bhutáni Királyság",
-         "common": "Bhután"
+        "official": "Bhutáni Királyság",
+        "common": "Bhután"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bt.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Spain",
       "official": "Kingdom of Spain"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Spanyol Királyság",
-         "common": "Spanyolország"
+        "official": "Spanyol Királyság",
+        "common": "Spanyolország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/es.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Venezuela",
       "official": "Bolivarian Republic of Venezuela"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Venezuelai Bolivári Köztársaság",
-         "common": "Venezuela"
+        "official": "Venezuelai Bolivári Köztársaság",
+        "common": "Venezuela"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ve.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Qatar",
       "official": "State of Qatar"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Katari Állam",
-         "common": "Katar"
+        "official": "Katari Állam",
+        "common": "Katar"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/qa.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Czechia",
       "official": "Czech Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Cseh Köztársaság",
-         "common": "Csehország"
+        "official": "Cseh Köztársaság",
+        "common": "Csehország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cz.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Kuwait",
       "official": "State of Kuwait"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kuvaiti Állam",
-         "common": "Kuvait"
+        "official": "Kuvaiti Állam",
+        "common": "Kuvait"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/kw.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Montenegro",
       "official": "Montenegro"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Montenegró",
-         "common": "Montenegró"
+        "official": "Montenegró",
+        "common": "Montenegró"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/me.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Bouvet Island",
       "official": "Bouvet Island"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Bouvet-sziget",
-         "common": "Bouvet-sziget"
+        "official": "Bouvet-sziget",
+        "common": "Bouvet-sziget"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bv.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "India",
       "official": "Republic of India"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Indiai Köztársaság",
-         "common": "India"
+        "official": "Indiai Köztársaság",
+        "common": "India"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/in.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "New Zealand",
       "official": "New Zealand"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Új-Zéland",
-         "common": "Új-Zéland"
+        "official": "Új-Zéland",
+        "common": "Új-Zéland"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/nz.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Jamaica",
       "official": "Jamaica"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Jamaica",
-         "common": "Jamaica"
+        "official": "Jamaica",
+        "common": "Jamaica"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/jm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Cayman Islands",
       "official": "Cayman Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kajmán-szigetek",
-         "common": "Kajmán-szigetek"
+        "official": "Kajmán-szigetek",
+        "common": "Kajmán-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ky.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "San Marino",
       "official": "Republic of San Marino"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "San Marino Köztársaság",
-         "common": "San Marino"
+        "official": "San Marino Köztársaság",
+        "common": "San Marino"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Republic of the Congo",
       "official": "Republic of the Congo"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kongói Köztársaság",
-         "common": "Kongói Köztársaság"
+        "official": "Kongói Köztársaság",
+        "common": "Kongói Köztársaság"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Pakistan",
       "official": "Islamic Republic of Pakistan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Pakisztán",
-         "common": "Pakisztán"
+        "official": "Pakisztán",
+        "common": "Pakisztán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pk.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "France",
       "official": "French Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Francia Köztársaság",
-         "common": "Franciaország"
+        "official": "Francia Köztársaság",
+        "common": "Franciaország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/fr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Kazakhstan",
       "official": "Republic of Kazakhstan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kazah Köztársaság",
-         "common": "Kazahsztán"
+        "official": "Kazah Köztársaság",
+        "common": "Kazahsztán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/kz.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Bahrain",
       "official": "Kingdom of Bahrain"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Bahreini Királyság",
-         "common": "Bahrein"
+        "official": "Bahreini Királyság",
+        "common": "Bahrein"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bh.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Fiji",
       "official": "Republic of Fiji"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Fidzsi-szigeteki Köztársaság",
-         "common": "Fidzsi-szigetek"
+        "official": "Fidzsi-szigeteki Köztársaság",
+        "common": "Fidzsi-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/fj.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Iceland",
       "official": "Iceland"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Izland",
-         "common": "Izland"
+        "official": "Izland",
+        "common": "Izland"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/is.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Myanmar",
       "official": "Republic of the Union of Myanmar"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Mianmari Államszövetség Köztársasága",
-         "common": "Mianmar"
+        "official": "Mianmari Államszövetség Köztársasága",
+        "common": "Mianmar"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Bangladesh",
       "official": "People's Republic of Bangladesh"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Banglades",
-         "common": "Banglades"
+        "official": "Banglades",
+        "common": "Banglades"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bd.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Philippines",
       "official": "Republic of the Philippines"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Fülöp-szigeteki Köztársaság",
-         "common": "Fülöp-szigetek"
+        "official": "Fülöp-szigeteki Köztársaság",
+        "common": "Fülöp-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ph.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Equatorial Guinea",
       "official": "Republic of Equatorial Guinea"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Egyenlítői-Guinea-i Köztársaság",
-         "common": "Egyenlítői-Guinea"
+        "official": "Egyenlítői-Guinea-i Köztársaság",
+        "common": "Egyenlítői-Guinea"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gq.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Ireland",
       "official": "Republic of Ireland"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Ír Köztársaság",
-         "common": "Írország"
+        "official": "Ír Köztársaság",
+        "common": "Írország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ie.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Nepal",
       "official": "Federal Democratic Republic of Nepal"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Nepáli Szövetségi Demokratikus Köztársaság",
-         "common": "Nepál"
+        "official": "Nepáli Szövetségi Demokratikus Köztársaság",
+        "common": "Nepál"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/np.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Yemen",
       "official": "Republic of Yemen"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Jemeni Köztársaság",
-         "common": "Jemen"
+        "official": "Jemeni Köztársaság",
+        "common": "Jemen"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ye.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "South Korea",
       "official": "Republic of Korea"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Koreai Köztársaság",
-         "common": "Dél-Korea"
+        "official": "Koreai Köztársaság",
+        "common": "Dél-Korea"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/kr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Denmark",
       "official": "Kingdom of Denmark"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Dán Királyság",
-         "common": "Dánia"
+        "official": "Dán Királyság",
+        "common": "Dánia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/dk.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Oman",
       "official": "Sultanate of Oman"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Ománi Szultanátus",
-         "common": "Omán"
+        "official": "Ománi Szultanátus",
+        "common": "Omán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/om.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Saint Vincent and the Grenadines",
       "official": "Saint Vincent and the Grenadines"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Saint Vincent és a Grenadine-szigetek",
-         "common": "Saint Vincent és a Grenadine-szigetek"
+        "official": "Saint Vincent és a Grenadine-szigetek",
+        "common": "Saint Vincent és a Grenadine-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/vc.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Eritrea",
       "official": "State of Eritrea"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Eritrea",
-         "common": "Eritrea"
+        "official": "Eritrea",
+        "common": "Eritrea"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/er.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Australia",
       "official": "Commonwealth of Australia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Ausztrál Államszövetség",
-         "common": "Ausztrália"
+        "official": "Ausztrál Államszövetség",
+        "common": "Ausztrália"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/au.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Iran",
       "official": "Islamic Republic of Iran"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Iráni Iszlám Köztársaság",
-         "common": "Irán"
+        "official": "Iráni Iszlám Köztársaság",
+        "common": "Irán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ir.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "El Salvador",
       "official": "Republic of El Salvador"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Salvadori Köztársaság",
-         "common": "Salvador"
+        "official": "Salvadori Köztársaság",
+        "common": "Salvador"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sv.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Tanzania",
       "official": "United Republic of Tanzania"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Tádzsik Köztársaság",
-         "common": "Tádzsikisztán"
+        "official": "Tádzsik Köztársaság",
+        "common": "Tádzsikisztán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tz.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Guadeloupe",
       "official": "Guadeloupe"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Guadeloupe",
-         "common": "Guadeloupe"
+        "official": "Guadeloupe",
+        "common": "Guadeloupe"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gp.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Solomon Islands",
       "official": "Solomon Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Salamon-szigetek",
-         "common": "Salamon-szigetek"
+        "official": "Salamon-szigetek",
+        "common": "Salamon-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sb.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Kenya",
       "official": "Republic of Kenya"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kenyai Köztársaság",
-         "common": "Kenya"
+        "official": "Kenyai Köztársaság",
+        "common": "Kenya"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ke.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Dominican Republic",
       "official": "Dominican Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Dominikai Köztársaság",
-         "common": "Dominikai Köztársaság"
+        "official": "Dominikai Köztársaság",
+        "common": "Dominikai Köztársaság"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/do.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Greece",
       "official": "Hellenic Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Görög Köztársaság",
-         "common": "Görögország"
+        "official": "Görög Köztársaság",
+        "common": "Görögország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Guernsey",
       "official": "Bailiwick of Guernsey"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Guernsey",
-         "common": "Guernsey"
+        "official": "Guernsey",
+        "common": "Guernsey"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Rwanda",
       "official": "Republic of Rwanda"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Ruandai Köztársaság",
-         "common": "Ruanda"
+        "official": "Ruandai Köztársaság",
+        "common": "Ruanda"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/rw.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Saint Pierre and Miquelon",
       "official": "Saint Pierre and Miquelon"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Saint-Pierre és Miquelon",
-         "common": "Saint-Pierre és Miquelon"
+        "official": "Saint-Pierre és Miquelon",
+        "common": "Saint-Pierre és Miquelon"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Tuvalu",
       "official": "Tuvalu"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Tuvalu",
-         "common": "Tuvalu"
+        "official": "Tuvalu",
+        "common": "Tuvalu"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tv.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Taiwan",
       "official": "Republic of China (Taiwan)"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kínai Köztársaság",
-         "common": "Tajvan"
+        "official": "Kínai Köztársaság",
+        "common": "Tajvan"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tw.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Guyana",
       "official": "Co-operative Republic of Guyana"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Guyanai Szövetkezeti Köztársaság",
-         "common": "Guyana"
+        "official": "Guyanai Szövetkezeti Köztársaság",
+        "common": "Guyana"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gy.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Seychelles",
       "official": "Republic of Seychelles"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Seychelle Köztársaság",
-         "common": "Seychelle-szigetek"
+        "official": "Seychelle Köztársaság",
+        "common": "Seychelle-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sc.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "North Korea",
       "official": "Democratic People's Republic of Korea"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Koreai Népi Demokratikus Köztársaság",
-         "common": "Észak-Korea"
+        "official": "Koreai Népi Demokratikus Köztársaság",
+        "common": "Észak-Korea"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/kp.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Botswana",
       "official": "Republic of Botswana"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Botswanai Köztársaság",
-         "common": "Botswana"
+        "official": "Botswanai Köztársaság",
+        "common": "Botswana"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bw.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Cambodia",
       "official": "Kingdom of Cambodia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kambodzsai Királyság",
-         "common": "Kambodzsa"
+        "official": "Kambodzsai Királyság",
+        "common": "Kambodzsa"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/kh.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Barbados",
       "official": "Barbados"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Barbados",
-         "common": "Barbados"
+        "official": "Barbados",
+        "common": "Barbados"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bb.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Colombia",
       "official": "Republic of Colombia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kolumbiai Köztársaság",
-         "common": "Kolumbia"
+        "official": "Kolumbiai Köztársaság",
+        "common": "Kolumbia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/co.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Ukraine",
       "official": "Ukraine"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Ukrajna",
-         "common": "Ukrajna"
+        "official": "Ukrajna",
+        "common": "Ukrajna"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ua.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Ivory Coast",
       "official": "Republic of Côte d'Ivoire"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Elefántcsontparti Köztársaság",
-         "common": "Elefántcsontpart"
+        "official": "Elefántcsontparti Köztársaság",
+        "common": "Elefántcsontpart"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ci.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Nauru",
       "official": "Republic of Nauru"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Naurui Köztársaság",
-         "common": "Nauru"
+        "official": "Naurui Köztársaság",
+        "common": "Nauru"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/nr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Namibia",
       "official": "Republic of Namibia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Namíbiai Köztársaság",
-         "common": "Namíbia"
+        "official": "Namíbiai Köztársaság",
+        "common": "Namíbia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/na.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Chad",
       "official": "Republic of Chad"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Csád Köztársaság",
-         "common": "Csád"
+        "official": "Csád Köztársaság",
+        "common": "Csád"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/td.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Tonga",
       "official": "Kingdom of Tonga"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Tongai Királyság",
-         "common": "Tonga"
+        "official": "Tongai Királyság",
+        "common": "Tonga"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/to.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Argentina",
       "official": "Argentine Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Argentin Köztársaság",
-         "common": "Argentína"
+        "official": "Argentin Köztársaság",
+        "common": "Argentína"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ar.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Christmas Island",
       "official": "Territory of Christmas Island"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Karácsony-sziget",
-         "common": "Karácsony-sziget"
+        "official": "Karácsony-sziget",
+        "common": "Karácsony-sziget"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cx.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Niger",
       "official": "Republic of Niger"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Nigeri Köztársaság",
-         "common": "Niger"
+        "official": "Nigeri Köztársaság",
+        "common": "Niger"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ne.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Marshall Islands",
       "official": "Republic of the Marshall Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Marshall-szigetek",
-         "common": "Marshall-szigetek"
+        "official": "Marshall-szigetek",
+        "common": "Marshall-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mh.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Costa Rica",
       "official": "Republic of Costa Rica"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Costa Rica-i Köztársaság",
-         "common": "Costa Rica"
+        "official": "Costa Rica-i Köztársaság",
+        "common": "Costa Rica"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Ghana",
       "official": "Republic of Ghana"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Ghánai Köztársaság",
-         "common": "Ghána"
+        "official": "Ghánai Köztársaság",
+        "common": "Ghána"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gh.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Austria",
       "official": "Republic of Austria"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Ausztria",
-         "common": "Ausztria"
+        "official": "Ausztria",
+        "common": "Ausztria"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/at.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Saint Helena, Ascension and Tristan da Cunha",
       "official": "Saint Helena, Ascension and Tristan da Cunha"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szent Ilona",
-         "common": "Szent Ilona-sziget"
+        "official": "Szent Ilona",
+        "common": "Szent Ilona-sziget"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sh.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Palestine",
       "official": "State of Palestine"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Palesztin Autonómia",
-         "common": "Palesztina"
+        "official": "Palesztin Autonómia",
+        "common": "Palesztina"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ps.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Cuba",
       "official": "Republic of Cuba"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kubai Köztársaság",
-         "common": "Kuba"
+        "official": "Kubai Köztársaság",
+        "common": "Kuba"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cu.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Hungary",
       "official": "Hungary"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Magyarország",
-         "common": "Magyarország"
+        "official": "Magyarország",
+        "common": "Magyarország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/hu.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Micronesia",
       "official": "Federated States of Micronesia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Mikronéziai Szövetségi Államok",
-         "common": "Mikronéziai Szövetségi Államok"
+        "official": "Mikronéziai Szövetségi Államok",
+        "common": "Mikronéziai Szövetségi Államok"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/fm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Belize",
       "official": "Belize"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Belize",
-         "common": "Belize"
+        "official": "Belize",
+        "common": "Belize"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bz.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Bahamas",
       "official": "Commonwealth of the Bahamas"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Bahamai Közösség",
-         "common": "Bahama-szigetek"
+        "official": "Bahamai Közösség",
+        "common": "Bahama-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bs.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Aruba",
       "official": "Aruba"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Aruba",
-         "common": "Aruba"
+        "official": "Aruba",
+        "common": "Aruba"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/aw.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "São Tomé and Príncipe",
       "official": "Democratic Republic of São Tomé and Príncipe"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "São Tomé és Príncipe Demokratikus Köztársaság",
-         "common": "São Tomé és Príncipe"
+        "official": "São Tomé és Príncipe Demokratikus Köztársaság",
+        "common": "São Tomé és Príncipe"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/st.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Russia",
       "official": "Russian Federation"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Oroszországi Föderáció",
-         "common": "Oroszország"
+        "official": "Oroszországi Föderáció",
+        "common": "Oroszország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ru.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Luxembourg",
       "official": "Grand Duchy of Luxembourg"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Luxemburgi Nagyhercegség",
-         "common": "Luxemburg"
+        "official": "Luxemburgi Nagyhercegség",
+        "common": "Luxemburg"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/lu.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Faroe Islands",
       "official": "Faroe Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Feröer",
-         "common": "Feröer"
+        "official": "Feröer",
+        "common": "Feröer"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/fo.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Nicaragua",
       "official": "Republic of Nicaragua"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Nicaraguai Köztársaság",
-         "common": "Nicaragua"
+        "official": "Nicaraguai Köztársaság",
+        "common": "Nicaragua"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ni.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Tunisia",
       "official": "Tunisian Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Tunéziai Köztársaság",
-         "common": "Tunézia"
+        "official": "Tunéziai Köztársaság",
+        "common": "Tunézia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tn.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "DR Congo",
       "official": "Democratic Republic of the Congo"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kongói Demokratikus Köztársaság",
-         "common": "Kongói Demokratikus Köztársaság"
+        "official": "Kongói Demokratikus Köztársaság",
+        "common": "Kongói Demokratikus Köztársaság"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cd.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Svalbard and Jan Mayen",
       "official": "Svalbard og Jan Mayen"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Svalbard és Jan Mayen",
-         "common": "Svalbard és Jan Mayen"
+        "official": "Svalbard és Jan Mayen",
+        "common": "Svalbard és Jan Mayen"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sj.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "South Africa",
       "official": "Republic of South Africa"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Dél-afrikai Köztársaság",
-         "common": "Dél-afrikai Köztársaság"
+        "official": "Dél-afrikai Köztársaság",
+        "common": "Dél-afrikai Köztársaság"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/za.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Sierra Leone",
       "official": "Republic of Sierra Leone"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Sierra Leone Köztársaság",
-         "common": "Sierra Leone"
+        "official": "Sierra Leone Köztársaság",
+        "common": "Sierra Leone"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sl.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Lesotho",
       "official": "Kingdom of Lesotho"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Lesothói Királyság",
-         "common": "Lesotho"
+        "official": "Lesothói Királyság",
+        "common": "Lesotho"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ls.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "South Georgia",
       "official": "South Georgia and the South Sandwich Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Déli-Georgia és Déli-Sandwich-szigetek",
-         "common": "Déli-Georgia és Déli-Sandwich-szigetek"
+        "official": "Déli-Georgia és Déli-Sandwich-szigetek",
+        "common": "Déli-Georgia és Déli-Sandwich-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gs.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Italy",
       "official": "Italian Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Olasz Köztársaság",
-         "common": "Olaszország"
+        "official": "Olasz Köztársaság",
+        "common": "Olaszország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/it.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Djibouti",
       "official": "Republic of Djibouti"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Dzsibuti Köztársaság",
-         "common": "Dzsibuti"
+        "official": "Dzsibuti Köztársaság",
+        "common": "Dzsibuti"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/dj.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Heard Island and McDonald Islands",
       "official": "Heard Island and McDonald Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Heard-sziget és McDonald-szigetek",
-         "common": "Heard-sziget és McDonald-szigetek"
+        "official": "Heard-sziget és McDonald-szigetek",
+        "common": "Heard-sziget és McDonald-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/hm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Sri Lanka",
       "official": "Democratic Socialist Republic of Sri Lanka"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Srí Lanka-i Demokratikus Szocialista Köztársaság",
-         "common": "Srí Lanka"
+        "official": "Srí Lanka-i Demokratikus Szocialista Köztársaság",
+        "common": "Srí Lanka"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/lk.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Saint Lucia",
       "official": "Saint Lucia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Saint Lucia",
-         "common": "Saint Lucia"
+        "official": "Saint Lucia",
+        "common": "Saint Lucia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/lc.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Samoa",
       "official": "Independent State of Samoa"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szamoai Független Állam",
-         "common": "Szamoa"
+        "official": "Szamoai Független Állam",
+        "common": "Szamoa"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ws.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Cocos (Keeling) Islands",
       "official": "Territory of the Cocos (Keeling) Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kókusz-szigetek",
-         "common": "Kókusz-szigetek"
+        "official": "Kókusz-szigetek",
+        "common": "Kókusz-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cc.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Puerto Rico",
       "official": "Commonwealth of Puerto Rico"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Puerto Rico",
-         "common": "Puerto Rico"
+        "official": "Puerto Rico",
+        "common": "Puerto Rico"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Gabon",
       "official": "Gabonese Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Gaboni Köztársaság",
-         "common": "Gabon"
+        "official": "Gaboni Köztársaság",
+        "common": "Gabon"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ga.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Turkmenistan",
       "official": "Turkmenistan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Türkmén Köztársaság",
-         "common": "Türkmenisztán"
+        "official": "Türkmén Köztársaság",
+        "common": "Türkmenisztán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Latvia",
       "official": "Republic of Latvia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Lett Köztársaság",
-         "common": "Lettország"
+        "official": "Lett Köztársaság",
+        "common": "Lettország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/lv.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Senegal",
       "official": "Republic of Senegal"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szenegáli Köztársaság",
-         "common": "Szenegál"
+        "official": "Szenegáli Köztársaság",
+        "common": "Szenegál"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sn.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Belgium",
       "official": "Kingdom of Belgium"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Belga Királyság",
-         "common": "Belgium"
+        "official": "Belga Királyság",
+        "common": "Belgium"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/be.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Moldova",
       "official": "Republic of Moldova"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Moldovai Köztársaság",
-         "common": "Moldova"
+        "official": "Moldovai Köztársaság",
+        "common": "Moldova"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/md.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Liechtenstein",
       "official": "Principality of Liechtenstein"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Liechtensteini Hercegség",
-         "common": "Liechtenstein"
+        "official": "Liechtensteini Hercegség",
+        "common": "Liechtenstein"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/li.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Malawi",
       "official": "Republic of Malawi"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Malawi Köztársaság",
-         "common": "Malawi"
+        "official": "Malawi Köztársaság",
+        "common": "Malawi"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mw.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Lebanon",
       "official": "Lebanese Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Libanoni Köztársaság",
-         "common": "Libanon"
+        "official": "Libanoni Köztársaság",
+        "common": "Libanon"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/lb.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Mongolia",
       "official": "Mongolia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Mongólia",
-         "common": "Mongólia"
+        "official": "Mongólia",
+        "common": "Mongólia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mn.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Norway",
       "official": "Kingdom of Norway"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Norvég Királyság",
-         "common": "Norvégia"
+        "official": "Norvég Királyság",
+        "common": "Norvégia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/no.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "British Virgin Islands",
       "official": "Virgin Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Brit Virgin-szigetek",
-         "common": "Brit Virgin-szigetek"
+        "official": "Brit Virgin-szigetek",
+        "common": "Brit Virgin-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/vg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Cameroon",
       "official": "Republic of Cameroon"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kameruni Köztársaság",
-         "common": "Kamerun"
+        "official": "Kameruni Köztársaság",
+        "common": "Kamerun"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Thailand",
       "official": "Kingdom of Thailand"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Thaiföldi Királyság",
-         "common": "Thaiföld"
+        "official": "Thaiföldi Királyság",
+        "common": "Thaiföld"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/th.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Nigeria",
       "official": "Federal Republic of Nigeria"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Nigéria",
-         "common": "Nigéria"
+        "official": "Nigéria",
+        "common": "Nigéria"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ng.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Réunion",
       "official": "Réunion Island"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Réunion",
-         "common": "Réunion"
+        "official": "Réunion",
+        "common": "Réunion"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/re.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Cape Verde",
       "official": "Republic of Cabo Verde"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Zöld-foki Köztársaság",
-         "common": "Zöld-foki Köztársaság"
+        "official": "Zöld-foki Köztársaság",
+        "common": "Zöld-foki Köztársaság"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cv.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Jersey",
       "official": "Bailiwick of Jersey"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Jersey",
-         "common": "Jersey"
+        "official": "Jersey",
+        "common": "Jersey"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/je.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Algeria",
       "official": "People's Democratic Republic of Algeria"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Algériai Népi Demokratikus Köztársaság",
-         "common": "Algéria"
+        "official": "Algériai Népi Demokratikus Köztársaság",
+        "common": "Algéria"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/dz.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Laos",
       "official": "Lao People's Democratic Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Laoszi Népi Demokratikus Köztársaság",
-         "common": "Laosz"
+        "official": "Laoszi Népi Demokratikus Köztársaság",
+        "common": "Laosz"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/la.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Caribbean Netherlands",
       "official": "Bonaire, Sint Eustatius and Saba"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Bonaire",
-         "common": "Bonaire"
+        "official": "Bonaire",
+        "common": "Bonaire"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bq.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Azerbaijan",
       "official": "Republic of Azerbaijan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Azerbajdzsán",
-         "common": "Azerbajdzsán"
+        "official": "Azerbajdzsán",
+        "common": "Azerbajdzsán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/az.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Sint Maarten",
       "official": "Sint Maarten"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Sint Maarten",
-         "common": "Sint Maarten"
+        "official": "Sint Maarten",
+        "common": "Sint Maarten"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sx.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Morocco",
       "official": "Kingdom of Morocco"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Marokkói Királyság",
-         "common": "Marokkó"
+        "official": "Marokkói Királyság",
+        "common": "Marokkó"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ma.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Åland Islands",
       "official": "Åland Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Åland-szigetek",
-         "common": "Åland-szigetek"
+        "official": "Åland-szigetek",
+        "common": "Åland-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ax.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Bulgaria",
       "official": "Republic of Bulgaria"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Bolgár Köztársaság",
-         "common": "Bulgária"
+        "official": "Bolgár Köztársaság",
+        "common": "Bulgária"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Burundi",
       "official": "Republic of Burundi"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Burundi",
-         "common": "Burundi"
+        "official": "Burundi",
+        "common": "Burundi"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/bi.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Uganda",
       "official": "Republic of Uganda"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Ugandai Köztársaság",
-         "common": "Uganda"
+        "official": "Ugandai Köztársaság",
+        "common": "Uganda"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ug.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Kosovo",
       "official": "Republic of Kosovo"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Koszovó",
-         "common": "Koszovó"
+        "official": "Koszovó",
+        "common": "Koszovó"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/xk.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Mozambique",
       "official": "Republic of Mozambique"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Mozambiki Köztársaság",
-         "common": "Mozambik"
+        "official": "Mozambiki Köztársaság",
+        "common": "Mozambik"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mz.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Georgia",
       "official": "Georgia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Grúzia",
-         "common": "Grúzia"
+        "official": "Grúzia",
+        "common": "Grúzia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ge.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "United Kingdom",
       "official": "United Kingdom of Great Britain and Northern Ireland"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Nagy-Britannia és Észak-Írország Egyesült Királysága",
-         "common": "Egyesült Királyság"
+        "official": "Nagy-Britannia és Észak-Írország Egyesült Királysága",
+        "common": "Egyesült Királyság"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gb.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Wallis and Futuna",
       "official": "Territory of the Wallis and Futuna Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Wallis és Futuna",
-         "common": "Wallis és Futuna"
+        "official": "Wallis és Futuna",
+        "common": "Wallis és Futuna"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/wf.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Pitcairn Islands",
       "official": "Pitcairn Group of Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Pitcairn-szigetek",
-         "common": "Pitcairn-szigetek"
+        "official": "Pitcairn-szigetek",
+        "common": "Pitcairn-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pn.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Romania",
       "official": "Romania"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Románia",
-         "common": "Románia"
+        "official": "Románia",
+        "common": "Románia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ro.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Vietnam",
       "official": "Socialist Republic of Vietnam"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Vietnámi Szocialista Köztársaság",
-         "common": "Vietnám"
+        "official": "Vietnámi Szocialista Köztársaság",
+        "common": "Vietnám"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/vn.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "French Southern and Antarctic Lands",
       "official": "Territory of the French Southern and Antarctic Lands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Francia déli és antarktiszi területek",
-         "common": "Francia déli és antarktiszi területek"
+        "official": "Francia déli és antarktiszi területek",
+        "common": "Francia déli és antarktiszi területek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tf.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Western Sahara",
       "official": "Sahrawi Arab Democratic Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Nyugat-Szahara",
-         "common": "Nyugat-Szahara"
+        "official": "Nyugat-Szahara",
+        "common": "Nyugat-Szahara"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/eh.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Japan",
       "official": "Japan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Japán",
-         "common": "Japán"
+        "official": "Japán",
+        "common": "Japán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/jp.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Egypt",
       "official": "Arab Republic of Egypt"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Egyiptomi Arab Köztársaság",
-         "common": "Egyiptom"
+        "official": "Egyiptomi Arab Köztársaság",
+        "common": "Egyiptom"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/eg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Liberia",
       "official": "Republic of Liberia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Libériai Köztársaság",
-         "common": "Libéria"
+        "official": "Libériai Köztársaság",
+        "common": "Libéria"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/lr.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Lithuania",
       "official": "Republic of Lithuania"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Litván Köztársaság",
-         "common": "Litvánia"
+        "official": "Litván Köztársaság",
+        "common": "Litvánia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/lt.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Haiti",
       "official": "Republic of Haiti"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Haiti Köztársaság",
-         "common": "Haiti"
+        "official": "Haiti Köztársaság",
+        "common": "Haiti"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ht.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "United States Virgin Islands",
       "official": "Virgin Islands of the United States"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Amerikai Virgin-szigetek",
-         "common": "Amerikai Virgin-szigetek"
+        "official": "Amerikai Virgin-szigetek",
+        "common": "Amerikai Virgin-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/vi.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Papua New Guinea",
       "official": "Independent State of Papua New Guinea"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Pápua Új-Guinea Független Állam",
-         "common": "Pápua Új-Guinea"
+        "official": "Pápua Új-Guinea Független Állam",
+        "common": "Pápua Új-Guinea"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Hong Kong",
       "official": "Hong Kong Special Administrative Region of the People's Republic of China"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Hongkong",
-         "common": "Hongkong"
+        "official": "Hongkong",
+        "common": "Hongkong"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/hk.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Kyrgyzstan",
       "official": "Kyrgyz Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Kirgiz Köztársaság",
-         "common": "Kirgizisztán"
+        "official": "Kirgiz Köztársaság",
+        "common": "Kirgizisztán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/kg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Palau",
       "official": "Republic of Palau"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Palaui Köztársaság",
-         "common": "Palau"
+        "official": "Palaui Köztársaság",
+        "common": "Palau"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/pw.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Madagascar",
       "official": "Republic of Madagascar"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Madagaszkári Köztársaság",
-         "common": "Madagaszkár"
+        "official": "Madagaszkári Köztársaság",
+        "common": "Madagaszkár"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Gambia",
       "official": "Republic of the Gambia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Gambiai Köztársaság",
-         "common": "Gambia"
+        "official": "Gambiai Köztársaság",
+        "common": "Gambia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Togo",
       "official": "Togolese Republic"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Togói Köztársaság",
-         "common": "Togo"
+        "official": "Togói Köztársaság",
+        "common": "Togo"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Tokelau",
       "official": "Tokelau"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Tokelau-szigetek",
-         "common": "Tokelau-szigetek"
+        "official": "Tokelau-szigetek",
+        "common": "Tokelau-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tk.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Slovenia",
       "official": "Republic of Slovenia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szlovén Köztársaság",
-         "common": "Szlovénia"
+        "official": "Szlovén Köztársaság",
+        "common": "Szlovénia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/si.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Singapore",
       "official": "Republic of Singapore"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szingapúri Köztársaság",
-         "common": "Szingapúr"
+        "official": "Szingapúri Köztársaság",
+        "common": "Szingapúr"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sg.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "French Guiana",
       "official": "Guiana"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Francia Guyana",
-         "common": "Francia Guyana"
+        "official": "Francia Guyana",
+        "common": "Francia Guyana"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gf.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "United States",
       "official": "United States of America"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Amerikai Egyesült Államok",
-         "common": "Amerikai Egyesült Államok"
+        "official": "Amerikai Egyesült Államok",
+        "common": "Amerikai Egyesült Államok"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/us.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Montserrat",
       "official": "Montserrat"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Montserrat",
-         "common": "Montserrat"
+        "official": "Montserrat",
+        "common": "Montserrat"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ms.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Malaysia",
       "official": "Malaysia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Malajzia",
-         "common": "Malajzia"
+        "official": "Malajzia",
+        "common": "Malajzia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/my.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Germany",
       "official": "Federal Republic of Germany"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Német Szövetségi Köztársaság",
-         "common": "Németország"
+        "official": "Német Szövetségi Köztársaság",
+        "common": "Németország"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/de.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Antigua and Barbuda",
       "official": "Antigua and Barbuda"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Antigua és Barbuda",
-         "common": "Antigua és Barbuda"
+        "official": "Antigua és Barbuda",
+        "common": "Antigua és Barbuda"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ag.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Saint Martin",
       "official": "Saint Martin"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Saint-Martin Közösség",
-         "common": "Saint-Martin"
+        "official": "Saint-Martin Közösség",
+        "common": "Saint-Martin"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mf.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Somalia",
       "official": "Federal Republic of Somalia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szomáli Szövetségi Köztársaság",
-         "common": "Szomália"
+        "official": "Szomáli Szövetségi Köztársaság",
+        "common": "Szomália"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/so.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Macau",
       "official": "Macao Special Administrative Region of the People's Republic of China"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Makaó",
-         "common": "Makaó"
+        "official": "Makaó",
+        "common": "Makaó"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mo.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Albania",
       "official": "Republic of Albania"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Albán Köztársaság",
-         "common": "Albánia"
+        "official": "Albán Köztársaság",
+        "common": "Albánia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/al.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Mayotte",
       "official": "Department of Mayotte"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Mayotte",
-         "common": "Mayotte"
+        "official": "Mayotte",
+        "common": "Mayotte"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/yt.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Dominica",
       "official": "Commonwealth of Dominica"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Dominikai Közösség",
-         "common": "Dominikai Közösség"
+        "official": "Dominikai Közösség",
+        "common": "Dominikai Közösség"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/dm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Zambia",
       "official": "Republic of Zambia"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Zambiai Köztársaság",
-         "common": "Zambia"
+        "official": "Zambiai Köztársaság",
+        "common": "Zambia"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/zm.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Anguilla",
       "official": "Anguilla"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Anguilla",
-         "common": "Anguilla"
+        "official": "Anguilla",
+        "common": "Anguilla"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ai.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Cook Islands",
       "official": "Cook Islands"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Cook-szigetek",
-         "common": "Cook-szigetek"
+        "official": "Cook-szigetek",
+        "common": "Cook-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ck.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Martinique",
       "official": "Martinique"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Martinique",
-         "common": "Martinique"
+        "official": "Martinique",
+        "common": "Martinique"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/mq.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Guinea",
       "official": "Republic of Guinea"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Guineai Köztársaság",
-         "common": "Guinea"
+        "official": "Guineai Köztársaság",
+        "common": "Guinea"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gn.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Comoros",
       "official": "Union of the Comoros"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Comore-szigeteki Unió",
-         "common": "Comore-szigetek"
+        "official": "Comore-szigeteki Unió",
+        "common": "Comore-szigetek"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/km.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Niue",
       "official": "Niue"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Niue",
-         "common": "Niue"
+        "official": "Niue",
+        "common": "Niue"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/nu.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Switzerland",
       "official": "Swiss Confederation"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Svájc",
-         "common": "Svájc"
+        "official": "Svájc",
+        "common": "Svájc"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/ch.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Norfolk Island",
       "official": "Territory of Norfolk Island"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Norfolk-sziget",
-         "common": "Norfolk-sziget"
+        "official": "Norfolk-sziget",
+        "common": "Norfolk-sziget"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/nf.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Isle of Man",
       "official": "Isle of Man"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Man",
-         "common": "Man"
+        "official": "Man",
+        "common": "Man"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/im.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Sudan",
       "official": "Republic of the Sudan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Szudáni Köztársaság",
-         "common": "Szudán"
+        "official": "Szudáni Köztársaság",
+        "common": "Szudán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/sd.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Tajikistan",
       "official": "Republic of Tajikistan"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Tádzsik Köztársaság",
-         "common": "Tádzsikisztán"
+        "official": "Tádzsik Köztársaság",
+        "common": "Tádzsikisztán"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/tj.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Uruguay",
       "official": "Oriental Republic of Uruguay"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Uruguayi Keleti Köztársaság",
-         "common": "Uruguay"
+        "official": "Uruguayi Keleti Köztársaság",
+        "common": "Uruguay"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/uy.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Cyprus",
       "official": "Republic of Cyprus"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Ciprusi Köztársaság",
-         "common": "Ciprus"
+        "official": "Ciprusi Köztársaság",
+        "common": "Ciprus"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/cy.png"
-   }
-},
- {
-   "name": {
+    }
+  },
+  {
+    "name": {
       "common": "Guinea-Bissau",
       "official": "Republic of Guinea-Bissau"
-   },
-   "translations": {
+    },
+    "translations": {
       "hun": {
-         "official": "Bissau-Guineai Köztársaság",
-         "common": "Bissau-Guinea"
+        "official": "Bissau-Guineai Köztársaság",
+        "common": "Bissau-Guinea"
       }
-   },
-   "flags": {
+    },
+    "flags": {
       "png": "https://flagcdn.com/w320/gw.png"
-   }
-}
+    }
+  }
 ]

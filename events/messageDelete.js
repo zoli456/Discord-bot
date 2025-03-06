@@ -8,28 +8,16 @@ const { EmbedBuilder, AuditLogEvent } = require("discord.js");
  * @param {Message} message
  */
 module.exports = async (client, message) => {
-  if (
-    message.webhookId ||
-    message.partial ||
-    message.channel.isDMBased() ||
-    message.content === ""
-  )
+  if (message.webhookId || message.partial || message.channel.isDMBased() || message.content === "")
     return;
   if (message.author && message.author.bot) return;
-  const guild_settings = client.guild_settings.find(
-    (e) => e.guildId === message.guild.id,
-  );
+  const guild_settings = client.guild_settings.find((e) => e.guildId === message.guild.id);
   let settingsDb = await guild_settings.settings_db.getData("/");
   if (settingsDb.log_channel && message.content.length <= 1024) {
-    if (
-      settingsDb.game_channel &&
-      settingsDb.game_channel.game_channel_id === message.channelId
-    )
+    if (settingsDb.game_channel && settingsDb.game_channel.game_channel_id === message.channelId)
       return;
     const lang = client.localization_manager.getLanguage(settingsDb.language);
-    const logChannel = client.channels.cache.get(
-      settingsDb.log_channel.log_channel_id,
-    );
+    const logChannel = client.channels.cache.get(settingsDb.log_channel.log_channel_id);
     const fetchedLogs1 = await message.guild.fetchAuditLogs({
       limit: 1,
       type: AuditLogEvent.MessageDelete,

@@ -1,11 +1,8 @@
 const { EmbedBuilder, AuditLogEvent } = require("discord.js");
 module.exports = async (client, oldRole, newRole) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === oldRole.guild.id,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === oldRole.guild.id);
   if (await guildSettings.settings_db.exists("/log_channel")) {
-    const log_settings =
-      await guildSettings.settings_db.getData("/log_channel");
+    const log_settings = await guildSettings.settings_db.getData("/log_channel");
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -19,9 +16,7 @@ module.exports = async (client, oldRole, newRole) => {
               name: oldRole.guild.name,
               iconURL: oldRole.guild.iconURL(),
             })
-            .setDescription(
-              lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`),
-            )
+            .setDescription(lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`))
             .addFields({
               name: lang.mentionable,
               value: newRole.mentionable ? "✅" : "❌",
@@ -40,9 +35,7 @@ module.exports = async (client, oldRole, newRole) => {
               name: oldRole.guild.name,
               iconURL: oldRole.guild.iconURL(),
             })
-            .setDescription(
-              lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`),
-            )
+            .setDescription(lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`))
             .addFields({
               name: lang.color,
               value: newRole.hexColor,
@@ -61,9 +54,7 @@ module.exports = async (client, oldRole, newRole) => {
               name: oldRole.guild.name,
               iconURL: oldRole.guild.iconURL(),
             })
-            .setDescription(
-              lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`),
-            )
+            .setDescription(lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`))
             .addFields({
               name: lang.separately_visible,
               value: newRole.hoist ? "✅" : "❌",
@@ -82,9 +73,7 @@ module.exports = async (client, oldRole, newRole) => {
               name: oldRole.guild.name,
               iconURL: oldRole.guild.iconURL(),
             })
-            .setDescription(
-              lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`),
-            )
+            .setDescription(lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`))
             .addFields(
               {
                 name: lang.old_name,
@@ -128,9 +117,7 @@ module.exports = async (client, oldRole, newRole) => {
                   name: oldRole.guild.name,
                   iconURL: oldRole.guild.iconURL(),
                 })
-                .setDescription(
-                  lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`),
-                )
+                .setDescription(lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`))
                 .addFields(
                   {
                     name: lang.rights,
@@ -161,9 +148,7 @@ module.exports = async (client, oldRole, newRole) => {
                   name: oldRole.guild.name,
                   iconURL: oldRole.guild.iconURL(),
                 })
-                .setDescription(
-                  lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`),
-                )
+                .setDescription(lang.log_role_changed.replace("{r}", `<@&${oldRole.id}>`))
                 .addFields({
                   name: lang.rights,
                   value: output,

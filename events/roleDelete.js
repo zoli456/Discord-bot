@@ -1,12 +1,9 @@
 const { AuditLogEvent, EmbedBuilder } = require("discord.js");
 
 module.exports = async (client, role) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === role.guild.id,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === role.guild.id);
   if (await guildSettings.settings_db.exists("/log_channel")) {
-    const log_settings =
-      await guildSettings.settings_db.getData("/log_channel");
+    const log_settings = await guildSettings.settings_db.getData("/log_channel");
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -26,9 +23,7 @@ module.exports = async (client, role) => {
               name: roleLog.executor.tag,
               iconURL: roleLog.executor.displayAvatarURL({ dynamic: true }),
             })
-            .setDescription(
-              lang.log_role_deleted1.replace("{u}", `<@${roleLog.executorId}>`),
-            )
+            .setDescription(lang.log_role_deleted1.replace("{u}", `<@${roleLog.executorId}>`))
             .addFields({
               name: lang.name_title,
               value: `${role.name}`,

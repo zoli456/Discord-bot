@@ -1,10 +1,6 @@
 const SlashCommand = require("../../lib/SlashCommand");
 const { ServerStatus } = require("@hardxploit/mc-status");
-const {
-  EmbedBuilder,
-  InteractionContextType,
-  AttachmentBuilder,
-} = require("discord.js");
+const { EmbedBuilder, InteractionContextType, AttachmentBuilder } = require("discord.js");
 
 const command = new SlashCommand()
   .setName("minecraft")
@@ -22,10 +18,7 @@ const command = new SlashCommand()
       .setDescription("Bedrock or Java.")
       .setAutocomplete(false)
       .setRequired(true)
-      .addChoices(
-        { name: "Java", value: "Java" },
-        { name: "Bedrock", value: "Bedrock" },
-      )
+      .addChoices({ name: "Java", value: "Java" }, { name: "Bedrock", value: "Bedrock" })
       .setNameLocalizations({
         hu: "típus",
       })
@@ -48,9 +41,7 @@ const command = new SlashCommand()
   )
 
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -59,16 +50,18 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
-    if (
-      await client.is_it_word_game_channel(interaction.channel, guildSettings)
-    ) {
+    if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -125,26 +118,15 @@ const command = new SlashCommand()
         if (data.plugins !== 0) {
           if (data.plugins.length > 12) {
             for (let i = 0; i < 12; i++) {
-              plugins +=
-                data.plugins[i]["name"] +
-                " " +
-                data.plugins[i]["version"] +
-                "\n";
+              plugins += data.plugins[i]["name"] + " " + data.plugins[i]["version"] + "\n";
             }
           } else {
             for (let i = 0; i < data.plugins.length; i++) {
-              plugins +=
-                data.plugins[i]["name"] +
-                " " +
-                data.plugins[i]["version"] +
-                "\n";
+              plugins += data.plugins[i]["name"] + " " + data.plugins[i]["version"] + "\n";
             }
           }
           if (data.plugins.length - 12 > 0) {
-            plugins += lang.minecraft_more_plugins.replace(
-              "{n}",
-              data.plugins.length - 12,
-            );
+            plugins += lang.minecraft_more_plugins.replace("{n}", data.plugins.length - 12);
           }
         }
         if (data.icon) {
@@ -158,9 +140,7 @@ const command = new SlashCommand()
               new EmbedBuilder()
                 .setColor("#FFFFFF")
                 .setTitle(`${data.host}:${data.port} ${lang.minecraft_status}`)
-                .setDescription(
-                  `${data.motd.clean === "" ? "-" : data.motd.clean}`,
-                )
+                .setDescription(`${data.motd.clean === "" ? "-" : data.motd.clean}`)
                 .setThumbnail(`attachment://${sfattach.name}`)
                 .setFields(
                   {
@@ -175,11 +155,7 @@ const command = new SlashCommand()
                   },
                   {
                     name: lang.version,
-                    value: `${
-                      data.version.name_clean === ""
-                        ? "-"
-                        : data.version.name_clean
-                    }`,
+                    value: `${data.version.name_clean === "" ? "-" : data.version.name_clean}`,
                     inline: true,
                   },
                   {
@@ -199,7 +175,9 @@ const command = new SlashCommand()
                   iconURL: interaction.guild.iconURL(),
                 }),
             ],
-            files: [sfattach],
+            files: [
+              sfattach,
+            ],
             ephemeral: false,
           });
         } else {
@@ -208,9 +186,7 @@ const command = new SlashCommand()
               new EmbedBuilder()
                 .setColor("#FFFFFF")
                 .setTitle(`${data.host}:${data.port} ${lang.minecraft_status}`)
-                .setDescription(
-                  `${data.motd.clean === "" ? "-" : data.motd.clean}`,
-                )
+                .setDescription(`${data.motd.clean === "" ? "-" : data.motd.clean}`)
                 .setFields(
                   {
                     name: lang.type,
@@ -224,11 +200,7 @@ const command = new SlashCommand()
                   },
                   {
                     name: lang.version,
-                    value: `${
-                      data.version.name_clean === ""
-                        ? "-"
-                        : data.version.name_clean
-                    }`,
+                    value: `${data.version.name_clean === "" ? "-" : data.version.name_clean}`,
                     inline: true,
                   },
                   {
@@ -283,9 +255,7 @@ const command = new SlashCommand()
             new EmbedBuilder()
               .setColor("#FFFFFF")
               .setTitle(`${data.host}:${data.port} ${lang.minecraft_status}`)
-              .setDescription(
-                `${data.motd.clean === "" ? "-" : data.motd.clean}`,
-              )
+              .setDescription(`${data.motd.clean === "" ? "-" : data.motd.clean}`)
               .setFields(
                 {
                   name: lang.type,
@@ -299,9 +269,7 @@ const command = new SlashCommand()
                 },
                 {
                   name: lang.version,
-                  value: `${
-                    data.version.name === "" ? "-" : data.version.name
-                  }`,
+                  value: `${data.version.name === "" ? "-" : data.version.name}`,
                   inline: true,
                 },
                 {

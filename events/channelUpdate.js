@@ -2,12 +2,9 @@ const { EmbedBuilder, AuditLogEvent } = require("discord.js");
 const { PermissionsBitField } = require("discord.js");
 
 module.exports = async (client, oldChannel, newChannel) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === oldChannel.guildId,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === oldChannel.guildId);
   if (await guildSettings.settings_db.exists("/log_channel")) {
-    const log_settings =
-      await guildSettings.settings_db.getData("/log_channel");
+    const log_settings = await guildSettings.settings_db.getData("/log_channel");
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -27,9 +24,7 @@ module.exports = async (client, oldChannel, newChannel) => {
                 name: oldChannel.guild.name,
                 iconURL: oldChannel.guild.iconURL(),
               })
-              .setDescription(
-                lang.log_channel_updated.replace("{c}", `<#${oldChannel.id}>`),
-              )
+              .setDescription(lang.log_channel_updated.replace("{c}", `<#${oldChannel.id}>`))
               .addFields(
                 {
                   name: lang.responsible_moderator,
@@ -64,9 +59,7 @@ module.exports = async (client, oldChannel, newChannel) => {
               name: oldChannel.guild.name,
               iconURL: oldChannel.guild.iconURL(),
             })
-            .setDescription(
-              lang.log_channel_updated.replace("{c}", `<#${oldChannel.id}>`),
-            )
+            .setDescription(lang.log_channel_updated.replace("{c}", `<#${oldChannel.id}>`))
             .addFields({
               name: lang.age_restricted_channel,
               value: `${newChannel.nsfw ? "✅" : "❌"}`,
@@ -85,17 +78,12 @@ module.exports = async (client, oldChannel, newChannel) => {
               name: oldChannel.guild.name,
               iconURL: oldChannel.guild.iconURL(),
             })
-            .setDescription(
-              lang.log_channel_updated.replace("{c}", `<#${oldChannel.id}>`),
-            )
+            .setDescription(lang.log_channel_updated.replace("{c}", `<#${oldChannel.id}>`))
             .addFields({
               name: lang.slow_mode,
               value: `${
                 newChannel.rateLimitPerUser !== 0
-                  ? lang.message_per_sec.replace(
-                      "{s}",
-                      `\`${newChannel.rateLimitPerUser}\``,
-                    )
+                  ? lang.message_per_sec.replace("{s}", `\`${newChannel.rateLimitPerUser}\``)
                   : "❌"
               }`,
               inline: true,
@@ -113,9 +101,7 @@ module.exports = async (client, oldChannel, newChannel) => {
               name: oldChannel.guild.name,
               iconURL: oldChannel.guild.iconURL(),
             })
-            .setDescription(
-              lang.log_channel_updated.replace("{c}", `<#${oldChannel.id}>`),
-            )
+            .setDescription(lang.log_channel_updated.replace("{c}", `<#${oldChannel.id}>`))
             .addFields(
               {
                 name: lang.previous_topic,
@@ -139,8 +125,7 @@ module.exports = async (client, oldChannel, newChannel) => {
       )
     ) {
       if (
-        oldChannel.permissionOverwrites.cache.size ===
-        newChannel.permissionOverwrites.cache.size
+        oldChannel.permissionOverwrites.cache.size === newChannel.permissionOverwrites.cache.size
       ) {
         const fetchedLogs1 = await oldChannel.guild.fetchAuditLogs({
           limit: 1,
@@ -154,29 +139,17 @@ module.exports = async (client, oldChannel, newChannel) => {
             : `↘️<@${updateLog.extra.id}>\n`;
           for (let i = 0; i < updateLog.changes.length; i++) {
             if (updateLog.changes[i].key === "allow") {
-              const permissions1 = new PermissionsBitField(
-                updateLog.changes[i].old,
-              ).toArray();
-              const permissions2 = new PermissionsBitField(
-                updateLog.changes[i].new,
-              ).toArray();
-              let difference = permissions2.filter(
-                (x) => !permissions1.includes(x),
-              );
+              const permissions1 = new PermissionsBitField(updateLog.changes[i].old).toArray();
+              const permissions2 = new PermissionsBitField(updateLog.changes[i].new).toArray();
+              let difference = permissions2.filter((x) => !permissions1.includes(x));
               for (let a = 0; a < difference.length; a++) {
                 output += "✅ " + difference[a] + "\n";
               }
             }
             if (updateLog.changes[i].key === "deny") {
-              const permissions1 = new PermissionsBitField(
-                updateLog.changes[i].old,
-              ).toArray();
-              const permissions2 = new PermissionsBitField(
-                updateLog.changes[i].new,
-              ).toArray();
-              let difference = permissions2.filter(
-                (x) => !permissions1.includes(x),
-              );
+              const permissions1 = new PermissionsBitField(updateLog.changes[i].old).toArray();
+              const permissions2 = new PermissionsBitField(updateLog.changes[i].new).toArray();
+              let difference = permissions2.filter((x) => !permissions1.includes(x));
               for (let a = 0; a < difference.length; a++) {
                 output += "❌ " + difference[a] + "\n";
               }
@@ -190,12 +163,7 @@ module.exports = async (client, oldChannel, newChannel) => {
                   name: oldChannel.guild.name,
                   iconURL: oldChannel.guild.iconURL(),
                 })
-                .setDescription(
-                  lang.log_channel_updated.replace(
-                    "{c}",
-                    `<#${oldChannel.id}>`,
-                  ),
-                )
+                .setDescription(lang.log_channel_updated.replace("{c}", `<#${oldChannel.id}>`))
                 .addFields(
                   {
                     name: lang.overrides,
@@ -219,10 +187,7 @@ module.exports = async (client, oldChannel, newChannel) => {
           });
         }
       }
-      if (
-        oldChannel.permissionOverwrites.cache.size >
-        newChannel.permissionOverwrites.cache.size
-      ) {
+      if (oldChannel.permissionOverwrites.cache.size > newChannel.permissionOverwrites.cache.size) {
         const fetchedLogs1 = await oldChannel.guild.fetchAuditLogs({
           limit: 1,
           type: AuditLogEvent.ChannelOverwriteDelete,
@@ -240,12 +205,7 @@ module.exports = async (client, oldChannel, newChannel) => {
                       name: oldChannel.guild.name,
                       iconURL: oldChannel.guild.iconURL(),
                     })
-                    .setDescription(
-                      lang.log_channel_updated.replace(
-                        "{c}",
-                        `<#${oldChannel.id}>`,
-                      ),
-                    )
+                    .setDescription(lang.log_channel_updated.replace("{c}", `<#${oldChannel.id}>`))
                     .addFields(
                       {
                         name: lang.overrides,
@@ -282,7 +242,9 @@ function compareOverrides(map1, map2) {
   if (map1.size !== map2.size) {
     return false;
   }
-  for (let [key, val] of map1) {
+  for (let [
+    key, val,
+  ] of map1) {
     testVal = map2.get(key);
     // in cases of an undefined value, make sure the key
     // actually exists on the object so there are no false positives

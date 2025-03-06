@@ -61,10 +61,7 @@ command.addSubcommand((subcommand) =>
         .setDescription("Method for filtering Discord invites.")
         .setAutocomplete(false)
         .setRequired(false)
-        .addChoices(
-          { name: "Fast", value: "fast" },
-          { name: "Accurate", value: "accurate" },
-        )
+        .addChoices({ name: "Fast", value: "fast" }, { name: "Accurate", value: "accurate" })
         .setNameLocalizations({
           hu: "mód",
         })
@@ -92,10 +89,7 @@ command.addSubcommand((subcommand) =>
     .setName("names")
     .setDescription("Enable or disable the name checker.")
     .addBooleanOption((option1) =>
-      option1
-        .setName("enabled")
-        .setDescription("Enable or Disable.")
-        .setRequired(true),
+      option1.setName("enabled").setDescription("Enable or Disable.").setRequired(true),
     )
     .addStringOption((option2) =>
       option2
@@ -304,10 +298,7 @@ command.addSubcommand((subcommand) =>
         .setDescription("Punishment for typing in the trap channel.")
         .setAutocomplete(false)
         .setRequired(false)
-        .addChoices(
-          { name: "Kick", value: "kick" },
-          { name: "Ban", value: "ban" },
-        )
+        .addChoices({ name: "Kick", value: "kick" }, { name: "Ban", value: "ban" })
         .setNameLocalizations({
           hu: "büntetés",
         })
@@ -317,9 +308,7 @@ command.addSubcommand((subcommand) =>
     ),
 );
 command.setRun(async (client, interaction) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === interaction.guildId,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
   const lang = client.localization_manager.getLanguage(
     await guildSettings.settings_db.getData("/language"),
   );
@@ -328,14 +317,14 @@ command.setRun(async (client, interaction) => {
       `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
     );
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
   if (
-    interaction.memberPermissions.has(
-      PermissionsBitField.Flags.Administrator,
-    ) ||
+    interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
     interaction.user.id === process.env.ADMINID
   ) {
     if (interaction.options.getSubcommand() === "invite") {
@@ -358,9 +347,7 @@ command.setRun(async (client, interaction) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully enabled the Automod for Discord invites!",
-              ),
+              .setDescription("✅ | Successfully enabled the Automod for Discord invites!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -370,9 +357,7 @@ command.setRun(async (client, interaction) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | You disabled the Automod for Discord invites!",
-              ),
+              .setDescription("✅ | You disabled the Automod for Discord invites!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -382,19 +367,14 @@ command.setRun(async (client, interaction) => {
   } else {
     return interaction.reply({
       embeds: [
-        client.ErrorEmbed(
-          lang.error_title,
-          "You are not authorized to use this command!",
-        ),
+        client.ErrorEmbed(lang.error_title, "You are not authorized to use this command!"),
       ],
       flags: MessageFlags.Ephemeral,
     });
   }
   if (interaction.options.getSubcommand() === "names") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       let enabled = interaction.options.getBoolean("enabled", true);
@@ -412,9 +392,7 @@ command.setRun(async (client, interaction) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully enabled the Automod for names!",
-              ),
+              .setDescription("✅ | Successfully enabled the Automod for names!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -424,9 +402,7 @@ command.setRun(async (client, interaction) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully removed the Automod for names!",
-              ),
+              .setDescription("✅ | Successfully removed the Automod for names!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -444,17 +420,12 @@ command.setRun(async (client, interaction) => {
   }
   if (interaction.options.getSubcommand() === "messages") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       let censor_method = interaction.options.getString("method", true);
       let ignored_role = interaction.options.getString("ignored_role", false);
-      let ignored_channel = interaction.options.getString(
-        "ignored_channel",
-        false,
-      );
+      let ignored_channel = interaction.options.getString("ignored_channel", false);
       if (ignored_role) {
         ignored_role = ignored_role.trim().split(";");
       } else {
@@ -475,9 +446,7 @@ command.setRun(async (client, interaction) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully enabled the Automod for messages!",
-              ),
+              .setDescription("✅ | Successfully enabled the Automod for messages!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -487,9 +456,7 @@ command.setRun(async (client, interaction) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully removed the Automod for messages!",
-              ),
+              .setDescription("✅ | Successfully removed the Automod for messages!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -507,9 +474,7 @@ command.setRun(async (client, interaction) => {
   }
   if (interaction.options.getSubcommand() === "link") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       const punishment = interaction.options.getString("punishment", true);
@@ -528,9 +493,7 @@ command.setRun(async (client, interaction) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully enabled the Automod for links!",
-              ),
+              .setDescription("✅ | Successfully enabled the Automod for links!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -558,14 +521,10 @@ command.setRun(async (client, interaction) => {
   }
   if (interaction.options.getSubcommand() === "settings") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
-      const guildSettings = client.guild_settings.find(
-        (e) => e.guildId === interaction.guildId,
-      );
+      const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
       const guild_settings = await guildSettings.settings_db.getData("/");
       let hidden_answer = interaction.options.getBoolean("hidden", false);
       if (!hidden_answer) hidden_answer = false;
@@ -575,9 +534,7 @@ command.setRun(async (client, interaction) => {
           name: interaction.user.tag,
           iconURL: interaction.user.displayAvatarURL({ dynamic: true }),
         })
-        .setDescription(
-          `Automod settings for \`${interaction.guild.name}\` guild`,
-        )
+        .setDescription(`Automod settings for \`${interaction.guild.name}\` guild`)
         .setTimestamp()
         .setFooter({
           text: interaction.guild.name,
@@ -672,12 +629,16 @@ command.setRun(async (client, interaction) => {
       }
       if (hidden_answer) {
         interaction.reply({
-          embeds: [settingsEmbed],
+          embeds: [
+            settingsEmbed,
+          ],
           flags: MessageFlags.Ephemeral,
         });
       } else {
         interaction.reply({
-          embeds: [settingsEmbed],
+          embeds: [
+            settingsEmbed,
+          ],
         });
       }
     } else {
@@ -693,28 +654,15 @@ command.setRun(async (client, interaction) => {
   }
   if (interaction.options.getSubcommand() === "spam") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
-      const guildSettings = client.guild_settings.find(
-        (e) => e.guildId === interaction.guildId,
-      );
+      const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
       let punishment = interaction.options.getString("punishment", true);
       if (punishment !== "none") {
-        let ignored_roles = interaction.options.getString(
-          "ignored_roles",
-          false,
-        );
-        let ignored_channels = interaction.options.getString(
-          "ignored_channels",
-          false,
-        );
-        let show_warning = interaction.options.getBoolean(
-          "show_warning",
-          false,
-        );
+        let ignored_roles = interaction.options.getString("ignored_roles", false);
+        let ignored_channels = interaction.options.getString("ignored_channels", false);
+        let show_warning = interaction.options.getBoolean("show_warning", false);
         if (show_warning === null) show_warning = true;
         if (ignored_channels) {
           ignored_channels = ignored_channels.trim().split(";");
@@ -736,9 +684,7 @@ command.setRun(async (client, interaction) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully enabled the Automod for spam!",
-              ),
+              .setDescription("✅ | Successfully enabled the Automod for spam!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -766,9 +712,7 @@ command.setRun(async (client, interaction) => {
   }
   if (interaction.options.getSubcommand() === "trap_channel") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       let channel = interaction.options.getChannel("channel", false);
@@ -787,9 +731,7 @@ command.setRun(async (client, interaction) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully enabled the Automod for the trap channel!",
-              ),
+              .setDescription("✅ | Successfully enabled the Automod for the trap channel!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -799,9 +741,7 @@ command.setRun(async (client, interaction) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully removed the Automod for the trap channel!",
-              ),
+              .setDescription("✅ | Successfully removed the Automod for the trap channel!"),
           ],
           flags: MessageFlags.Ephemeral,
         });

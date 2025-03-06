@@ -6,9 +6,7 @@ const command = new SlashCommand()
   .setDescription("View the bot's latency")
   .setContexts(InteractionContextType.Guild)
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -17,25 +15,25 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
-    if (
-      await client.is_it_word_game_channel(interaction.channel, guildSettings)
-    ) {
+    if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
     let msg = await interaction.channel.send({
       embeds: [
-        new EmbedBuilder()
-          .setDescription("🏓 | " + lang.fetching_ping)
-          .setColor("#6F8FAF"),
+        new EmbedBuilder().setDescription("🏓 | " + lang.fetching_ping).setColor("#6F8FAF"),
       ],
     });
 

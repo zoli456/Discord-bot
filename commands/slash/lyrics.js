@@ -32,9 +32,7 @@ const command = new SlashCommand()
       .setRequired(false),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -43,16 +41,16 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
     await interaction.reply({
       embeds: [
-        new EmbedBuilder()
-          .setColor(client.config.embedColor)
-          .setDescription(lang.searching),
+        new EmbedBuilder().setColor(client.config.embedColor).setDescription(lang.searching),
       ],
     });
 
@@ -62,9 +60,7 @@ const command = new SlashCommand()
     } else {
       return interaction.editReply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.lavalink_not_connected),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.lavalink_not_connected),
         ],
       });
     }
@@ -73,9 +69,7 @@ const command = new SlashCommand()
     if (!args && !player) {
       return interaction.editReply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.nothing_playing),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.nothing_playing),
         ],
       });
     }
@@ -115,11 +109,11 @@ const command = new SlashCommand()
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  `${lang.lyrics1} \`${query}\`. ${lang.lyrics2}`,
-                ),
+                .setDescription(`${lang.lyrics1} \`${query}\`. ${lang.lyrics2}`),
             ],
-            components: [menu],
+            components: [
+              menu,
+            ],
           });
 
           const filter = (button) => button.user.id === interaction.user.id;
@@ -176,8 +170,12 @@ const command = new SlashCommand()
               }
 
               return interaction.editReply({
-                embeds: [lyricsEmbed],
-                components: [button],
+                embeds: [
+                  lyricsEmbed,
+                ],
+                components: [
+                  button,
+                ],
               });
             }
           });
@@ -208,11 +206,11 @@ const command = new SlashCommand()
             embeds: [
               new EmbedBuilder()
                 .setColor("#FF0000")
-                .setDescription(
-                  `${lang.no_result_for1} \`${query}\`!${lang.no_result_for2}`,
-                ),
+                .setDescription(`${lang.no_result_for1} \`${query}\`!${lang.no_result_for2}`),
             ],
-            components: [button],
+            components: [
+              button,
+            ],
           });
         }
       })
@@ -220,9 +218,7 @@ const command = new SlashCommand()
         console.error(err);
         return interaction.editReply({
           embeds: [
-            new EmbedBuilder()
-              .setColor("#FF0000")
-              .setDescription(lang.lyrics_error),
+            new EmbedBuilder().setColor("#FF0000").setDescription(lang.lyrics_error),
           ],
         });
       });

@@ -15,9 +15,7 @@ const command = new SlashCommand()
   )
   .setContexts(InteractionContextType.Guild)
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -26,7 +24,9 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -38,9 +38,7 @@ const command = new SlashCommand()
           client.guilds.cache.forEach((guild) => {
             console.log(`${guild.name} | ${guild.id}`);
           });
-          const guild = client.guilds.cache.map(
-            (guild) => ` ${guild.name} | ${guild.id}`,
-          );
+          const guild = client.guilds.cache.map((guild) => ` ${guild.name} | ${guild.id}`);
           try {
             return interaction.reply({
               content: `Guilds:\n\`${guild}\``,

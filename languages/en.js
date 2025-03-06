@@ -51,14 +51,11 @@ const language = {
   now_playing: "Now playing",
   requested_by: "Requested by",
   you_must_be_in: "You must be in a voice channel to use this command!",
-  you_must_same:
-    "You must be in the same voice channel as me to use this command!",
-  not_enough_permission:
-    "I don't have enough permission to join your voice channel!",
+  you_must_same: "You must be in the same voice channel as me to use this command!",
+  not_enough_permission: "I don't have enough permission to join your voice channel!",
   no_player: "**There is no player to control in this server.**",
   you_must_be_action: "You must be in a voice channel to use this action!",
-  you_must_be_same:
-    "You must be in the same voice channel as me to use this action!",
+  you_must_be_same: "You must be in the same voice channel as me to use this action!",
   successfully_stopped: "⏹️ | **Successfully stopped the player**",
   no_previous: "There is no previous song played",
   no_song: "There is no song playing right now.",
@@ -68,8 +65,7 @@ const language = {
   resumed_song: "The current song has been resumed.",
   resumed: "Resumed!",
   paused_title: "Paused!",
-  song_paused:
-    "The current song has been paused because theres no one in the voice channel.",
+  song_paused: "The current song has been paused because theres no one in the voice channel.",
   playing: "Playing",
   nothing_play24: "There's nothing to play 24/7.",
   mod_two_four: "**24/7 mode is**",
@@ -166,8 +162,7 @@ const language = {
   tips: "Tips",
   source: "Source",
   lyrics_provided: "Lyrics provided by Genius",
-  not_authorized:
-    "**Unfortunately we're not authorized to show these lyrics.**",
+  not_authorized: "**Unfortunately we're not authorized to show these lyrics.**",
   resricted_lyrics: "Lyrics is restricted by MusixMatch.",
   truncated_lyrics: "\nTruncated, the lyrics were too long.",
   no_track_lyrics: "No song is selected. You took too long to select a track.",
@@ -192,14 +187,11 @@ const language = {
   seek_msg4: "to",
   unable_to_seek:
     "Unable to seek current playing track. This may be due to exceeding track duration or an incorrect time format. Please check and try again.",
-  cant_use_in_this_channel:
-    "You can only use this command in the <#%channel%> channel!",
+  cant_use_in_this_channel: "You can only use this command in the <#%channel%> channel!",
   time_is_up: "Time is up! Please rerun this command!",
   please_wait_between: "Please wait 5 seconds between commands!",
-  left_alone_in_channel:
-    "Left because there is no one left in the voice channel.",
-  please_wait_button:
-    "Someone recently issued a command on the player. Please wait a moment!",
+  left_alone_in_channel: "Left because there is no one left in the voice channel.",
+  please_wait_button: "Someone recently issued a command on the player. Please wait a moment!",
   flags: "Flags",
   what_flag1: "Lets see how many flags you can figure out. What flag is this?",
   what_flag2: "What flag is this?",
@@ -217,11 +209,9 @@ const language = {
   not_enough_char: "The word you entered does not contain enough characters.",
   already_used_word: "This word has already been used once in this game.",
   not_your_turn: "Now someone else need to send a word",
-  badword1:
-    "Your word does not start with **${prev_letter}**. The chain is over.",
+  badword1: "Your word does not start with **${prev_letter}**. The chain is over.",
   badword2: "You typed a wrong word. The chain is over.",
-  wordgame_over:
-    "**You have reached the end of the game. A new round begins.**",
+  wordgame_over: "**You have reached the end of the game. A new round begins.**",
   server_details: "server details.",
   server_identifier: "Identifier:",
   number_of_member: "Number of member:",
@@ -229,10 +219,8 @@ const language = {
   owner_of_the_server: "Server owner:",
   server_creation_date: "Creation date:",
   failed_to_check_word1: "Server could not check the word. Please resend!",
-  failed_to_check_word2:
-    "Server has not sent a reply. Please send the word again!",
-  failed_to_check_word3:
-    "An error occurred during the check. Please resend the word later!",
+  failed_to_check_word2: "Server has not sent a reply. Please send the word again!",
+  failed_to_check_word3: "An error occurred during the check. Please resend the word later!",
   or_separator: "or",
   logos: "Logos",
   what_logo1:
@@ -285,10 +273,8 @@ const language = {
   tts_title: "Reading text",
   unexpected_happen: "An unexpected thing happened. Please try again.",
   dont_post_invite: "Please do not send invitations to other servers!",
-  reaction_role_add:
-    "I gave you the ``{role}`` role on the ``{guild}`` server.",
-  reaction_role_remove:
-    "I took away you the ``{role}`` role on the ``{guild}`` server.",
+  reaction_role_add: "I gave you the ``{role}`` role on the ``{guild}`` server.",
+  reaction_role_remove: "I took away you the ``{role}`` role on the ``{guild}`` server.",
   short_days: "d",
   short_hours: "h",
   short_minutes: "m",
@@ -309,12 +295,9 @@ const language = {
   temp_channel_permit_description: "Right click>Applications>Permit",
   temp_channel_not_tempchannel: "This voice channel is not temporarily.",
   temp_cahnnel_not_yours: "You don't own this voice channel!",
-  temp_channel_owner_still_here:
-    "The owner of the voice channel is still here.",
-  temp_channel_successful_claim:
-    "You have successfully taken ownership of the audio channel!",
-  temp_channel_your_are_the_owner:
-    "**You** are the owner of the voice channel.",
+  temp_channel_owner_still_here: "The owner of the voice channel is still here.",
+  temp_channel_successful_claim: "You have successfully taken ownership of the audio channel!",
+  temp_channel_your_are_the_owner: "**You** are the owner of the voice channel.",
   temp_channel_rename_label: "What do I rename your channel to?",
   temp_channel_rename_title: "Rename",
   temp_channel_not_appropriate: "You have entered a inappropriate name.",
@@ -327,19 +310,14 @@ const language = {
   temp_channel_limit_bad_number: "Enter a number between 0 and 100!",
   temp_channel_successful_limit: "You have successfully set the user limit to ",
   temp_channel_successful_hide: "You have successfully hid your channel!",
-  temp_channel_successful_unhide:
-    "You have successfully made your channel visible!",
+  temp_channel_successful_unhide: "You have successfully made your channel visible!",
   temp_channel_successful_lock: "You have successfully locked your channel!",
-  temp_channel_successful_unlock:
-    "You have successfully unlocked your channel!",
+  temp_channel_successful_unlock: "You have successfully unlocked your channel!",
   temp_channel_no_appropriate_target: "I couldn't find a suitable target!",
   temp_channel_select_somebody: "Select someone",
-  temp_channel_select_somebody_description:
-    "Please select a target within `30 seconds`!",
-  temp_channel_successful_kick:
-    "You have successfully kicked {target} from your channel!",
-  temp_channel_successful_ban:
-    "You have successfully banned {target} from your channel!",
+  temp_channel_select_somebody_description: "Please select a target within `30 seconds`!",
+  temp_channel_successful_kick: "You have successfully kicked {target} from your channel!",
+  temp_channel_successful_ban: "You have successfully banned {target} from your channel!",
   temp_channel_you_didnt_select: "You didn't pick your target in time.",
   temp_channel_successful_permit:
     "You have successfully gave permission to {target} to join your channel!",
@@ -408,8 +386,7 @@ const language = {
   log_invite_removed: ":link: {u} Deleted a invitation: {i}`",
   responsible_user: "Responsible user:",
   content_of_message: "Message:",
-  log_message_removed:
-    ":wastebasket: Message sent by {u} has been deleted here: {c}.",
+  log_message_removed: ":wastebasket: Message sent by {u} has been deleted here: {c}.",
   log_message_updated:
     ":pencil2: {u} Message sent by {u} has been edited here: {c}. [Jump to message]({url})",
   old_message: "Old message:",
@@ -470,8 +447,7 @@ const language = {
   giveaway_drawing: "Drawing: {timestamp}",
   giveaway_dropMessage: "Be the first to react with 🎉 !",
   giveaway_inviteToParticipate: "React with 🎉 to participate!",
-  giveaway_winMessage:
-    "Congratulations, {winners}! You won **{this.prize}**!\n{this.messageURL}",
+  giveaway_winMessage: "Congratulations, {winners}! You won **{this.prize}**!\n{this.messageURL}",
   giveaway_embedFooter: "{this.winnerCount} winner(s)",
   giveaway_noWinner: "Giveaway cancelled, no valid participations.",
   giveaway_hostedBy: "Hosted by: {this.hostedBy}",
@@ -482,10 +458,8 @@ const language = {
   rating: "Rating:",
   original_title: "Original title:",
   release_date: "Release date:",
-  trap_channel_kick:
-    "**⚠️!WARNING!⚠️**\nIf you send a message on this channel you will be kicked!",
-  trap_channel_ban:
-    "**⚠️!WARNING!⚠️**\nIf you send a message on this channel you will be banned!",
+  trap_channel_kick: "**⚠️!WARNING!⚠️**\nIf you send a message on this channel you will be kicked!",
+  trap_channel_ban: "**⚠️!WARNING!⚠️**\nIf you send a message on this channel you will be banned!",
   viewers_title: "Viewers:",
   twitch_live_message: "{u} has started a broadcast on Twitch.",
   game_title: "Game:",

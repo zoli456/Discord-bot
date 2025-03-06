@@ -14,9 +14,7 @@ const command = new SlashCommand()
   .setDescription("Shows this list")
   .setContexts(InteractionContextType.Guild)
   .setRun(async (client, interaction) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -25,16 +23,18 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
-    if (
-      await client.is_it_word_game_channel(interaction.channel, guildSettings)
-    ) {
+    if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -45,9 +45,7 @@ const command = new SlashCommand()
       return [].concat(cmds.slash) /*.concat(cmds.context)*/;
     });
     // from commands remove the ones that have "null" in the description
-    const filteredCommands = commands.filter(
-      (cmd) => cmd.description != "null",
-    );
+    const filteredCommands = commands.filter((cmd) => cmd.description != "null");
     //console.log(filteredCommands);
     const totalCmds = filteredCommands.length;
     let maxPages = Math.ceil(totalCmds / client.config.helpCmdPerPage);
@@ -55,10 +53,7 @@ const command = new SlashCommand()
     // if git exists, then get commit hash
     let gitHash = "";
     try {
-      gitHash = require("child_process")
-        .execSync("git rev-parse --short HEAD")
-        .toString()
-        .trim();
+      gitHash = require("child_process").execSync("git rev-parse --short HEAD").toString().trim();
     } catch (e) {
       // do nothing
       gitHash = "unknown";
@@ -88,9 +83,7 @@ const command = new SlashCommand()
     helpEmbed.addFields({
       name: "Credits",
       value:
-        `Cait Bot Version: v${
-          require("../../package.json").version
-        }; Build: ${gitHash}` +
+        `Cait Bot Version: v${require("../../package.json").version}; Build: ${gitHash}` +
         "\n" +
         `[✨ Support Server](${client.config.supportServer}) | [Issues](${client.config.Issues}) | [Source](https://github.com/SudhanPlayz/Discord-MusicBot/tree/v5) | [Invite Me](https://discord.com/oauth2/authorize?client_id=${client.config.clientId}&permissions=${client.config.permissions}&scope=bot%20applications.commands)`,
     });
@@ -112,8 +105,12 @@ const command = new SlashCommand()
     };
 
     const tempMsg = await interaction.editReply({
-      embeds: [helpEmbed],
-      components: [getButtons(pageNo)],
+      embeds: [
+        helpEmbed,
+      ],
+      components: [
+        getButtons(pageNo),
+      ],
     });
     const collector = tempMsg.createMessageComponentCollector({
       time: 180000,
@@ -144,24 +141,24 @@ const command = new SlashCommand()
       helpEmbed.addFields({
         name: "Credits",
         value:
-          `Cait Bot Version: v${
-            require("../../package.json").version
-          }; Build: ${gitHash}` +
+          `Cait Bot Version: v${require("../../package.json").version}; Build: ${gitHash}` +
           "\n" +
           `[✨ Support Server](${client.config.supportServer}) | [Issues](${client.config.Issues}) | [Source](https://github.com/SudhanPlayz/Discord-MusicBot/tree/v5) | [Invite Me](https://discord.com/oauth2/authorize?client_id=${client.config.clientId}&permissions=${client.config.permissions}&scope=bot%20applications.commands)`,
       });
       await iter.update({
-        embeds: [helpEmbed],
-        components: [getButtons(pageNo)],
+        embeds: [
+          helpEmbed,
+        ],
+        components: [
+          getButtons(pageNo),
+        ],
       });
     });
     collector.on("end", async (iter) => {
       await tempMsg.edit({
         content: null,
         embeds: [
-          new EmbedBuilder()
-            .setDescription(lang.time_is_up)
-            .setColor(client.config.embedColor),
+          new EmbedBuilder().setDescription(lang.time_is_up).setColor(client.config.embedColor),
         ],
         components: [],
         flags: MessageFlags.Ephemeral,

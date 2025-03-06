@@ -516,18 +516,19 @@ command.addSubcommand(
 );
 
 const checkProfanity = async (interaction, options, lang) => {
-  const textsToCheck = ["text", "text1", "text2"];
+  const textsToCheck = [
+    "text", "text1", "text2",
+  ];
   for (const text of textsToCheck) {
     const option = options.getString(text, false);
     if (
       option &&
-      content_filter.doesContainBadWords(
-        option.toLowerCase(),
-        interaction.client.wordFilter,
-      )
+      content_filter.doesContainBadWords(option.toLowerCase(), interaction.client.wordFilter)
     ) {
       await interaction.reply({
-        embeds: [interaction.client.ErrorEmbed(lang.bad_word_on_image)],
+        embeds: [
+          interaction.client.ErrorEmbed(lang.bad_word_on_image),
+        ],
         flags: MessageFlags.Ephemeral,
       });
       return true;
@@ -537,9 +538,7 @@ const checkProfanity = async (interaction, options, lang) => {
 };
 
 command.setRun(async (client, interaction, options) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === interaction.guildId,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
   const lang = client.localization_manager.getLanguage(
     await guildSettings.settings_db.getData("/language"),
   );
@@ -548,15 +547,17 @@ command.setRun(async (client, interaction, options) => {
       `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
     );
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
-  if (
-    await client.is_it_word_game_channel(interaction.channel, guildSettings)
-  ) {
+  if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
@@ -565,9 +566,7 @@ command.setRun(async (client, interaction, options) => {
   await interaction.deferReply();
   const subcommand = interaction.options.getSubcommand();
   let img,
-    embed = new EmbedBuilder().setTitle(
-      subcommand.charAt(0).toUpperCase() + subcommand.slice(1),
-    );
+    embed = new EmbedBuilder().setTitle(subcommand.charAt(0).toUpperCase() + subcommand.slice(1));
   try {
     const text1 = options.getString("text1", false);
     const text2 = options.getString("text2", false);
@@ -646,16 +645,24 @@ command.setRun(async (client, interaction, options) => {
     });
   } catch (error) {
     return interaction.editReply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.picture_failed)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.picture_failed),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
 
-  const filename =
-    subcommand === "pet" ? `${subcommand}.gif` : `${subcommand}.png`;
+  const filename = subcommand === "pet" ? `${subcommand}.gif` : `${subcommand}.png`;
   await embed.setImage(`attachment://${filename}`);
   const attach = new AttachmentBuilder(img).setName(filename);
-  await interaction.editReply({ embeds: [embed], files: [attach] });
+  await interaction.editReply({
+    embeds: [
+      embed,
+    ],
+    files: [
+      attach,
+    ],
+  });
 });
 
 module.exports = command;

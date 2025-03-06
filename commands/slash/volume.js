@@ -24,9 +24,7 @@ const command = new SlashCommand()
       .setRequired(false),
   )
   .setRun(async (client, interaction) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -35,7 +33,9 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -50,9 +50,7 @@ const command = new SlashCommand()
     } else {
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.lavalink_not_connected),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.lavalink_not_connected),
         ],
       });
     }
@@ -60,9 +58,7 @@ const command = new SlashCommand()
     if (!player) {
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.no_music_playing),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.no_music_playing),
         ],
         flags: MessageFlags.Ephemeral,
       });

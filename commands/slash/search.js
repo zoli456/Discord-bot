@@ -52,9 +52,7 @@ const command = new SlashCommand()
       ),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -63,17 +61,18 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
-    if (
-      interaction.options.getString("site") === "phsearch" &&
-      !interaction.channel.nsfw
-    ) {
+    if (interaction.options.getString("site") === "phsearch" && !interaction.channel.nsfw) {
       return interaction
         .reply({
-          embeds: [client.ErrorEmbed(lang.error_title, lang.play_nsfw_channel)],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, lang.play_nsfw_channel),
+          ],
           flags: MessageFlags.Ephemeral,
         })
         .then((msg) => setTimeout(() => msg.delete(), 20000));
@@ -113,9 +112,7 @@ const command = new SlashCommand()
       if (res.loadType === "error") {
         return interaction.editReply({
           embeds: [
-            new EmbedBuilder()
-              .setDescription(lang.searching_error)
-              .setColor("#FF0000"),
+            new EmbedBuilder().setDescription(lang.searching_error).setColor("#FF0000"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -173,11 +170,11 @@ const command = new SlashCommand()
         embeds: [
           new EmbedBuilder()
             .setColor(client.config.embedColor)
-            .setDescription(
-              `${lang.choose_a_track1} \`${query}\`. ${lang.choose_a_track2}`,
-            ),
+            .setDescription(`${lang.choose_a_track1} \`${query}\`. ${lang.choose_a_track2}`),
         ],
-        components: [menus],
+        components: [
+          menus,
+        ],
         flags: MessageFlags.Ephemeral,
       });
       const filter = (button) => button.user.id === interaction.user.id;
@@ -196,16 +193,9 @@ const command = new SlashCommand()
           let uriFromCollector = i.values[0];
           let trackForPlay;
 
-          trackForPlay = await player?.search(
-            uriFromCollector,
-            interaction.user,
-          );
+          trackForPlay = await player?.search(uriFromCollector, interaction.user);
           player?.queue?.add(trackForPlay.tracks[0]);
-          if (
-            !player?.playing &&
-            !player?.paused &&
-            !player?.queue?.tracks?.size
-          ) {
+          if (!player?.playing && !player?.paused && !player?.queue?.tracks?.size) {
             player?.play();
           }
           const embed = new EmbedBuilder()
@@ -250,7 +240,9 @@ const command = new SlashCommand()
           }
           i.editReply({
             content: null,
-            embeds: [embed],
+            embeds: [
+              embed,
+            ],
             components: [],
           }).then((msg) => {
             setTimeout(() => msg.delete(), 10000);

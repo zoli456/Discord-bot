@@ -1,12 +1,9 @@
 const { EmbedBuilder, AuditLogEvent } = require("discord.js");
 
 module.exports = async (client, ban) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === ban.guild.id,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === ban.guild.id);
   if (await guildSettings.settings_db.exists("/log_channel")) {
-    const log_settings =
-      await guildSettings.settings_db.getData("/log_channel");
+    const log_settings = await guildSettings.settings_db.getData("/log_channel");
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -31,9 +28,7 @@ module.exports = async (client, ban) => {
             name: ban.user.tag,
             iconURL: ban.user.displayAvatarURL({ dynamic: true }),
           })
-          .setDescription(
-            lang.log_user_banned.replace("{u}", `<@${ban.user.id}>`),
-          )
+          .setDescription(lang.log_user_banned.replace("{u}", `<@${ban.user.id}>`))
           .setThumbnail(ban.user.displayAvatarURL({ dynamic: true }))
           .addFields(
             {

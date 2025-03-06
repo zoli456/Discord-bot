@@ -1,9 +1,4 @@
-const {
-  EmbedBuilder,
-  InteractionContextType,
-  GuildMember,
-  MessageFlags,
-} = require("discord.js");
+const { EmbedBuilder, InteractionContextType, GuildMember, MessageFlags } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 const moment = require("moment");
 
@@ -43,28 +38,26 @@ const command = new SlashCommand()
   )
 
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     moment.locale(guildSettings.settings_db.data.language);
-    let lang = client.localization_manager.getLanguage(
-      guildSettings.settings_db.data.language,
-    );
+    let lang = client.localization_manager.getLanguage(guildSettings.settings_db.data.language);
     if (client.commandLimiter.take(interaction.member.id)) {
       client.log(
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
-    if (
-      await client.is_it_word_game_channel(interaction.channel, guildSettings)
-    ) {
+    if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -74,7 +67,9 @@ const command = new SlashCommand()
     if (!hidden_answer) hidden_answer = false;
     if (!(target_user instanceof GuildMember)) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.invalid_data)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.invalid_data),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -104,9 +99,7 @@ const command = new SlashCommand()
               name: target_user.user.tag,
               iconURL: target_user.user.displayAvatarURL({ dynamic: true }),
             })
-            .setDescription(
-              lang.command_profile.replace("{u}", `<@${target_user.id}>`),
-            )
+            .setDescription(lang.command_profile.replace("{u}", `<@${target_user.id}>`))
             .addFields(
               {
                 name: lang.account_created,
@@ -145,9 +138,7 @@ const command = new SlashCommand()
                 } ${lang.mute}\n${
                   target_user.voice.serverDeaf ? ":white_check_mark:" : ":x:"
                 } ${lang.deafen}\n${
-                  target_user.isCommunicationDisabled()
-                    ? ":white_check_mark:"
-                    : ":x:"
+                  target_user.isCommunicationDisabled() ? ":white_check_mark:" : ":x:"
                 } ${lang.timeout}`,
                 inline: true,
               },
@@ -155,9 +146,7 @@ const command = new SlashCommand()
                 name: lang.expire,
                 value: `${
                   target_user.isCommunicationDisabled()
-                    ? moment(
-                        target_user.communicationDisabledUntilTimestamp,
-                      ).fromNow()
+                    ? moment(target_user.communicationDisabledUntilTimestamp).fromNow()
                     : "-"
                 }`,
                 inline: true,
@@ -186,9 +175,7 @@ const command = new SlashCommand()
               name: target_user.user.tag,
               iconURL: target_user.user.displayAvatarURL({ dynamic: true }),
             })
-            .setDescription(
-              lang.command_profile.replace("{u}", `<@${target_user.id}>`),
-            )
+            .setDescription(lang.command_profile.replace("{u}", `<@${target_user.id}>`))
             .addFields(
               {
                 name: lang.account_created,
@@ -227,9 +214,7 @@ const command = new SlashCommand()
                 } ${lang.mute}\n${
                   target_user.voice.serverDeaf ? ":white_check_mark:" : ":x:"
                 } ${lang.deafen}\n${
-                  target_user.isCommunicationDisabled()
-                    ? ":white_check_mark:"
-                    : ":x:"
+                  target_user.isCommunicationDisabled() ? ":white_check_mark:" : ":x:"
                 } ${lang.timeout}`,
                 inline: true,
               },
@@ -237,9 +222,7 @@ const command = new SlashCommand()
                 name: lang.expire,
                 value: `${
                   target_user.isCommunicationDisabled()
-                    ? moment(
-                        target_user.communicationDisabledUntilTimestamp,
-                      ).fromNow()
+                    ? moment(target_user.communicationDisabledUntilTimestamp).fromNow()
                     : "-"
                 }`,
                 inline: true,

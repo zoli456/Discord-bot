@@ -1,8 +1,4 @@
-const {
-  PermissionsBitField,
-  InteractionContextType,
-  ChannelType,
-} = require("discord.js");
+const { PermissionsBitField, InteractionContextType, ChannelType } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 
 const command = new SlashCommand()
@@ -103,9 +99,7 @@ command.addSubcommand((subcommand) =>
     }),
 );
 command.setRun(async (client, interaction, options) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === interaction.guildId,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
   const lang = client.localization_manager.getLanguage(
     await guildSettings.settings_db.getData("/language"),
   );
@@ -114,22 +108,22 @@ command.setRun(async (client, interaction, options) => {
       `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
     );
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
-  if (
-    await client.is_it_word_game_channel(interaction.channel, guildSettings)
-  ) {
+  if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
   if (
-    interaction.memberPermissions.has(
-      PermissionsBitField.Flags.Administrator,
-    ) ||
+    interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
     interaction.user.id === process.env.ADMINID
   ) {
     if (interaction.options.getSubcommand() === "add") {
@@ -137,25 +131,23 @@ command.setRun(async (client, interaction, options) => {
       let channel = options.getChannel("channel", true);
       if (!client.isUrl(url)) {
         return interaction.reply({
-          embeds: [client.ErrorEmbed(lang.error_title, "The url isn't valid!")],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, "The url isn't valid!"),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       }
       for (let i = 0; i < client.feed_list.length; i++) {
-        if (
-          client.feed_list[i].channel_id === channel.id &&
-          client.feed_list[i].url === url
-        ) {
+        if (client.feed_list[i].channel_id === channel.id && client.feed_list[i].url === url) {
           return interaction.reply({
-            embeds: [client.ErrorEmbed(lang.error_title, "This a duplicate.")],
+            embeds: [
+              client.ErrorEmbed(lang.error_title, "This a duplicate."),
+            ],
             flags: MessageFlags.Ephemeral,
           });
         }
       }
-      if (
-        client.feed_list.filter((x) => x.guild_id === interaction.guildId)
-          .length >= 5
-      ) {
+      if (client.feed_list.filter((x) => x.guild_id === interaction.guildId).length >= 5) {
         return interaction.reply({
           embeds: [
             client.ErrorEmbed("You reached the limit(4) feeds on this server."),
@@ -184,7 +176,9 @@ command.setRun(async (client, interaction, options) => {
         post_number: 0,
       });
       return interaction.reply({
-        embeds: [client.SuccessEmbed("Successfully added the feed!")],
+        embeds: [
+          client.SuccessEmbed("Successfully added the feed!"),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -212,9 +206,7 @@ command.setRun(async (client, interaction, options) => {
     if (interaction.options.getSubcommand() === "delete") {
       if (await guildSettings.settings_db.exists("/rss")) {
         let feed_id = options.getInteger("id", true);
-        let temp_feeds = client.feed_list.filter(
-          (x) => x.guild_id === interaction.guildId,
-        );
+        let temp_feeds = client.feed_list.filter((x) => x.guild_id === interaction.guildId);
         if (temp_feeds.length - 1 < feed_id) {
           return interaction.reply({
             embeds: [
@@ -256,10 +248,7 @@ command.setRun(async (client, interaction, options) => {
       } else {
         return interaction.reply({
           embeds: [
-            client.ErrorEmbed(
-              lang.error_title,
-              "You haven't got any feeds to delete!",
-            ),
+            client.ErrorEmbed(lang.error_title, "You haven't got any feeds to delete!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -274,20 +263,17 @@ command.setRun(async (client, interaction, options) => {
           }
         }*/
         await guildSettings.settings_db.delete("/rss");
-        client.feed_list = client.feed_list.filter(
-          (x) => x.guild_id !== interaction.guildId,
-        );
+        client.feed_list = client.feed_list.filter((x) => x.guild_id !== interaction.guildId);
         return interaction.reply({
-          embeds: [client.SuccessEmbed("Successfully removed all feeds!")],
+          embeds: [
+            client.SuccessEmbed("Successfully removed all feeds!"),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       } else {
         return interaction.reply({
           embeds: [
-            client.ErrorEmbed(
-              lang.error_title,
-              "You haven't got any feeds to delete!",
-            ),
+            client.ErrorEmbed(lang.error_title, "You haven't got any feeds to delete!"),
           ],
           flags: MessageFlags.Ephemeral,
         });

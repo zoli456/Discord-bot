@@ -1,10 +1,5 @@
 const colors = require("@colors/colors");
-const {
-  EmbedBuilder,
-  PermissionsBitField,
-  Colors,
-  InteractionContextType,
-} = require("discord.js");
+const { EmbedBuilder, PermissionsBitField, Colors, InteractionContextType } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 const { GameManager } = require("discord-trivia");
 
@@ -134,9 +129,7 @@ const command = new SlashCommand()
       }),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -145,16 +138,18 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
-    if (
-      await client.is_it_word_game_channel(interaction.channel, guildSettings)
-    ) {
+    if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -191,21 +186,12 @@ const command = new SlashCommand()
           "https://cdn.discordapp.com/attachments/642463574576332831/1141860395318005810/pngwing.com.png",
         );
       };*/
-      game.config.fetchQuestionsOptions.amount = options.getInteger(
-        "length",
-        true,
-      );
+      game.config.fetchQuestionsOptions.amount = options.getInteger("length", true);
       if (options.getString("topics", true) !== "Randomized") {
-        game.config.fetchQuestionsOptions.category = options.getString(
-          "topics",
-          true,
-        );
+        game.config.fetchQuestionsOptions.category = options.getString("topics", true);
       }
       if (options.getString("difficulty", true) !== "Randomized") {
-        game.config.fetchQuestionsOptions.difficulty = options.getString(
-          "difficulty",
-          true,
-        );
+        game.config.fetchQuestionsOptions.difficulty = options.getString("difficulty", true);
       }
       /* category: options.getString("topics", true) undefined,
         difficulty: /*options.getString("difficulty", true) undefined,*/
@@ -239,16 +225,15 @@ const command = new SlashCommand()
         .indexOf(interaction.guildId);
       if (trivia_settings_pos === -1) {
         return interaction.reply({
-          embeds: [client.ErrorEmbed(lang.error_title, lang.no_trivia_game)],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, lang.no_trivia_game),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       }
       if (
-        interaction.user.id !==
-          client.trivia_games[trivia_settings_pos].starter_id &&
-        !interaction.memberPermissions.has(
-          PermissionsBitField.Flags.Administrator,
-        )
+        interaction.user.id !== client.trivia_games[trivia_settings_pos].starter_id &&
+        !interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator)
       ) {
         return interaction.reply({
           embeds: [
@@ -260,9 +245,7 @@ const command = new SlashCommand()
       client.trivia_games[trivia_settings_pos].game_object.end();
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor(Colors.Green)
-            .setDescription(lang.trivia_stopped),
+          new EmbedBuilder().setColor(Colors.Green).setDescription(lang.trivia_stopped),
         ],
         flags: MessageFlags.Ephemeral,
       });

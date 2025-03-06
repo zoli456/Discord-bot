@@ -1,18 +1,10 @@
-const {
-  EmbedBuilder,
-  MessageFlags,
-  PermissionsBitField,
-} = require("discord.js");
+const { EmbedBuilder, MessageFlags, PermissionsBitField } = require("discord.js");
 const fs = require("node:fs");
 const { encode } = require("@msgpack/msgpack");
 const IsInvitation = require("is-discord-invite");
 const clone = require("../lib/discord-cloner");
 const { request } = require(".././lib/easy-anti-fishing");
-const {
-  textToLatin,
-  doesContainBadWords,
-  findBadWordLocations,
-} = require("deep-profanity-filter");
+const { textToLatin, doesContainBadWords, findBadWordLocations } = require("deep-profanity-filter");
 const { tall } = require("tall");
 
 module.exports = async (client, message) => {
@@ -25,9 +17,7 @@ module.exports = async (client, message) => {
   )
     return;
 
-  const guild_settings = client.guild_settings.find(
-    (e) => e.guildId === message.guild.id,
-  );
+  const guild_settings = client.guild_settings.find((e) => e.guildId === message.guild.id);
   const settingsDb = await guild_settings.settings_db.getData("/");
   const lang = client.localization_manager.getLanguage(settingsDb.language);
   const lang_mode = settingsDb.language;
@@ -50,10 +40,7 @@ module.exports = async (client, message) => {
     return;
   }
 
-  if (
-    settingsDb.word_game &&
-    message.channelId === settingsDb.word_game.word_game_channel_id
-  ) {
+  if (settingsDb.word_game && message.channelId === settingsDb.word_game.word_game_channel_id) {
     if (
       message.content.startsWith("-") ||
       message.content.startsWith("/") ||
@@ -65,20 +52,12 @@ module.exports = async (client, message) => {
     }
     const word = message.content.toLowerCase().trim();
     if (lang_mode === "hu") {
-      if (
-        /\d|\s/.test(word) ||
-        word.length > 68 ||
-        !/[a-záéíóöőúüű]/.test(word.slice(-1))
-      ) {
+      if (/\d|\s/.test(word) || word.length > 68 || !/[a-záéíóöőúüű]/.test(word.slice(-1))) {
         await message.delete();
         return;
       }
     } else {
-      if (
-        /\d|\s/.test(word) ||
-        word.length > 68 ||
-        !/[a-z]/.test(word.slice(-1))
-      ) {
+      if (/\d|\s/.test(word) || word.length > 68 || !/[a-z]/.test(word.slice(-1))) {
         await message.delete();
         return;
       }
@@ -89,9 +68,7 @@ module.exports = async (client, message) => {
       return;
     }
 
-    const word_game_data = client.wordgame_status.find(
-      (e) => e.guildId === message.guildId,
-    );
+    const word_game_data = client.wordgame_status.find((e) => e.guildId === message.guildId);
     const badTurn = async (message) => {
       fs.writeFile(
         `./info/wordgame/${message.guild.id}_wordgame.json`,
@@ -120,10 +97,7 @@ module.exports = async (client, message) => {
       const emojis = chain
         .toString()
         .split("")
-        .map(
-          (num) =>
-            client.numberEmojis.find((ne) => ne.string === num)?.emojis[0],
-        );
+        .map((num) => client.numberEmojis.find((ne) => ne.string === num)?.emojis[0]);
       for (const emoji of emojis) {
         if (emoji) {
           await message.react(emoji).catch(console.error);
@@ -183,9 +157,17 @@ module.exports = async (client, message) => {
         });
 
       if (wordgame_message) {
-        await wordgame_message.edit({ embeds: [embed] });
+        await wordgame_message.edit({
+          embeds: [
+            embed,
+          ],
+        });
       } else {
-        const new_message = await channel.send({ embeds: [embed] });
+        const new_message = await channel.send({
+          embeds: [
+            embed,
+          ],
+        });
         const temp_entry = {
           word_game_channel_id: settingsDb.word_game.word_game_channel_id,
           word_game_length: settingsDb.word_game.word_game_length,
@@ -198,45 +180,37 @@ module.exports = async (client, message) => {
 
     const sendErrorMessage = async (message, description, title) => {
       const msg = await message.channel.send({
-        embeds: [client.ErrorEmbed(title, description)],
+        embeds: [
+          client.ErrorEmbed(title, description),
+        ],
       });
       setTimeout(() => msg.delete(), 10000);
     };
     const sendWarningMessage = async (message, description, title) => {
       const msg = await message.channel.send({
-        embeds: [client.WarningEmbed(title, description)],
+        embeds: [
+          client.WarningEmbed(title, description),
+        ],
       });
       setTimeout(() => msg.delete(), 10000);
     };
 
     if (word.length <= 1) {
       await message.delete();
-      await sendWarningMessage(
-        message,
-        lang.not_enough_char,
-        lang.warning_title,
-      );
+      await sendWarningMessage(message, lang.not_enough_char, lang.warning_title);
       return;
     }
 
     if (word_game_data.used_word.includes(word)) {
       await message.delete();
-      await sendWarningMessage(
-        message,
-        lang.already_used_word,
-        lang.warning_title,
-      );
+      await sendWarningMessage(message, lang.already_used_word, lang.warning_title);
       return;
     }
 
     if (word_game_data.chain > 0) {
       if (message.author.id === word_game_data["last_correct_author"]) {
         message.delete();
-        await sendWarningMessage(
-          message,
-          lang.not_your_turn,
-          lang.warning_title,
-        );
+        await sendWarningMessage(message, lang.not_your_turn, lang.warning_title);
         return;
       }
       let is_correct_letter = false;
@@ -247,9 +221,10 @@ module.exports = async (client, message) => {
       if (lang_mode === "hu") {
         const current_letters = word.slice(0, 2);
         const last_letters = word_game_data.last_correct.slice(-2);
-        found_last_letters = ["cs", "sz", "ny", "ly", "zs", "gy", "ty"].find(
-          (x) => x === last_letters,
-        );
+        found_last_letters = [
+          "cs", "sz", "ny", "ly",
+          "zs", "gy", "ty",
+        ].find((x) => x === last_letters);
         is_correct_letter = current_letters === found_last_letters;
         if (!is_correct_letter) {
           is_correct_letter = current_letter === prev_letter;
@@ -264,9 +239,7 @@ module.exports = async (client, message) => {
           message,
           lang.badword1.replace(
             "${prev_letter}",
-            found_last_letters
-              ? `${prev_letter} vagy ${found_last_letters}`
-              : prev_letter,
+            found_last_letters ? `${prev_letter} vagy ${found_last_letters}` : prev_letter,
           ),
           lang.warning_title,
         );
@@ -304,11 +277,7 @@ module.exports = async (client, message) => {
           } else {
             client.wordgame_cache.push(word);
             await badTurn(message);
-            await sendWarningMessage(
-              message,
-              lang.badword2,
-              lang.warning_title,
-            );
+            await sendWarningMessage(message, lang.badword2, lang.warning_title);
             return;
           }
         } else {
@@ -350,17 +319,11 @@ module.exports = async (client, message) => {
 
       await message.channel.send({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FFFFFF")
-            .setDescription(lang.wordgame_over),
+          new EmbedBuilder().setColor("#FFFFFF").setDescription(lang.wordgame_over),
         ],
       });
 
-      const new_message = await client.setupWordgame(
-        message.guild,
-        lang,
-        message.channel,
-      );
+      const new_message = await client.setupWordgame(message.guild, lang, message.channel);
       const temp_entry = {
         word_game_channel_id: settingsDb.word_game.word_game_channel_id,
         word_game_length: settingsDb.word_game.word_game_length,
@@ -425,20 +388,13 @@ module.exports = async (client, message) => {
       const memberHasIgnoredRoles =
         typeof settingsDb.automod_invite.ignored_role === "function"
           ? settingsDb.automod_invite.ignored_role(message.member.roles.cache)
-          : settingsDb.automod_invite.ignored_role.some((r) =>
-              message.member.roles.cache.has(r),
-            );
+          : settingsDb.automod_invite.ignored_role.some((r) => message.member.roles.cache.has(r));
       if (!memberHasIgnoredRoles) {
         if (client.invitespam_limiter.take(message.author.id)) {
           message.delete().catch((error) => {});
           return;
         }
-        const checked_data = await checkData(
-          client,
-          message,
-          matched_data,
-          lang,
-        );
+        const checked_data = await checkData(client, message, matched_data, lang);
         if (checked_data === "") return;
         if (settingsDb.automod_invite.method === "accurate") {
           check_result = await IsInvitation.online(checked_data);
@@ -447,9 +403,7 @@ module.exports = async (client, message) => {
         }
         if (settingsDb.automod_invite.method === "accurate") {
           if (check_result.success) {
-            punish =
-              check_result.isInvitation &&
-              check_result.guild.id !== message.guild.id;
+            punish = check_result.isInvitation && check_result.guild.id !== message.guild.id;
           } else {
             punish = IsInvitation.regex(checked_data);
           }
@@ -467,8 +421,7 @@ module.exports = async (client, message) => {
           });
         switch (settingsDb.automod_invite.punishment) {
           case "kick": {
-            if (message.member.kickable)
-              await message.member.kick("Automod Invite");
+            if (message.member.kickable) await message.member.kick("Automod Invite");
             break;
           }
           case "delete": {
@@ -482,13 +435,9 @@ module.exports = async (client, message) => {
             break;
           }
           default: {
-            const time_in_min =
-              settingsDb.automod_invite.punishment.split(" ")[1];
+            const time_in_min = settingsDb.automod_invite.punishment.split(" ")[1];
             if (message.member.manageable)
-              await message.member.timeout(
-                time_in_min * 60 * 1000,
-                "Automod Invite",
-              );
+              await message.member.timeout(time_in_min * 60 * 1000, "Automod Invite");
             break;
           }
         }
@@ -500,30 +449,20 @@ module.exports = async (client, message) => {
       const memberHasIgnoredRoles =
         typeof settingsDb.automod_links.ignored_role === "function"
           ? settingsDb.automod_links.ignored_role(message.member.roles.cache)
-          : settingsDb.automod_links.ignored_role.some((r) =>
-              message.member.roles.cache.has(r),
-            );
+          : settingsDb.automod_links.ignored_role.some((r) => message.member.roles.cache.has(r));
       if (!memberHasIgnoredRoles) {
         if (client.linkspam_limiter.take(message.author.id)) {
           message.delete().catch((error) => {});
           return;
         }
-        const checked_data = await checkData(
-          client,
-          message,
-          matched_data,
-          lang,
-        );
+        const checked_data = await checkData(client, message, matched_data, lang);
         if (checked_data === "") return;
         const checker = await request(checked_data);
         if (checker && checker.match) {
           message.channel
             .send({
               embeds: [
-                client.WarningEmbed(
-                  lang.warning_title,
-                  lang.automod_links_bad_link,
-                ),
+                client.WarningEmbed(lang.warning_title, lang.automod_links_bad_link),
               ],
             })
             .then((msg) => {
@@ -531,8 +470,7 @@ module.exports = async (client, message) => {
             });
           switch (settingsDb.automod_links.punishment) {
             case "kick": {
-              if (message.member.kickable)
-                await message.member.kick("Automod Link");
+              if (message.member.kickable) await message.member.kick("Automod Link");
               break;
             }
             case "ban": {
@@ -546,13 +484,9 @@ module.exports = async (client, message) => {
               break;
             }
             default: {
-              const time_in_min =
-                settingsDb.automod_links.punishment.split(" ")[1];
+              const time_in_min = settingsDb.automod_links.punishment.split(" ")[1];
               if (message.member.manageable)
-                await message.member.timeout(
-                  time_in_min * 60 * 1000,
-                  "Automod Link",
-                );
+                await message.member.timeout(time_in_min * 60 * 1000, "Automod Link");
               break;
             }
           }
@@ -567,27 +501,15 @@ module.exports = async (client, message) => {
     const isChannelIgnored =
       typeof settingsDb.automod_messages.ignored_channel === "function"
         ? settingsDb.automod_messages.ignored_channel(message.channel)
-        : settingsDb.automod_messages.ignored_channel.includes(
-            message.channel.id,
-          );
+        : settingsDb.automod_messages.ignored_channel.includes(message.channel.id);
 
     const memberHasIgnoredRoles =
       typeof settingsDb.automod_messages.ignored_role === "function"
         ? settingsDb.automod_messages.ignored_role(message.member.roles.cache)
-        : settingsDb.automod_messages.ignored_role.some((r) =>
-            message.member.roles.cache.has(r),
-          );
+        : settingsDb.automod_messages.ignored_role.some((r) => message.member.roles.cache.has(r));
     if (!isChannelIgnored && !memberHasIgnoredRoles) {
-      if (
-        settingsDb.automod_messages.censoring_method !== "replace" ||
-        matched_data.length > 0
-      ) {
-        if (
-          doesContainBadWords(
-            textToLatin(message.content),
-            client.strongword_filter,
-          )
-        ) {
+      if (settingsDb.automod_messages.censoring_method !== "replace" || matched_data.length > 0) {
+        if (doesContainBadWords(textToLatin(message.content), client.strongword_filter)) {
           await message.channel
             .send({
               embeds: [
@@ -615,11 +537,7 @@ module.exports = async (client, message) => {
               if (splitter.includes("|")) {
                 temp = splitter.match(/\|/g).length;
               }
-              final_text = insertAtIndex(
-                final_text,
-                "||",
-                badwords[i].startIndex + temp,
-              );
+              final_text = insertAtIndex(final_text, "||", badwords[i].startIndex + temp);
               final_text = insertAtIndex(
                 final_text,
                 "||",
@@ -676,10 +594,7 @@ async function checkData(client, message, matched_data, lang) {
           await message.channel
             .send({
               embeds: [
-                client.WarningEmbed(
-                  lang.warning_title,
-                  lang.automod_url_shortener,
-                ),
+                client.WarningEmbed(lang.warning_title, lang.automod_url_shortener),
               ],
             })
             .then((msg) => {

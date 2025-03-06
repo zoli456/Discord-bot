@@ -1,10 +1,5 @@
 const SlashCommand = require("../../lib/SlashCommand");
-const {
-  EmbedBuilder,
-  InteractionContextType,
-  ChannelType,
-  escapeMarkdown,
-} = require("discord.js");
+const { EmbedBuilder, InteractionContextType, ChannelType, escapeMarkdown } = require("discord.js");
 
 const command = new SlashCommand()
   .setName("radio")
@@ -41,9 +36,7 @@ const command = new SlashCommand()
       ),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -52,7 +45,9 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -61,7 +56,9 @@ const command = new SlashCommand()
         `${interaction.guildId} | User hit the rate limit on the player: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_button)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_button),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -117,60 +114,47 @@ const command = new SlashCommand()
     if (query == "oxygen") {
       query = "https://oxygenmusic.hu:8000/oxygenmusic_128";
       radio_title = "OXYGEN MUSIC";
-      thumbnail =
-        "https://myonlineradio.hu/public/uploads/radio_img/oxygen-music/list_45.png";
+      thumbnail = "https://myonlineradio.hu/public/uploads/radio_img/oxygen-music/list_45.png";
     } else if (query == "radio_one") {
       query = "https://icast.connectmedia.hu/5202/live.mp3";
       radio_title = "Radio 1";
-      thumbnail =
-        "https://myonlineradio.hu/public/uploads/radio_img/radio-1/list_45.png";
+      thumbnail = "https://myonlineradio.hu/public/uploads/radio_img/radio-1/list_45.png";
     } else if (query == "retro") {
       query = "https://icast.connectmedia.hu/5002/live.mp3";
       radio_title = "Retro Rádió";
-      thumbnail =
-        "https://myonlineradio.hu/public/uploads/radio_img/retro-radio/list_45.png";
+      thumbnail = "https://myonlineradio.hu/public/uploads/radio_img/retro-radio/list_45.png";
     } else if (query == "petofi") {
       query = "https://icast.connectmedia.hu/4738/mr2.mp3";
       radio_title = "Petőfi Rádió";
-      thumbnail =
-        "https://myonlineradio.hu/public/uploads/radio_img/mr2-petofi-radio/list_45.jpg";
+      thumbnail = "https://myonlineradio.hu/public/uploads/radio_img/mr2-petofi-radio/list_45.jpg";
     } else if (query == "kossuth") {
       query = "https://icast.connectmedia.hu/4736/mr1.mp3";
       radio_title = "Kossuth Rádió";
-      thumbnail =
-        "https://myonlineradio.hu/public/uploads/radio_img/mr1-kossuth-radio/list_45.jpg";
+      thumbnail = "https://myonlineradio.hu/public/uploads/radio_img/mr1-kossuth-radio/list_45.jpg";
     } else if (query == "klub") {
-      query =
-        "https://radioplayer.myonlineradio.hu/ldblncr/klubradio/https-bpstream";
+      query = "https://radioplayer.myonlineradio.hu/ldblncr/klubradio/https-bpstream";
       radio_title = "Klubrádió";
-      thumbnail =
-        "https://myonlineradio.hu/public/uploads/radio_img/klubradio/list_45.png";
+      thumbnail = "https://myonlineradio.hu/public/uploads/radio_img/klubradio/list_45.png";
     } else if (query == "karcfm") {
       query = "https://stream.rcs.revma.com/wevb267khf9uv";
       radio_title = "Karc FM";
-      thumbnail =
-        "https://myonlineradio.hu/public/uploads/radio_img/karc-fm/list_45.jpg";
+      thumbnail = "https://myonlineradio.hu/public/uploads/radio_img/karc-fm/list_45.jpg";
     } else if (query == "mega") {
       query = "https://gamershouse.hu/livemega.mp3";
       radio_title = "MegaDance Rádió";
-      thumbnail =
-        "https://myonlineradio.hu/public/uploads/radio_img/megadance-radio/list_45.png";
+      thumbnail = "https://myonlineradio.hu/public/uploads/radio_img/megadance-radio/list_45.png";
     } else if (query == "slager") {
       query = "https://slagerfm.netregator.hu:7813/slagerfm128.mp3";
       radio_title = "Sláger FM";
-      thumbnail =
-        "https://myonlineradio.hu/public/uploads/radio_img/slager-fm/list_45.jpg";
+      thumbnail = "https://myonlineradio.hu/public/uploads/radio_img/slager-fm/list_45.jpg";
     } else if (query == "dannibius") {
       query = "https://danubiusradio.hu/live.mp3";
       radio_title = "Dannibius Rádió";
-      thumbnail =
-        "https://myonlineradio.hu/public/uploads/radio_img/danubius-radio/list_45.png";
+      thumbnail = "https://myonlineradio.hu/public/uploads/radio_img/danubius-radio/list_45.png";
     } else {
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor(client.config.embedColor)
-            .setDescription(lang.error),
+          new EmbedBuilder().setColor(client.config.embedColor).setDescription(lang.error),
         ],
         flags: MessageFlags.Ephemeral,
       });
@@ -190,9 +174,7 @@ const command = new SlashCommand()
       return await interaction
         .editReply({
           embeds: [
-            new EmbedBuilder()
-              .setColor("#FF0000")
-              .setDescription(lang.error_while_searching),
+            new EmbedBuilder().setColor("#FF0000").setDescription(lang.error_while_searching),
           ],
         })
         .catch(this.warn);
@@ -205,9 +187,7 @@ const command = new SlashCommand()
       return await interaction
         .editReply({
           embeds: [
-            new EmbedBuilder()
-              .setColor("#FF0000")
-              .setDescription(lang.no_result),
+            new EmbedBuilder().setColor("#FF0000").setDescription(lang.no_result),
           ],
         })
         .catch(this.warn);
@@ -248,9 +228,7 @@ const command = new SlashCommand()
           name: lang.added_to_queue,
           iconURL: client.config.iconURL,
         })
-        .setDescription(
-          `[${title}](${res.tracks[0].info.uri})` || lang.no_title,
-        )
+        .setDescription(`[${title}](${res.tracks[0].info.uri})` || lang.no_title)
         .setURL(res.tracks[0].info.uri)
         .addFields(
           {
@@ -282,17 +260,19 @@ const command = new SlashCommand()
         // player.queue.previous = player.queue.current;
       }
 
-      await interaction.editReply({ embeds: [addQueueEmbed] }).catch(this.warn);
+      await interaction
+        .editReply({
+          embeds: [
+            addQueueEmbed,
+          ],
+        })
+        .catch(this.warn);
     }
 
     if (res.loadType === "playlist") {
       player.queue.add(res.tracks);
 
-      if (
-        !player.playing &&
-        !player.paused &&
-        player.queue.tracks.length === res.tracks.length
-      ) {
+      if (!player.playing && !player.paused && player.queue.tracks.length === res.tracks.length) {
         await player.play();
       }
 
@@ -320,7 +300,13 @@ const command = new SlashCommand()
           },
         );
 
-      await interaction.editReply({ embeds: [playlistEmbed] }).catch(this.warn);
+      await interaction
+        .editReply({
+          embeds: [
+            playlistEmbed,
+          ],
+        })
+        .catch(this.warn);
     }
 
     if (ret) setTimeout(() => ret.delete().catch(this.warn), 10000);

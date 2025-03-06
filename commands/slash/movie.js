@@ -33,9 +33,7 @@ const command = new SlashCommand()
       }),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -44,15 +42,17 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
-    if (
-      await client.is_it_word_game_channel(interaction.channel, guildSettings)
-    ) {
+    if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -67,7 +67,9 @@ const command = new SlashCommand()
       });
     } catch (r) {
       return interaction.editReply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.minecraft_failed)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.minecraft_failed),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -91,10 +93,7 @@ const command = new SlashCommand()
       resultFromSearch.push({
         label: `${movie.title}(${movie.release_date})`.substring(0, 100),
         value: a.toString(),
-        description:
-          movie.overview === ""
-            ? lang.no_description
-            : movie.overview.substring(0, 100),
+        description: movie.overview === "" ? lang.no_description : movie.overview.substring(0, 100),
       });
       a++;
     });
@@ -109,11 +108,11 @@ const command = new SlashCommand()
       embeds: [
         new EmbedBuilder()
           .setColor(client.config.embedColor)
-          .setDescription(
-            `${lang.choose_a_track1} \`${title}\`. ${lang.choose_a_track2}`,
-          ),
+          .setDescription(`${lang.choose_a_track1} \`${title}\`. ${lang.choose_a_track2}`),
       ],
-      components: [menus],
+      components: [
+        menus,
+      ],
       flags: MessageFlags.Ephemeral,
     });
     const filter = (button) => button.user.id === interaction.user.id;
@@ -131,9 +130,7 @@ const command = new SlashCommand()
             new EmbedBuilder()
               .setTitle(movie.title)
               .setDescription(movie.overview)
-              .setThumbnail(
-                `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-              )
+              .setThumbnail(`https://image.tmdb.org/t/p/w500${movie.poster_path}`)
               .setImage(`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`)
               .addFields(
                 {

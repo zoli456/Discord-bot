@@ -85,10 +85,7 @@ command.addSubcommand((subcommand) =>
         .setName("scheme")
         .setDescription("Naming scheme")
         .setRequired(false)
-        .addChoices(
-          { name: "Name", value: "Name" },
-          { name: "Number", value: "Number" },
-        ),
+        .addChoices({ name: "Name", value: "Name" }, { name: "Number", value: "Number" }),
     ),
 );
 command.addSubcommand((subcommand) =>
@@ -139,10 +136,7 @@ command.addSubcommand((subcommand) =>
         .setRequired(false),
     )
     .addStringOption((option3) =>
-      option3
-        .setName("game")
-        .setDescription("Name the game.")
-        .setRequired(false),
+      option3.setName("game").setDescription("Name the game.").setRequired(false),
     ),
 );
 command.addSubcommand((subcommand) =>
@@ -181,10 +175,7 @@ command.addSubcommand((subcommand) =>
         .addChannelTypes(ChannelType.GuildText);
     })
     .addIntegerOption((option3) =>
-      option3
-        .setName("length")
-        .setDescription("How many words the game need.")
-        .setRequired(false),
+      option3.setName("length").setDescription("How many words the game need.").setRequired(false),
     ),
 );
 command.addSubcommand((subcommand) =>
@@ -214,9 +205,7 @@ command.addSubcommand((subcommand) =>
         .setName("text")
         .setMinLength(2)
         .setMaxLength(100)
-        .setDescription(
-          "Text scheme for the welcome text. {n} = name {s} = server",
-        )
+        .setDescription("Text scheme for the welcome text. {n} = name {s} = server")
         .setRequired(false),
     )
     .addChannelOption((option2) =>
@@ -236,9 +225,7 @@ command.addSubcommand((subcommand) =>
         .setName("text1")
         .setMinLength(2)
         .setMaxLength(50)
-        .setDescription(
-          "First line on the card. {s} = server name, {n} = nickname",
-        )
+        .setDescription("First line on the card. {s} = server name, {n} = nickname")
         .setRequired(false),
     )
     .addStringOption((option1) =>
@@ -290,9 +277,7 @@ command.addSubcommand((subcommand) =>
         .setName("text")
         .setMinLength(2)
         .setMaxLength(100)
-        .setDescription(
-          "Text scheme for the leave text. {n} = name {s} = server",
-        )
+        .setDescription("Text scheme for the leave text. {n} = name {s} = server")
         .setRequired(false),
     )
     .addChannelOption((option2) =>
@@ -352,10 +337,7 @@ command.addSubcommand((subcommand) =>
     .setName("picture")
     .setDescription("Change the bot's picture")
     .addAttachmentOption((option) =>
-      option
-        .setName("image")
-        .setDescription("The bot's image")
-        .setRequired(true),
+      option.setName("image").setDescription("The bot's image").setRequired(true),
     ),
 );
 command.addSubcommand((subcommand) =>
@@ -363,17 +345,12 @@ command.addSubcommand((subcommand) =>
     .setName("banner")
     .setDescription("Change the bot's banner.")
     .addAttachmentOption((option) =>
-      option
-        .setName("image")
-        .setDescription("The bot's banner.")
-        .setRequired(true),
+      option.setName("image").setDescription("The bot's banner.").setRequired(true),
     ),
 );
 
 command.setRun(async (client, interaction, options) => {
-  const _db = client.guild_settings.find(
-    (e) => e.guildId === interaction.guildId,
-  );
+  const _db = client.guild_settings.find((e) => e.guildId === interaction.guildId);
   let settingsDb = await _db.settings_db.getData("/");
   const lang = client.localization_manager.getLanguage(settingsDb.language);
   if (client.commandLimiter.take(interaction.member.id)) {
@@ -381,7 +358,9 @@ command.setRun(async (client, interaction, options) => {
       `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
     );
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
@@ -445,15 +424,10 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "media_channel") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
-      const media_channel = interaction.options.getChannel(
-        "media_channel_name",
-        false,
-      );
+      const media_channel = interaction.options.getChannel("media_channel_name", false);
       if (media_channel) {
         let config = {};
         config.media_channel_id = media_channel.id;
@@ -462,9 +436,7 @@ command.setRun(async (client, interaction, options) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully set to <#" + media_channel.id + ">!",
-              ),
+              .setDescription("✅ | Successfully set to <#" + media_channel.id + ">!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -490,17 +462,13 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "temp_channels") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       let temp_channel = interaction.options.getChannel("temp_channel", false);
       let scheme = options.getString("scheme", false);
       if (!temp_channel || !scheme) {
-        client.tempChannelsmanager.unregisterChannel(
-          settingsDb.temp_channel.temp_channel_id,
-        );
+        client.tempChannelsmanager.unregisterChannel(settingsDb.temp_channel.temp_channel_id);
         await _db.settings_db.delete("/temp_channel");
         return interaction.reply({
           embeds: [
@@ -522,9 +490,7 @@ command.setRun(async (client, interaction, options) => {
             new EmbedBuilder()
               .setColor(client.config.embedColor)
               .setDescription(
-                "✅ | The temp channel successfully set to <#" +
-                  temp_channel.id +
-                  ">!",
+                "✅ | The temp channel successfully set to <#" + temp_channel.id + ">!",
               ),
           ],
           flags: MessageFlags.Ephemeral,
@@ -541,9 +507,7 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "log_channel") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       let log_channel = interaction.options.getChannel("log_channel", false);
@@ -555,9 +519,7 @@ command.setRun(async (client, interaction, options) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                `✅ | The log channel successfully set to <#${log_channel.id}>!`,
-              ),
+              .setDescription(`✅ | The log channel successfully set to <#${log_channel.id}>!`),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -583,19 +545,11 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "counter_channel") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
-      let counter_channel = interaction.options.getChannel(
-        "counter_voice_channel",
-        false,
-      );
-      let channel_scheme = interaction.options.getString(
-        "counter_naming",
-        false,
-      );
+      let counter_channel = interaction.options.getChannel("counter_voice_channel", false);
+      let channel_scheme = interaction.options.getString("counter_naming", false);
       const guild = await client.guilds.fetch(interaction.guildId);
       if (counter_channel && channel_scheme) {
         if (await _db.settings_db.exists("/counter_channel")) {
@@ -620,32 +574,26 @@ command.setRun(async (client, interaction, options) => {
         }
         if (
           settingsDb.gamestat_channel &&
-          settingsDb.gamestat_channel.gamestat_channel_id ===
-            counter_channel.id.toString()
+          settingsDb.gamestat_channel.gamestat_channel_id === counter_channel.id.toString()
         ) {
           return interaction.reply({
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  "❌ | You already enabled gamestat channel on this channel!",
-                ),
+                .setDescription("❌ | You already enabled gamestat channel on this channel!"),
             ],
             flags: MessageFlags.Ephemeral,
           });
         }
         if (
           settingsDb.countdown_channel &&
-          settingsDb.countdown_channel.countdown_channel_id ===
-            counter_channel.id.toString()
+          settingsDb.countdown_channel.countdown_channel_id === counter_channel.id.toString()
         ) {
           return interaction.reply({
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  "❌ | You already enabled countdown channel on this channel!",
-                ),
+                .setDescription("❌ | You already enabled countdown channel on this channel!"),
             ],
             flags: MessageFlags.Ephemeral,
           });
@@ -671,8 +619,7 @@ command.setRun(async (client, interaction, options) => {
         });
       } else {
         await _db.settings_db.delete("/counter_channel");
-        let current_job =
-          schedule.scheduledJobs[`${interaction.guildId}_counter`];
+        let current_job = schedule.scheduledJobs[`${interaction.guildId}_counter`];
         if (current_job) {
           current_job.cancel();
         }
@@ -697,15 +644,10 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "gamestat_channel") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
-      let gamestat_channel = interaction.options.getChannel(
-        "voice_channel",
-        false,
-      );
+      let gamestat_channel = interaction.options.getChannel("voice_channel", false);
       let scheme = interaction.options.getString("scheme", false);
       let game = interaction.options.getString("game", false);
       if (gamestat_channel && scheme && game) {
@@ -732,32 +674,26 @@ command.setRun(async (client, interaction, options) => {
         const guild = await client.guilds.fetch(interaction.guildId);
         if (
           settingsDb.counter_channel &&
-          settingsDb.counter_channel.counter_channel_id ===
-            gamestat_channel.id.toString()
+          settingsDb.counter_channel.counter_channel_id === gamestat_channel.id.toString()
         ) {
           return interaction.reply({
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  "❌ | You already enabled counter channel on this channel!",
-                ),
+                .setDescription("❌ | You already enabled counter channel on this channel!"),
             ],
             flags: MessageFlags.Ephemeral,
           });
         }
         if (
           settingsDb.countdown_channel &&
-          settingsDb.countdown_channel.countdown_channel_id ===
-            gamestat_channel.id.toString()
+          settingsDb.countdown_channel.countdown_channel_id === gamestat_channel.id.toString()
         ) {
           return interaction.reply({
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  "❌ | You already enabled countdown channel on this channel!",
-                ),
+                .setDescription("❌ | You already enabled countdown channel on this channel!"),
             ],
             flags: MessageFlags.Ephemeral,
           });
@@ -784,8 +720,7 @@ command.setRun(async (client, interaction, options) => {
         });
       } else {
         await _db.settings_db.delete("/gamestat_channel");
-        let current_job =
-          schedule.scheduledJobs[`${interaction.guildId}_gamestat`];
+        let current_job = schedule.scheduledJobs[`${interaction.guildId}_gamestat`];
         if (current_job) {
           current_job.cancel();
         }
@@ -809,15 +744,10 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "nameday_channel") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
-      let nameday_channel = interaction.options.getChannel(
-        "nameday_channel",
-        false,
-      );
+      let nameday_channel = interaction.options.getChannel("nameday_channel", false);
       if (nameday_channel) {
         if (await _db.settings_db.exists("/nameday_channel")) {
           return interaction.reply({
@@ -881,15 +811,10 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "game_channel") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
-      const game_channel = interaction.options.getChannel(
-        "game_channel_name",
-        false,
-      );
+      const game_channel = interaction.options.getChannel("game_channel_name", false);
       if (game_channel) {
         let config = {};
         config.game_channel_id = game_channel.id;
@@ -898,9 +823,7 @@ command.setRun(async (client, interaction, options) => {
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully set to <#" + game_channel.id + ">!",
-              ),
+              .setDescription("✅ | Successfully set to <#" + game_channel.id + ">!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -926,29 +849,20 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "word_game") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
-      const word_game_channel = interaction.options.getChannel(
-        "word_game_channel",
-        false,
-      );
+      const word_game_channel = interaction.options.getChannel("word_game_channel", false);
       const word_game_length = interaction.options.getInteger("length", false);
       if (word_game_channel && word_game_length) {
         let game_channel = client.channels.cache.get(word_game_channel.id);
-        const word_game = client.wordgame_status.find(
-          (e) => e.guildId === interaction.guildId,
-        );
+        const word_game = client.wordgame_status.find((e) => e.guildId === interaction.guildId);
         if (word_game) {
           return interaction.reply({
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  "❌ | You have already activated the word game!",
-                ),
+                .setDescription("❌ | You have already activated the word game!"),
             ],
             flags: MessageFlags.Ephemeral,
           });
@@ -956,13 +870,11 @@ command.setRun(async (client, interaction, options) => {
         let config = {};
         config.word_game_channel_id = word_game_channel.id;
         config.word_game_length = word_game_length;
-        await client
-          .setupWordgame(interaction.guild, lang, word_game_channel)
-          .then(async (msg) => {
-            config.word_game_msg_id = msg.id;
-            await _db.settings_db.push("/word_game", config);
-            await msg.pin();
-          });
+        await client.setupWordgame(interaction.guild, lang, word_game_channel).then(async (msg) => {
+          config.word_game_msg_id = msg.id;
+          await _db.settings_db.push("/word_game", config);
+          await msg.pin();
+        });
         client.wordgame_status.push({
           guildId: interaction.guild.id,
           chain: "0",
@@ -973,12 +885,8 @@ command.setRun(async (client, interaction, options) => {
           longest_author: "-",
           used_word: [],
         });
-        if (
-          !fs.existsSync(`./info/wordgame/${interaction.guildId}_wordgame.json`)
-        ) {
-          const word_game = client.wordgame_status.find(
-            (e) => e.guildId === interaction.guildId,
-          );
+        if (!fs.existsSync(`./info/wordgame/${interaction.guildId}_wordgame.json`)) {
+          const word_game = client.wordgame_status.find((e) => e.guildId === interaction.guildId);
           await fs.writeFile(
             `./info/wordgame/${interaction.guildId}_wordgame.json`,
             encode(word_game),
@@ -1015,9 +923,7 @@ command.setRun(async (client, interaction, options) => {
           client.wordgame_status.splice(word_game_pos, 1);
         }
 
-        const channel = client.channels.cache.get(
-          settingsDb.word_game.word_game_channel_id,
-        );
+        const channel = client.channels.cache.get(settingsDb.word_game.word_game_channel_id);
         await channel.messages.fetchPinned().then((pinnedMessages) => {
           pinnedMessages.each(async (msg) => {
             try {
@@ -1027,18 +933,14 @@ command.setRun(async (client, interaction, options) => {
           });
         });
         await _db.settings_db.delete("/word_game");
-        if (
-          fs.existsSync(`./info/wordgame/${interaction.guildId}_wordgame.json`)
-        ) {
+        if (fs.existsSync(`./info/wordgame/${interaction.guildId}_wordgame.json`)) {
           fs.unlinkSync(`./info/wordgame/${interaction.guildId}_wordgame.json`);
         }
         return interaction.reply({
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | Successfully removed the word game channel!",
-              ),
+              .setDescription("✅ | Successfully removed the word game channel!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -1054,9 +956,7 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "voice_controller") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       const voice_controller_channel = interaction.options.getChannel(
@@ -1151,8 +1051,7 @@ command.setRun(async (client, interaction, options) => {
                   .setStyle(ButtonStyle.Secondary)
                   .setCustomId(`voice_controller:${interaction.guildId}:Kick`)
                   .setEmoji("👢"),
-              ),
-              new ActionRowBuilder().addComponents(
+              ), new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
                   .setStyle(ButtonStyle.Secondary)
                   .setCustomId(`voice_controller:${interaction.guildId}:Ban`)
@@ -1176,9 +1075,7 @@ command.setRun(async (client, interaction, options) => {
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  "✅ | You enabled the voice controller channel.",
-                ),
+                .setDescription("✅ | You enabled the voice controller channel."),
             ],
             flags: MessageFlags.Ephemeral,
           });
@@ -1187,9 +1084,7 @@ command.setRun(async (client, interaction, options) => {
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  "❌ | Already enabled the voice controller channel.",
-                ),
+                .setDescription("❌ | Already enabled the voice controller channel."),
             ],
             flags: MessageFlags.Ephemeral,
           });
@@ -1216,9 +1111,7 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "welcome_text") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       const welcome_channel = interaction.options.getChannel("channel", false);
@@ -1233,9 +1126,7 @@ command.setRun(async (client, interaction, options) => {
             new EmbedBuilder()
               .setColor(client.config.embedColor)
               .setDescription(
-                "✅ | Successfully enabled the welcome text in <#" +
-                  welcome_channel.id +
-                  ">!",
+                "✅ | Successfully enabled the welcome text in <#" + welcome_channel.id + ">!",
               ),
           ],
           flags: MessageFlags.Ephemeral,
@@ -1262,23 +1153,15 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "welcome_image") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       const welcome_channel = interaction.options.getChannel("channel", false);
       const welcome_text1 = interaction.options.getString("text1", false);
       const welcome_text2 = interaction.options.getString("text2", false);
-      const welcome_background = interaction.options.getString(
-        "background",
-        false,
-      );
+      const welcome_background = interaction.options.getString("background", false);
       const text_color = interaction.options.getString("text_color", false);
-      const profile_border_color = interaction.options.getString(
-        "profile_border_color",
-        false,
-      );
+      const profile_border_color = interaction.options.getString("profile_border_color", false);
 
       if (welcome_channel && welcome_text1 && welcome_text2) {
         let config = {};
@@ -1294,9 +1177,7 @@ command.setRun(async (client, interaction, options) => {
             new EmbedBuilder()
               .setColor(client.config.embedColor)
               .setDescription(
-                "✅ | Successfully enabled the welcome image in <#" +
-                  welcome_channel.id +
-                  ">!",
+                "✅ | Successfully enabled the welcome image in <#" + welcome_channel.id + ">!",
               ),
           ],
           flags: MessageFlags.Ephemeral,
@@ -1323,9 +1204,7 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "leave_text") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       const leave_channel = interaction.options.getChannel("channel", false);
@@ -1340,9 +1219,7 @@ command.setRun(async (client, interaction, options) => {
             new EmbedBuilder()
               .setColor(client.config.embedColor)
               .setDescription(
-                "✅ | Successfully enabled the leave text in <#" +
-                  leave_channel.id +
-                  ">!",
+                "✅ | Successfully enabled the leave text in <#" + leave_channel.id + ">!",
               ),
           ],
           flags: MessageFlags.Ephemeral,
@@ -1369,15 +1246,10 @@ command.setRun(async (client, interaction, options) => {
   }
   if (interaction.options.getSubcommand() === "countdown_channel") {
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
-      const countdown_channel = interaction.options.getChannel(
-        "channel",
-        false,
-      );
+      const countdown_channel = interaction.options.getChannel("channel", false);
       const channel_scheme = interaction.options.getString("scheme", false);
       const date = interaction.options.getString("date", false);
       const time = interaction.options.getString("time", false);
@@ -1399,10 +1271,7 @@ command.setRun(async (client, interaction, options) => {
           channel_scheme.split("{i}").length !== 2 ||
           time.split(":").length !== 2 ||
           date.split(".").length !== 3 ||
-          !moment(moment(`${date} ${time}`, "YYYY.MM.DD H:m")).isAfter(
-            moment(),
-            "minute",
-          )
+          !moment(moment(`${date} ${time}`, "YYYY.MM.DD H:m")).isAfter(moment(), "minute")
         ) {
           return interaction.reply({
             embeds: [
@@ -1415,32 +1284,26 @@ command.setRun(async (client, interaction, options) => {
         }
         if (
           settingsDb.counter_channel &&
-          settingsDb.counter_channel.counter_channel_id ===
-            countdown_channel.id.toString()
+          settingsDb.counter_channel.counter_channel_id === countdown_channel.id.toString()
         ) {
           return interaction.reply({
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  "❌ | You already enabled counter channel on this channel!",
-                ),
+                .setDescription("❌ | You already enabled counter channel on this channel!"),
             ],
             flags: MessageFlags.Ephemeral,
           });
         }
         if (
           settingsDb.gamestat_channel &&
-          settingsDb.gamestat_channel.gamestat_channel_id ===
-            countdown_channel.id.toString()
+          settingsDb.gamestat_channel.gamestat_channel_id === countdown_channel.id.toString()
         ) {
           return interaction.reply({
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  "❌ | You already enabled gamestat channel on this channel!",
-                ),
+                .setDescription("❌ | You already enabled gamestat channel on this channel!"),
             ],
             flags: MessageFlags.Ephemeral,
           });
@@ -1468,8 +1331,7 @@ command.setRun(async (client, interaction, options) => {
         });
       } else {
         await _db.settings_db.delete("/countdown_channel");
-        let current_job =
-          schedule.scheduledJobs[`${interaction.guildId}_countdown`];
+        let current_job = schedule.scheduledJobs[`${interaction.guildId}_countdown`];
         if (current_job) {
           current_job.cancel();
         }

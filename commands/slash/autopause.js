@@ -1,16 +1,10 @@
 const colors = require("@colors/colors");
-const {
-  EmbedBuilder,
-  InteractionContextType,
-  PermissionsBitField,
-} = require("discord.js");
+const { EmbedBuilder, InteractionContextType, PermissionsBitField } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 
 const command = new SlashCommand()
   .setName("autopause")
-  .setDescription(
-    "Automatically pause when everyone leaves the voice channel (toggle)",
-  )
+  .setDescription("Automatically pause when everyone leaves the voice channel (toggle)")
   .setNameLocalizations({
     hu: "auto_szünet",
   })
@@ -19,9 +13,7 @@ const command = new SlashCommand()
   })
   .setContexts(InteractionContextType.Guild)
   .setRun(async (client, interaction) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -30,45 +22,38 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       let channel = await client.getChannel(client, interaction);
       if (!channel) return;
 
       let player;
-      if (client.manager)
-        player = client.manager.getPlayer(interaction.guild.id);
+      if (client.manager) player = client.manager.getPlayer(interaction.guild.id);
       else
         return interaction.reply({
           embeds: [
-            new EmbedBuilder()
-              .setColor("#FF0000")
-              .setDescription(lang.lavalink_not_connected),
+            new EmbedBuilder().setColor("#FF0000").setDescription(lang.lavalink_not_connected),
           ],
         });
 
       if (!player) {
         return interaction.reply({
           embeds: [
-            new EmbedBuilder()
-              .setColor("#FF0000")
-              .setDescription(lang.nothing_to_play),
+            new EmbedBuilder().setColor("#FF0000").setDescription(lang.nothing_to_play),
           ],
           flags: MessageFlags.Ephemeral,
         });
       }
 
-      let autoPauseEmbed = new EmbedBuilder().setColor(
-        client.config.embedColor,
-      );
+      let autoPauseEmbed = new EmbedBuilder().setColor(client.config.embedColor);
       const autoPause = player.get("autoPause");
       player.set("requester", interaction.guild.members.me);
 
@@ -78,9 +63,7 @@ const command = new SlashCommand()
         player.set("autoPause", false);
       }
       autoPauseEmbed
-        .setDescription(
-          `${lang.autopause_is} \`${!autoPause ? lang.ON : lang.OFF}\``,
-        )
+        .setDescription(`${lang.autopause_is} \`${!autoPause ? lang.ON : lang.OFF}\``)
         .setFooter({
           text: `${lang.the_player_will} ${
             !autoPause ? lang.automatically : lang.no_longer_be
@@ -96,7 +79,11 @@ const command = new SlashCommand()
         }`,
       );
 
-      return interaction.reply({ embeds: [autoPauseEmbed] });
+      return interaction.reply({
+        embeds: [
+          autoPauseEmbed,
+        ],
+      });
     } else {
       return interaction.reply({
         embeds: [

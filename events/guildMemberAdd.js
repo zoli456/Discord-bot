@@ -5,9 +5,7 @@ const { WelcomeBuilder } = require("../lib/discord-cards");
 const { doesContainBadWords, textToLatin } = require("deep-profanity-filter");
 module.exports = async (client, member) => {
   if (member.user.bot) return;
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === member.guild.id,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === member.guild.id);
   const settings_db = await guildSettings.settings_db.getData("/");
   const lang = client.localization_manager.getLanguage(settings_db.language);
   if (settings_db.role_on_join && member.id !== client.config.clientId) {
@@ -59,8 +57,12 @@ module.exports = async (client, member) => {
         let embed = new EmbedBuilder();
         embed.setImage(`attachment://welcome.png`);
         await Welcome_Image_Channel.send({
-          embeds: [embed],
-          files: [new AttachmentBuilder(cv).setName("welcome.png")],
+          embeds: [
+            embed,
+          ],
+          files: [
+            new AttachmentBuilder(cv).setName("welcome.png"),
+          ],
         });
       } else {
         await guildSettings.settings_db.delete("/welcome_image");
@@ -85,10 +87,7 @@ module.exports = async (client, member) => {
   }
   if (
     settings_db.automod_names &&
-    doesContainBadWords(
-      textToLatin(member.displayName),
-      client.strongword_filter,
-    )
+    doesContainBadWords(textToLatin(member.displayName), client.strongword_filter)
   ) {
     await member.setNickname(lang.temp_name);
   }

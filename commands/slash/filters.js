@@ -1,8 +1,4 @@
-const {
-  EmbedBuilder,
-  MessageFlags,
-  InteractionContextType,
-} = require("discord.js");
+const { EmbedBuilder, MessageFlags, InteractionContextType } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 const { EQList } = require("lavalink-client");
 
@@ -50,9 +46,7 @@ const command = new SlashCommand()
   )
 
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -61,7 +55,9 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -70,7 +66,9 @@ const command = new SlashCommand()
         `${interaction.guildId} | User hit the rate limit on the player: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_button)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_button),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -87,9 +85,7 @@ const command = new SlashCommand()
     } else {
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.lavalink_not_connected),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.lavalink_not_connected),
         ],
       });
     }
@@ -97,9 +93,7 @@ const command = new SlashCommand()
     if (!player) {
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.no_music_playing),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.no_music_playing),
         ],
         flags: MessageFlags.Ephemeral,
       });
@@ -111,19 +105,13 @@ const command = new SlashCommand()
       filtersEmbed.setDescription("✅ | Nightcore " + lang.filter_now_active);
       await player.filterManager.toggleNightcore();
     } else if (args === "bassboost-low") {
-      filtersEmbed.setDescription(
-        "✅ | BassBoost Low " + lang.filter_now_active,
-      );
+      filtersEmbed.setDescription("✅ | BassBoost Low " + lang.filter_now_active);
       await player.filterManager.setEQ(EQList.BassboostLow);
     } else if (args === "bassboost-medium") {
-      filtersEmbed.setDescription(
-        "✅ | BassBoost Medium " + lang.filter_now_active,
-      );
+      filtersEmbed.setDescription("✅ | BassBoost Medium " + lang.filter_now_active);
       await player.filterManager.setEQ(EQList.BassboostMedium);
     } else if (args === "bassboost-high") {
-      filtersEmbed.setDescription(
-        "✅ | BassBoost High " + lang.filter_now_active,
-      );
+      filtersEmbed.setDescription("✅ | BassBoost High " + lang.filter_now_active);
       await player.filterManager.setEQ(EQList.BassboostHigh);
     } else if (args === "vaporwave") {
       filtersEmbed.setDescription("✅ | Vaporwave " + lang.filter_now_active);
@@ -135,14 +123,10 @@ const command = new SlashCommand()
       filtersEmbed.setDescription("✅ | Rock filter " + lang.filter_now_active);
       await player.filterManager.setEQ(EQList.Rock);
     } else if (args === "classic") {
-      filtersEmbed.setDescription(
-        "✅ | Classic filter " + lang.filter_now_active,
-      );
+      filtersEmbed.setDescription("✅ | Classic filter " + lang.filter_now_active);
       await player.filterManager.setEQ(EQList.Classic);
     } else if (args === "electro") {
-      filtersEmbed.setDescription(
-        "✅ | Electro filter " + lang.filter_now_active,
-      );
+      filtersEmbed.setDescription("✅ | Electro filter " + lang.filter_now_active);
       await player.filterManager.setEQ(EQList.Electronic);
     } else if (args === "eightD") {
       filtersEmbed.setDescription("✅ | 3D " + lang.filter_now_active);
@@ -166,9 +150,7 @@ const command = new SlashCommand()
       filtersEmbed.setDescription("✅ | Low-pass " + lang.filter_now_active);
       await player.filterManager.lavalinkLavaDspxPlugin.toggleLowPass();
     } else if (args === "normalization") {
-      filtersEmbed.setDescription(
-        "✅ | Normalization " + lang.filter_now_active,
-      );
+      filtersEmbed.setDescription("✅ | Normalization " + lang.filter_now_active);
       await player.filterManager.lavalinkLavaDspxPlugin.toggleNormalization();
     } else if (args === "off") {
       filtersEmbed.setDescription("✅ | " + lang.no_filter);
@@ -178,7 +160,11 @@ const command = new SlashCommand()
       filtersEmbed.setDescription(lang.invalid_filters);
     }
 
-    return interaction.reply({ embeds: [filtersEmbed] });
+    return interaction.reply({
+      embeds: [
+        filtersEmbed,
+      ],
+    });
   });
 
 module.exports = command;

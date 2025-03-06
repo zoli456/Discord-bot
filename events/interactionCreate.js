@@ -9,13 +9,9 @@ const colors = require("@colors/colors");
  */
 module.exports = async (client, interaction) => {
   if (interaction.isChatInputCommand()) {
-    let command = client.slashCommands.find(
-      (x) => x.name === interaction.commandName,
-    );
+    let command = client.slashCommands.find((x) => x.name === interaction.commandName);
     if (!command || !command.run) {
-      return interaction.reply(
-        "Sorry the command you used doesn't have any run function",
-      );
+      return interaction.reply("Sorry the command you used doesn't have any run function");
     }
     let options = "";
     for (let i = 0; i < interaction.options._hoistedOptions.length; i++) {
@@ -36,13 +32,9 @@ module.exports = async (client, interaction) => {
     return;
   }
   if (interaction.isCommand()) {
-    let command = client.contextCommands.find(
-      (x) => x.command.name === interaction.commandName,
-    );
+    let command = client.contextCommands.find((x) => x.command.name === interaction.commandName);
     if (!command || !command.run) {
-      return interaction.reply(
-        "Sorry the command you used doesn't have any run function",
-      );
+      return interaction.reply("Sorry the command you used doesn't have any run function");
     }
 
     client.commandsRan++;
@@ -82,13 +74,11 @@ module.exports = async (client, interaction) => {
       await checkRegex();
       await checkRegex();
       let choice = [];
-      await yt
-        .search(url || Random, { safeSearch: false, limit: 25 })
-        .then((result) => {
-          result.forEach((x) => {
-            choice.push({ name: x.title, value: x.url });
-          });
+      await yt.search(url || Random, { safeSearch: false, limit: 25 }).then((result) => {
+        result.forEach((x) => {
+          choice.push({ name: x.title, value: x.url });
         });
+      });
       return await interaction.respond(choice).catch(() => {});
     } else if (result.loadType === "error" || "empty") return;
   }

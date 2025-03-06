@@ -9,9 +9,7 @@ const { EmbedBuilder, AuditLogEvent } = require("discord.js");
  */
 module.exports = async (client, oldState, newState) => {
   const guildId = newState.guild.id;
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === guildId,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === guildId);
   const settingsDb = await guildSettings.settings_db.getData("/");
   const lang = client.localization_manager.getLanguage(settingsDb.language);
 
@@ -21,7 +19,11 @@ module.exports = async (client, oldState, newState) => {
 
   const sendEmbed = async (channel, embed) => {
     if (channel) {
-      await channel.send({ embeds: [embed] });
+      await channel.send({
+        embeds: [
+          embed,
+        ],
+      });
     }
   };
 
@@ -73,8 +75,7 @@ module.exports = async (client, oldState, newState) => {
                 name: lang.responsible_moderator,
                 value: `<@${disconnectLog.executor.id}>`,
                 inline: true,
-              },
-              {
+              }, {
                 name: lang.reason,
                 value: disconnectLog.reason || lang.no_reason_given,
                 inline: true,
@@ -88,15 +89,8 @@ module.exports = async (client, oldState, newState) => {
       await sendEmbed(logChannel, embed);
     }
 
-    if (
-      oldState.channelId &&
-      newState.channelId &&
-      oldState.channelId !== newState.channelId
-    ) {
-      const moveLog = await fetchAuditLog(
-        oldState.member.guild,
-        AuditLogEvent.MemberMove,
-      );
+    if (oldState.channelId && newState.channelId && oldState.channelId !== newState.channelId) {
+      const moveLog = await fetchAuditLog(oldState.member.guild, AuditLogEvent.MemberMove);
       let description;
       let fields;
       if (moveLog && moveLog.createdTimestamp > Date.now() - 1000) {
@@ -118,17 +112,13 @@ module.exports = async (client, oldState, newState) => {
 
     const handleMuteDeaf = async (type, logType, stateKey, langKey) => {
       const log = await fetchAuditLog(oldState.member.guild, logType);
-      const description = lang.log_voice_state_update.replace(
-        "{u}",
-        `<@${oldState.member.id}>`,
-      );
+      const description = lang.log_voice_state_update.replace("{u}", `<@${oldState.member.id}>`);
       const fields = [
         {
           name: langKey,
           value: newState[stateKey] ? ":white_check_mark:" : ":x:",
           inline: true,
-        },
-        log
+        }, log
           ? {
               name: lang.responsible_moderator,
               value: `<@${log.executor.id}>`,
@@ -162,10 +152,7 @@ module.exports = async (client, oldState, newState) => {
 
   if (settingsDb.temp_channel) {
     if (!oldState.channel && newState.channel) {
-      await client.tempChannelsmanager.createNewChild(
-        newState.member,
-        newState.channel,
-      );
+      await client.tempChannelsmanager.createNewChild(newState.member, newState.channel);
     } else if (oldState.channel && newState.channel) {
       await client.tempChannelsmanager.handleChild(
         newState.member,
@@ -187,20 +174,12 @@ module.exports = async (client, oldState, newState) => {
   } else if (oldState.channel && !newState.channel) {
     stateChange.type = "LEAVE";
     stateChange.channel = oldState.channel;
-  } else if (
-    oldState.channel &&
-    newState.channel &&
-    oldState.channelId !== newState.channelId
-  ) {
-    stateChange.type =
-      newState.channel.id === player.voiceChannelId ? "JOIN" : "LEAVE";
+  } else if (oldState.channel && newState.channel && oldState.channelId !== newState.channelId) {
+    stateChange.type = newState.channel.id === player.voiceChannelId ? "JOIN" : "LEAVE";
     stateChange.channel =
-      newState.channel.id === player.voiceChannelId
-        ? newState.channel
-        : oldState.channel;
+      newState.channel.id === player.voiceChannelId ? newState.channel : oldState.channel;
   }
-  if (!stateChange.channel || stateChange.channel.id !== player.voiceChannelId)
-    return;
+  if (!stateChange.channel || stateChange.channel.id !== player.voiceChannelId) return;
   /* player.prevMembers = player.members;
     player.members = stateChange.channel.members.filter(
       (member) => !member.user.bot,
@@ -208,13 +187,8 @@ module.exports = async (client, oldState, newState) => {
   switch (stateChange.type) {
     case "JOIN":
       if (player.get("autoPause") === true) {
-        let members = stateChange.channel.members.filter(
-          (member) => !member.user.bot,
-        ).size;
-        if (
-          members === 1 &&
-          player.paused /*&& members !== player.prevMembers*/
-        ) {
+        let members = stateChange.channel.members.filter((member) => !member.user.bot).size;
+        if (members === 1 && player.paused /*&& members !== player.prevMembers*/) {
           player.resume();
           let playerResumed = new EmbedBuilder()
             .setColor(client.config.embedColor)
@@ -224,9 +198,11 @@ module.exports = async (client, oldState, newState) => {
             )
             .setFooter({ text: lang.resumed_song });
 
-          let resumeMessage = await client.channels.cache
-            .get(player.textChannelId)
-            .send({ embeds: [playerResumed] });
+          let resumeMessage = await client.channels.cache.get(player.textChannelId).send({
+            embeds: [
+              playerResumed,
+            ],
+          });
           try {
             player.pausedMessage.delete();
             player.pausedMessage = null;
@@ -241,14 +217,9 @@ module.exports = async (client, oldState, newState) => {
       }
       break;
     case "LEAVE":
-      let members = stateChange.channel.members.filter(
-        (member) => !member.user.bot,
-      ).size;
+      let members = stateChange.channel.members.filter((member) => !member.user.bot).size;
       const twentyFourSeven = player.get("twentyFourSeven");
-      if (
-        player.get("autoPause") === true &&
-        player.get("autoLeave") === false
-      ) {
+      if (player.get("autoPause") === true && player.get("autoLeave") === false) {
         if (members === 0 && !player.paused && player.playing) {
           player.pause();
 
@@ -257,21 +228,18 @@ module.exports = async (client, oldState, newState) => {
             .setTitle(lang.paused_title, client.config.iconURL)
             .setDescription(lang.song_paused);
 
-          let pausedMessage = await client.channels.cache
-            .get(player.textChannelId)
-            .send({ embeds: [playerPaused] });
+          let pausedMessage = await client.channels.cache.get(player.textChannelId).send({
+            embeds: [
+              playerPaused,
+            ],
+          });
           player.pausedMessage = pausedMessage;
         }
-      } else if (
-        player.get("autoLeave") === true &&
-        player.get("autoPause") === false
-      ) {
+      } else if (player.get("autoLeave") === true && player.get("autoPause") === false) {
         if (members === 0) {
           if (twentyFourSeven) {
             setTimeout(async () => {
-              let members = stateChange.channel.members.filter(
-                (member) => !member.user.bot,
-              ).size;
+              let members = stateChange.channel.members.filter((member) => !member.user.bot).size;
               if (members === 0 && player.state !== "DISCONNECTED") {
                 let leftEmbed = new EmbedBuilder()
                   .setColor(client.config.embedColor)
@@ -280,9 +248,11 @@ module.exports = async (client, oldState, newState) => {
                     iconURL: client.config.iconURL,
                   })
                   .setDescription(lang.left_alone_in_channel);
-                let Disconnected = await client.channels.cache
-                  .get(player.textChannelId)
-                  .send({ embeds: [leftEmbed] });
+                let Disconnected = await client.channels.cache.get(player.textChannelId).send({
+                  embeds: [
+                    leftEmbed,
+                  ],
+                });
                 setTimeout(() => Disconnected.delete(true), 5000);
                 player.queue.clear();
                 player.destroy();
@@ -297,23 +267,17 @@ module.exports = async (client, oldState, newState) => {
                 iconURL: client.config.iconURL,
               })
               .setDescription(lang.left_alone_in_channel);
-            let Disconnected = await client.channels.cache
-              .get(player.textChannelId)
-              .send({ embeds: [leftEmbed] });
+            let Disconnected = await client.channels.cache.get(player.textChannelId).send({
+              embeds: [
+                leftEmbed,
+              ],
+            });
             setTimeout(() => Disconnected.delete(true), 5000);
             player.destroy();
           }
         }
-      } else if (
-        player.get("autoLeave") === true &&
-        player.get("autoPause") === true
-      ) {
-        if (
-          members === 0 &&
-          !player.paused &&
-          player.playing &&
-          twentyFourSeven
-        ) {
+      } else if (player.get("autoLeave") === true && player.get("autoPause") === true) {
+        if (members === 0 && !player.paused && player.playing && twentyFourSeven) {
           player.pause();
 
           let playerPaused = new EmbedBuilder()
@@ -321,14 +285,14 @@ module.exports = async (client, oldState, newState) => {
             .setTitle(lang.paused_title, client.config.iconURL)
             .setDescription(lang.song_paused);
 
-          let pausedMessage = await client.channels.cache
-            .get(player.textChannelId)
-            .send({ embeds: [playerPaused] });
+          let pausedMessage = await client.channels.cache.get(player.textChannelId).send({
+            embeds: [
+              playerPaused,
+            ],
+          });
           player.setPausedMessage(pausedMessage);
           setTimeout(async () => {
-            var members = stateChange.channel.members.filter(
-              (member) => !member.user.bot,
-            ).size;
+            var members = stateChange.channel.members.filter((member) => !member.user.bot).size;
             if (members === 0 && player.state !== "DISCONNECTED") {
               let leftEmbed = new EmbedBuilder()
                 .setColor(client.config.embedColor)
@@ -337,9 +301,11 @@ module.exports = async (client, oldState, newState) => {
                   iconURL: client.config.iconURL,
                 })
                 .setDescription(lang.left_alone_in_channel);
-              let Disconnected = await client.channels.cache
-                .get(player.textChannelId)
-                .send({ embeds: [leftEmbed] });
+              let Disconnected = await client.channels.cache.get(player.textChannelId).send({
+                embeds: [
+                  leftEmbed,
+                ],
+              });
               setTimeout(() => Disconnected.delete(true), 5000);
               pausedMessage.delete(true);
               player.queue.clear();
@@ -356,9 +322,11 @@ module.exports = async (client, oldState, newState) => {
                 iconURL: client.config.iconURL,
               })
               .setDescription(lang.left_alone_in_channel);
-            let Disconnected = await client.channels.cache
-              .get(player.textChannelId)
-              .send({ embeds: [leftEmbed] });
+            let Disconnected = await client.channels.cache.get(player.textChannelId).send({
+              embeds: [
+                leftEmbed,
+              ],
+            });
             setTimeout(() => Disconnected.delete(true), 5000);
             player.destroy();
           }

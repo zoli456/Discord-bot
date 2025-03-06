@@ -1,9 +1,5 @@
 const SlashCommand = require("../../lib/SlashCommand");
-const {
-  EmbedBuilder,
-  MessageFlags,
-  InteractionContextType,
-} = require("discord.js");
+const { EmbedBuilder, MessageFlags, InteractionContextType } = require("discord.js");
 
 const moment = require("moment/moment");
 
@@ -30,28 +26,26 @@ const command = new SlashCommand()
       .setRequired(false),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     moment.locale(guildSettings.settings_db.data.language);
-    const lang = client.localization_manager.getLanguage(
-      guildSettings.settings_db.data.language,
-    );
+    const lang = client.localization_manager.getLanguage(guildSettings.settings_db.data.language);
     if (client.commandLimiter.take(interaction.member.id)) {
       client.log(
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
-    if (
-      await client.is_it_word_game_channel(interaction.channel, guildSettings)
-    ) {
+    if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -67,9 +61,7 @@ const command = new SlashCommand()
               name: interaction.user.tag,
               iconURL: interaction.user.avatarURL(),
             })
-            .setDescription(
-              `**${interaction.guild.name}** ${lang.server_details}`,
-            )
+            .setDescription(`**${interaction.guild.name}** ${lang.server_details}`)
             .addFields(
               {
                 name: `:identification_card:${lang.server_identifier}`,
@@ -79,16 +71,12 @@ const command = new SlashCommand()
 
               {
                 name: lang.number_of_member,
-                value: users
-                  .filter((member) => !member.user.bot)
-                  .size.toString(),
+                value: users.filter((member) => !member.user.bot).size.toString(),
                 inline: true,
               },
               {
                 name: lang.number_of_bots,
-                value: users
-                  .filter((member) => member.user.bot)
-                  .size.toString(),
+                value: users.filter((member) => member.user.bot).size.toString(),
                 inline: true,
               },
               {
@@ -122,9 +110,7 @@ const command = new SlashCommand()
               name: interaction.user.tag,
               iconURL: interaction.user.avatarURL(),
             })
-            .setDescription(
-              `**${interaction.guild.name}** ${lang.server_details}`,
-            )
+            .setDescription(`**${interaction.guild.name}** ${lang.server_details}`)
             .addFields(
               {
                 name: `:identification_card:${lang.server_identifier}`,
@@ -134,16 +120,12 @@ const command = new SlashCommand()
 
               {
                 name: lang.number_of_member,
-                value: users
-                  .filter((member) => !member.user.bot)
-                  .size.toString(),
+                value: users.filter((member) => !member.user.bot).size.toString(),
                 inline: true,
               },
               {
                 name: lang.number_of_bots,
-                value: users
-                  .filter((member) => member.user.bot)
-                  .size.toString(),
+                value: users.filter((member) => member.user.bot).size.toString(),
                 inline: true,
               },
               {

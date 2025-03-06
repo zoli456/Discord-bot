@@ -1,8 +1,4 @@
-const {
-  ChannelType,
-  InteractionContextType,
-  PermissionsBitField,
-} = require("discord.js");
+const { ChannelType, InteractionContextType, PermissionsBitField } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 
 const command = new SlashCommand()
@@ -71,10 +67,7 @@ command.addSubcommand((subcommand) =>
         .setDescription("Mentioning @everyone or @here?")
         .setAutocomplete(false)
         .setRequired(false)
-        .addChoices(
-          { name: "Everyone", value: "@everyone" },
-          { name: "Here", value: "@here" },
-        )
+        .addChoices({ name: "Everyone", value: "@everyone" }, { name: "Here", value: "@here" })
         .setNameLocalizations({
           hu: "tömeges_megemlítés",
         })
@@ -132,9 +125,7 @@ command.addSubcommand((subcommand) =>
     }),
 );
 command.setRun(async (client, interaction, options) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === interaction.guildId,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
   const lang = client.localization_manager.getLanguage(
     await guildSettings.settings_db.getData("/language"),
   );
@@ -143,22 +134,22 @@ command.setRun(async (client, interaction, options) => {
       `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
     );
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
-  if (
-    await client.is_it_word_game_channel(interaction.channel, guildSettings)
-  ) {
+  if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
   if (
-    interaction.memberPermissions.has(
-      PermissionsBitField.Flags.Administrator,
-    ) ||
+    interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
     interaction.user.id === process.env.ADMINID
   ) {
     if (interaction.options.getSubcommand() === "add") {
@@ -172,21 +163,17 @@ command.setRun(async (client, interaction, options) => {
           client.twitch_list[i].twitch_user === twitch_user
         ) {
           return interaction.reply({
-            embeds: [client.ErrorEmbed(lang.error_title, "This a duplicate.")],
+            embeds: [
+              client.ErrorEmbed(lang.error_title, "This a duplicate."),
+            ],
             flags: MessageFlags.Ephemeral,
           });
         }
       }
-      if (
-        client.twitch_list.filter((x) => x.guild_id === interaction.guildId)
-          .length >= 4
-      ) {
+      if (client.twitch_list.filter((x) => x.guild_id === interaction.guildId).length >= 4) {
         return interaction.reply({
           embeds: [
-            client.ErrorEmbed(
-              lang.error_title,
-              "You reached the limit(3) feeds on this server.",
-            ),
+            client.ErrorEmbed(lang.error_title, "You reached the limit(3) feeds on this server."),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -222,7 +209,9 @@ command.setRun(async (client, interaction, options) => {
         last_status: "",
       });
       return interaction.reply({
-        embeds: [client.SuccessEmbed("Successfully added the stream!")],
+        embeds: [
+          client.SuccessEmbed("Successfully added the stream!"),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -267,10 +256,8 @@ command.setRun(async (client, interaction, options) => {
           let db_data = await guildSettings.settings_db.getData("/twitch");
           for (let a = 0; a < db_data.length; a++) {
             if (
-              db_data[a].channel_id ===
-                twitch_notifications[feed_id].channel_id &&
-              db_data[a].twitch_user ===
-                twitch_notifications[feed_id].twitch_user
+              db_data[a].channel_id === twitch_notifications[feed_id].channel_id &&
+              db_data[a].twitch_user === twitch_notifications[feed_id].twitch_user
             ) {
               db_data.splice(a, 1);
               break;
@@ -280,10 +267,8 @@ command.setRun(async (client, interaction, options) => {
         }
         for (let a = 0; a < client.twitch_list.length; a++) {
           if (
-            client.twitch_list[a].channel_id ===
-              twitch_notifications[feed_id].channel_id &&
-            client.twitch_list[a].twitch_user ===
-              twitch_notifications[feed_id].twitch_user
+            client.twitch_list[a].channel_id === twitch_notifications[feed_id].channel_id &&
+            client.twitch_list[a].twitch_user === twitch_notifications[feed_id].twitch_user
           ) {
             client.twitch_list.splice(a, 1);
             break;
@@ -298,10 +283,7 @@ command.setRun(async (client, interaction, options) => {
       } else {
         return interaction.reply({
           embeds: [
-            client.ErrorEmbed(
-              lang.error_title,
-              "You haven't got any stream to delete!",
-            ),
+            client.ErrorEmbed(lang.error_title, "You haven't got any stream to delete!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -310,20 +292,17 @@ command.setRun(async (client, interaction, options) => {
     if (interaction.options.getSubcommand() === "delete-all") {
       if (await guildSettings.settings_db.exists("/twitch")) {
         await guildSettings.settings_db.delete("/twitch");
-        client.twitch_list = client.twitch_list.filter(
-          (x) => x.guild_id !== interaction.guildId,
-        );
+        client.twitch_list = client.twitch_list.filter((x) => x.guild_id !== interaction.guildId);
         return interaction.reply({
-          embeds: [client.SuccessEmbed("Successfully removed all streams!")],
+          embeds: [
+            client.SuccessEmbed("Successfully removed all streams!"),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       } else {
         return interaction.reply({
           embeds: [
-            client.ErrorEmbed(
-              lang.error_title,
-              "You haven't got any streams to delete!",
-            ),
+            client.ErrorEmbed(lang.error_title, "You haven't got any streams to delete!"),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -332,10 +311,7 @@ command.setRun(async (client, interaction, options) => {
   } else {
     return interaction.reply({
       embeds: [
-        client.ErrorEmbed(
-          lang.error_title,
-          "You are not authorized to use this command!",
-        ),
+        client.ErrorEmbed(lang.error_title, "You are not authorized to use this command!"),
       ],
       flags: MessageFlags.Ephemeral,
     });

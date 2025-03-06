@@ -22,9 +22,7 @@ const command = new SlashCommand()
   })
   .setContexts(InteractionContextType.Guild)
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -33,7 +31,9 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -47,9 +47,7 @@ const command = new SlashCommand()
     } else {
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.lavalink_not_connected),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.lavalink_not_connected),
         ],
       });
     }
@@ -57,9 +55,7 @@ const command = new SlashCommand()
     if (!player) {
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.no_songs_in_queue),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.no_songs_in_queue),
         ],
         flags: MessageFlags.Ephemeral,
       });
@@ -70,7 +66,9 @@ const command = new SlashCommand()
         .setColor(client.config.embedColor)
         .setDescription(lang.nothing_playing);
       return interaction.reply({
-        embeds: [queueEmbed],
+        embeds: [
+          queueEmbed,
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -83,9 +81,7 @@ const command = new SlashCommand()
       var title = title.replace(/\[/g, "");
       const queueEmbed = new EmbedBuilder()
         .setColor(client.config.embedColor)
-        .setDescription(
-          `**♪ | ${lang.now_playing}:** [${title}](${player.queue.current.info.uri})`,
-        )
+        .setDescription(`**♪ | ${lang.now_playing}:** [${title}](${player.queue.current.info.uri})`)
         .addFields(
           {
             name: lang.duration,
@@ -111,7 +107,9 @@ const command = new SlashCommand()
         );
 
       await interaction.editReply({
-        embeds: [queueEmbed],
+        embeds: [
+          queueEmbed,
+        ],
       });
     } else {
       let queueDuration = player.queue.utils.totalDuration();
@@ -125,8 +123,7 @@ const command = new SlashCommand()
       }
 
       const mapping = player.queue.tracks.map(
-        (t, i) =>
-          `\` ${++i} \` [${t.info.title}](${t.info.uri}) [${t.requester}]`,
+        (t, i) => `\` ${++i} \` [${t.info.title}](${t.info.uri}) [${t.requester}]`,
       );
 
       const chunk = load.chunk(mapping, 10);
@@ -185,7 +182,9 @@ const command = new SlashCommand()
 
         await interaction
           .editReply({
-            embeds: [embedTwo],
+            embeds: [
+              embedTwo,
+            ],
           })
           .catch(() => {});
       } else {
@@ -237,9 +236,13 @@ const command = new SlashCommand()
 
         await interaction
           .editReply({
-            embeds: [embedThree],
+            embeds: [
+              embedThree,
+            ],
             components: [
-              new ActionRowBuilder().addComponents([buttonTwo, buttonOne]),
+              new ActionRowBuilder().addComponents([
+                buttonTwo, buttonOne,
+              ]),
             ],
           })
           .catch(() => {});
@@ -304,9 +307,13 @@ const command = new SlashCommand()
               });
 
             await interaction.editReply({
-              embeds: [embedFour],
+              embeds: [
+                embedFour,
+              ],
               components: [
-                new ActionRowBuilder().addComponents([buttonTwo, buttonOne]),
+                new ActionRowBuilder().addComponents([
+                  buttonTwo, buttonOne,
+                ]),
               ],
             });
           } else if (button.customId === "queue_cmd_but_2_app") {
@@ -352,9 +359,13 @@ const command = new SlashCommand()
 
             await interaction
               .editReply({
-                embeds: [embedFive],
+                embeds: [
+                  embedFive,
+                ],
                 components: [
-                  new ActionRowBuilder().addComponents([buttonTwo, buttonOne]),
+                  new ActionRowBuilder().addComponents([
+                    buttonTwo, buttonOne,
+                  ]),
                 ],
               })
               .catch(() => {});
@@ -366,9 +377,7 @@ const command = new SlashCommand()
           await interaction.editReply({
             content: null,
             embeds: [
-              new EmbedBuilder()
-                .setDescription(lang.time_is_up)
-                .setColor(client.config.embedColor),
+              new EmbedBuilder().setDescription(lang.time_is_up).setColor(client.config.embedColor),
             ],
             components: [],
             flags: MessageFlags.Ephemeral,

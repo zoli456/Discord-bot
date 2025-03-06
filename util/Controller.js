@@ -10,16 +10,16 @@ module.exports = async (client, interaction) => {
   let property = interaction.customId.split(":")[2];
   let player = client.manager.getPlayer(guild.id);
 
-  const guild_settings = client.guild_settings.find(
-    (e) => e.guildId === player.guildId,
-  );
+  const guild_settings = client.guild_settings.find((e) => e.guildId === player.guildId);
   const lang = client.localization_manager.getLanguage(
     await guild_settings.settings_db.getData("/language"),
   );
 
   if (!player) {
     await interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.no_player)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.no_player),
+      ],
     });
     setTimeout(() => {
       interaction.deleteReply();
@@ -41,9 +41,7 @@ module.exports = async (client, interaction) => {
 
   if (
     interaction.guild.members.me.voice.channel &&
-    !interaction.guild.members.me.voice.channel.equals(
-      interaction.member.voice.channel,
-    )
+    !interaction.guild.members.me.voice.channel.equals(interaction.member.voice.channel)
   ) {
     return await interaction
       .reply({
@@ -62,7 +60,9 @@ module.exports = async (client, interaction) => {
     );
     return interaction
       .reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_button)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_button),
+        ],
         flags: MessageFlags.Ephemeral,
       })
       .then((msg) => {
@@ -84,7 +84,9 @@ module.exports = async (client, interaction) => {
       `${colors.blue(interaction.guild.name)}(${interaction.guildId}) | Successfully stopped the player by ${colors.blue(interaction.user.username)}(${interaction.member.id})`,
     );
     const msg = await interaction.channel.send({
-      embeds: [client.Embed(lang.successfully_stopped)],
+      embeds: [
+        client.Embed(lang.successfully_stopped),
+      ],
     });
     setTimeout(() => {
       msg.delete();
@@ -102,9 +104,7 @@ module.exports = async (client, interaction) => {
       return interaction.reply({
         flags: MessageFlags.Ephemeral,
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.no_previous),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.no_previous),
         ],
       });
     }
@@ -143,7 +143,9 @@ module.exports = async (client, interaction) => {
       );
 
       return interaction.update({
-        components: [client.createController(player.options.guildId, player)],
+        components: [
+          client.createController(player.options.guildId, player),
+        ],
       });
     }
   }
@@ -151,10 +153,7 @@ module.exports = async (client, interaction) => {
   if (property === "Next") {
     const song = player.queue.current;
     const autoQueue = player.get("autoQueue");
-    if (
-      player.queue.tracks.length === 0 &&
-      (!autoQueue || autoQueue === false)
-    ) {
+    if (player.queue.tracks.length === 0 && (!autoQueue || autoQueue === false)) {
       return interaction.reply({
         flags: MessageFlags.Ephemeral,
         embeds: [
@@ -177,9 +176,7 @@ module.exports = async (client, interaction) => {
       const msg = await interaction.channel.send({
         flags: MessageFlags.Ephemeral,
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FFFFFF")
-            .setDescription(lang.repeat_song),
+          new EmbedBuilder().setColor("#FFFFFF").setDescription(lang.repeat_song),
         ],
       });
       setTimeout(() => {
@@ -190,9 +187,7 @@ module.exports = async (client, interaction) => {
       const msg = await interaction.channel.send({
         flags: MessageFlags.Ephemeral,
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FFFFFF")
-            .setDescription(lang.repeat_queue),
+          new EmbedBuilder().setColor("#FFFFFF").setDescription(lang.repeat_queue),
         ],
       });
       setTimeout(() => {
@@ -203,9 +198,7 @@ module.exports = async (client, interaction) => {
       const msg = await interaction.channel.send({
         flags: MessageFlags.Ephemeral,
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FFFFFF")
-            .setDescription(lang.repeat_off),
+          new EmbedBuilder().setColor("#FFFFFF").setDescription(lang.repeat_off),
         ],
       });
       setTimeout(() => {
@@ -215,22 +208,22 @@ module.exports = async (client, interaction) => {
     }
     client.log(
       `${colors.blue(interaction.guild.name)}(${interaction.guildId}) | Successfully toggled loop ${
-        player.repeatMode === "track"
-          ? "on"
-          : player.repeatMode === "queue"
-            ? "queue on"
-            : "off"
+        player.repeatMode === "track" ? "on" : player.repeatMode === "queue" ? "queue on" : "off"
       } the player by ${colors.blue(interaction.user.username)}(${interaction.member.id})`,
     );
 
     interaction.update({
-      components: [client.createController(player.options.guildId, player)],
+      components: [
+        client.createController(player.options.guildId, player),
+      ],
     });
     return;
   }
 
   return interaction.reply({
-    embed: [client.ErrorEmbed(lang.error_title, lang.unknown_option)],
+    embed: [
+      client.ErrorEmbed(lang.error_title, lang.unknown_option),
+    ],
     flags: MessageFlags.Ephemeral,
   });
 };

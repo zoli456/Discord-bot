@@ -14,16 +14,12 @@ module.exports = async (client, oldMessage, newMessage) => {
     oldMessage.content === ""
   )
     return;
-  const guild_settings = client.guild_settings.find(
-    (e) => e.guildId === newMessage.guild.id,
-  );
+  const guild_settings = client.guild_settings.find((e) => e.guildId === newMessage.guild.id);
   let settingsDb = await guild_settings.settings_db.getData("/");
   const lang = client.localization_manager.getLanguage(settingsDb.language);
 
   if (
-    !newMessage.member.permissions.has(
-      PermissionsBitField.Flags.Administrator,
-    ) &&
+    !newMessage.member.permissions.has(PermissionsBitField.Flags.Administrator) &&
     newMessage.member.id !== newMessage.guild.ownerId
   ) {
     if (settingsDb.automod_links || settingsDb.automod_invite) {
@@ -41,10 +37,7 @@ module.exports = async (client, oldMessage, newMessage) => {
         return newMessage.channel
           .send({
             embeds: [
-              client.WarningEmbed(
-                lang.warning_title,
-                lang.automod_url_shortener,
-              ),
+              client.WarningEmbed(lang.warning_title, lang.automod_url_shortener),
             ],
           })
           .then((msg) => {
@@ -57,9 +50,7 @@ module.exports = async (client, oldMessage, newMessage) => {
           let check_result;
           const memberHasIgnoredRoles =
             typeof settingsDb.automod_invite.ignored_role === "function"
-              ? settingsDb.automod_invite.ignored_role(
-                  newMessage.member.roles.cache,
-                )
+              ? settingsDb.automod_invite.ignored_role(newMessage.member.roles.cache)
               : settingsDb.automod_invite.ignored_role.some((r) =>
                   newMessage.member.roles.cache.has(r),
                 );
@@ -76,9 +67,7 @@ module.exports = async (client, oldMessage, newMessage) => {
 
             if (settingsDb.automod_invite.method === "accurate") {
               if (check_result.success) {
-                punish =
-                  check_result.isInvitation &&
-                  check_result.guild.id !== newMessage.guild.id;
+                punish = check_result.isInvitation && check_result.guild.id !== newMessage.guild.id;
               } else {
                 punish = IsInvitation.regex(checked_data);
               }
@@ -88,10 +77,7 @@ module.exports = async (client, oldMessage, newMessage) => {
             newMessage.channel
               .send({
                 embeds: [
-                  client.WarningEmbed(
-                    lang.warning_title,
-                    lang.dont_post_invite,
-                  ),
+                  client.WarningEmbed(lang.warning_title, lang.dont_post_invite),
                 ],
               })
               .then((msg) => {
@@ -99,8 +85,7 @@ module.exports = async (client, oldMessage, newMessage) => {
               });
             switch (settingsDb.automod_invite.punishment) {
               case "kick": {
-                if (newMessage.member.kickable)
-                  await newMessage.member.kick("Automod Invite");
+                if (newMessage.member.kickable) await newMessage.member.kick("Automod Invite");
                 break;
               }
               case "delete": {
@@ -114,13 +99,9 @@ module.exports = async (client, oldMessage, newMessage) => {
                 break;
               }
               default: {
-                const time_in_min =
-                  settingsDb.automod_invite.punishment.split(" ")[1];
+                const time_in_min = settingsDb.automod_invite.punishment.split(" ")[1];
                 if (newMessage.member.manageable)
-                  await newMessage.member.timeout(
-                    time_in_min * 60 * 1000,
-                    "Automod Invite",
-                  );
+                  await newMessage.member.timeout(time_in_min * 60 * 1000, "Automod Invite");
                 break;
               }
             }
@@ -132,9 +113,7 @@ module.exports = async (client, oldMessage, newMessage) => {
           let punish;
           const memberHasIgnoredRoles =
             typeof settingsDb.automod_links.ignored_role === "function"
-              ? settingsDb.automod_links.ignored_role(
-                  newMessage.member.roles.cache,
-                )
+              ? settingsDb.automod_links.ignored_role(newMessage.member.roles.cache)
               : settingsDb.automod_links.ignored_role.some((r) =>
                   newMessage.member.roles.cache.has(r),
                 );
@@ -149,10 +128,7 @@ module.exports = async (client, oldMessage, newMessage) => {
               newMessage.channel
                 .send({
                   embeds: [
-                    client.WarningEmbed(
-                      lang.warning_title,
-                      lang.automod_links_bad_link,
-                    ),
+                    client.WarningEmbed(lang.warning_title, lang.automod_links_bad_link),
                   ],
                 })
                 .then((msg) => {
@@ -160,8 +136,7 @@ module.exports = async (client, oldMessage, newMessage) => {
                 });
               switch (settingsDb.automod_links.punishment) {
                 case "kick": {
-                  if (newMessage.member.kickable)
-                    await newMessage.member.kick("Automod Link");
+                  if (newMessage.member.kickable) await newMessage.member.kick("Automod Link");
                   break;
                 }
                 case "ban": {
@@ -175,13 +150,9 @@ module.exports = async (client, oldMessage, newMessage) => {
                   break;
                 }
                 default: {
-                  const time_in_min =
-                    settingsDb.automod_links.punishment.split(" ")[1];
+                  const time_in_min = settingsDb.automod_links.punishment.split(" ")[1];
                   if (newMessage.member.manageable)
-                    await newMessage.member.timeout(
-                      time_in_min * 60 * 1000,
-                      "Automod Link",
-                    );
+                    await newMessage.member.timeout(time_in_min * 60 * 1000, "Automod Link");
                   break;
                 }
               }
@@ -197,24 +168,15 @@ module.exports = async (client, oldMessage, newMessage) => {
     const isChannelIgnored =
       typeof settingsDb.automod_messages.ignored_channel === "function"
         ? settingsDb.automod_messages.ignored_channel(newMessage.channel)
-        : settingsDb.automod_messages.ignored_channel.includes(
-            newMessage.channel.id,
-          );
+        : settingsDb.automod_messages.ignored_channel.includes(newMessage.channel.id);
     const memberHasIgnoredRoles =
       typeof settingsDb.automod_messages.ignored_role === "function"
-        ? settingsDb.automod_messages.ignored_role(
-            newMessage.member.roles.cache,
-          )
+        ? settingsDb.automod_messages.ignored_role(newMessage.member.roles.cache)
         : settingsDb.automod_messages.ignored_role.some((r) =>
             newMessage.member.roles.cache.has(r),
           );
     if (!isChannelIgnored && !memberHasIgnoredRoles) {
-      if (
-        doesContainBadWords(
-          textToLatin(newMessage.content),
-          client.strongword_filter,
-        )
-      ) {
+      if (doesContainBadWords(textToLatin(newMessage.content), client.strongword_filter)) {
         await newMessage.channel
           .send({
             embeds: [
@@ -235,9 +197,7 @@ module.exports = async (client, oldMessage, newMessage) => {
     oldMessage.content.length <= 1024 &&
     newMessage.content.length <= 1024
   ) {
-    const log_channel = client.channels.cache.get(
-      settingsDb.log_channel.log_channel_id,
-    );
+    const log_channel = client.channels.cache.get(settingsDb.log_channel.log_channel_id);
 
     log_channel.send({
       embeds: [

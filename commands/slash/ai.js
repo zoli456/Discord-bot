@@ -1,8 +1,4 @@
-const {
-  EmbedBuilder,
-  MessageFlags,
-  InteractionContextType,
-} = require("discord.js");
+const { EmbedBuilder, MessageFlags, InteractionContextType } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 const { question } = require("../..//lib/hercai");
 const check_image = require("../../lib/Image-Generation/module/functions");
@@ -196,9 +192,7 @@ command.addSubcommand((subcommand) =>
     ),
 );
 command.setRun(async (client, interaction, options) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === interaction.guildId,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
   const lang = client.localization_manager.getLanguage(
     await guildSettings.settings_db.getData("/language"),
   );
@@ -207,15 +201,17 @@ command.setRun(async (client, interaction, options) => {
       `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
     );
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
-  if (
-    await client.is_it_word_game_channel(interaction.channel, guildSettings)
-  ) {
+  if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
@@ -244,14 +240,18 @@ command.setRun(async (client, interaction, options) => {
   if (interaction.options.getSubcommand() === "nsfw") {
     if (!interaction.channel.nsfw) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.not_nsfw_channel)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.not_nsfw_channel),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
     if (input_url) {
       if (!(await check_image.validateURL(input_url))) {
         return interaction.editReply({
-          embeds: [client.ErrorEmbed(lang.error_title, lang.invalid_link)],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, lang.invalid_link),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       }
@@ -259,7 +259,9 @@ command.setRun(async (client, interaction, options) => {
       input_url = options.getAttachment("attachment", false);
       if (!input_url) {
         return interaction.editReply({
-          embeds: [client.ErrorEmbed(lang.error_title, lang.no_input_image)],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, lang.no_input_image),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       } else {
@@ -276,8 +278,7 @@ command.setRun(async (client, interaction, options) => {
             headers: {
               "Content-Type": "application/json",
               "X-RapidAPI-Key": process.env.NSFW_IMAGE_DETECTION_API_KEY,
-              "X-RapidAPI-Host":
-                "nsfw-images-detection-and-classification.p.rapidapi.com",
+              "X-RapidAPI-Host": "nsfw-images-detection-and-classification.p.rapidapi.com",
             },
             body: JSON.stringify({
               url: input_url,
@@ -299,7 +300,11 @@ command.setRun(async (client, interaction, options) => {
           : `${lang.detected_elements} ${response.objects.map((obj) => lang[obj.label.toLowerCase()]).join(", ")}`;
 
       response_embed.setDescription(bot_answer).setImage(input_url);
-      await interaction.editReply({ embeds: [response_embed] });
+      await interaction.editReply({
+        embeds: [
+          response_embed,
+        ],
+      });
     } catch (error) {
       return interaction.editReply({
         embeds: [
@@ -318,7 +323,9 @@ command.setRun(async (client, interaction, options) => {
     if (input_url) {
       if (!(await check_image.validateURL(input_url))) {
         return interaction.editReply({
-          embeds: [client.ErrorEmbed(lang.error_title, lang.invalid_link)],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, lang.invalid_link),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       }
@@ -326,7 +333,9 @@ command.setRun(async (client, interaction, options) => {
       input_url = options.getAttachment("attachment", false);
       if (!input_url) {
         return interaction.editReply({
-          embeds: [client.ErrorEmbed(lang.error_title, lang.no_input_image)],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, lang.no_input_image),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       } else {
@@ -374,7 +383,9 @@ command.setRun(async (client, interaction, options) => {
       nsfw_check_response = await nsfw_check_response.json();
       if (nsfw_check_response.Result) {
         return interaction.editReply({
-          embeds: [client.ErrorEmbed(lang.error_title, lang.bad_image)],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, lang.bad_image),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       }
@@ -390,30 +401,29 @@ command.setRun(async (client, interaction, options) => {
 
   if (interaction.options.getSubcommand() === "age") {
     try {
-      const response = await fetch(
-        "https://age-detector.p.rapidapi.com/age-detection",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-RapidAPI-Key": process.env.AGE_DETECTION_API_KEY,
-            "X-RapidAPI-Host": "age-detector.p.rapidapi.com",
-          },
-          body: JSON.stringify({
-            url: input_url,
-          }),
+      const response = await fetch("https://age-detector.p.rapidapi.com/age-detection", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-RapidAPI-Key": process.env.AGE_DETECTION_API_KEY,
+          "X-RapidAPI-Host": "age-detector.p.rapidapi.com",
         },
-      ).then((res) => res.json());
+        body: JSON.stringify({
+          url: input_url,
+        }),
+      }).then((res) => res.json());
 
-      const response_embed = new EmbedBuilder()
-        .setTitle(lang.indentfied_ages)
-        .setColor("#ffffff");
+      const response_embed = new EmbedBuilder().setTitle(lang.indentfied_ages).setColor("#ffffff");
       let bot_answer =
         response.length === 0
           ? lang.none
           : response.map((res) => `${res.age} ${lang.years}`).join(", ");
       response_embed.setDescription(bot_answer).setImage(input_url);
-      await interaction.editReply({ embeds: [response_embed] });
+      await interaction.editReply({
+        embeds: [
+          response_embed,
+        ],
+      });
     } catch (error) {
       return interaction.editReply({
         embeds: [
@@ -426,30 +436,29 @@ command.setRun(async (client, interaction, options) => {
 
   if (interaction.options.getSubcommand() === "emotion") {
     try {
-      const response = await fetch(
-        "https://emotion-detection2.p.rapidapi.com/emotion-detection",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-RapidAPI-Key": process.env.EMOTION_DETECTION_API_KEY,
-            "X-RapidAPI-Host": "emotion-detection2.p.rapidapi.com",
-          },
-          body: JSON.stringify({
-            url: input_url,
-          }),
+      const response = await fetch("https://emotion-detection2.p.rapidapi.com/emotion-detection", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-RapidAPI-Key": process.env.EMOTION_DETECTION_API_KEY,
+          "X-RapidAPI-Host": "emotion-detection2.p.rapidapi.com",
         },
-      ).then((res) => res.json());
+        body: JSON.stringify({
+          url: input_url,
+        }),
+      }).then((res) => res.json());
 
       const response_embed = new EmbedBuilder()
         .setTitle(lang.indentfied_emotions)
         .setColor("#ffffff");
       let bot_answer =
-        response.length === 0
-          ? lang.none
-          : response.map((res) => res.emotion.value).join(", ");
+        response.length === 0 ? lang.none : response.map((res) => res.emotion.value).join(", ");
       response_embed.setDescription(bot_answer).setImage(input_url);
-      await interaction.editReply({ embeds: [response_embed] });
+      await interaction.editReply({
+        embeds: [
+          response_embed,
+        ],
+      });
     } catch (error) {
       return interaction.editReply({
         embeds: [
@@ -462,30 +471,27 @@ command.setRun(async (client, interaction, options) => {
 
   if (interaction.options.getSubcommand() === "logo") {
     try {
-      const response = await fetch(
-        "https://logo-recognition.p.rapidapi.com/logo-detection",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-RapidAPI-Key": process.env.LOGO_DETECTION_API_KEY,
-            "X-RapidAPI-Host": "logo-recognition.p.rapidapi.com",
-          },
-          body: JSON.stringify({
-            url: input_url,
-          }),
+      const response = await fetch("https://logo-recognition.p.rapidapi.com/logo-detection", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-RapidAPI-Key": process.env.LOGO_DETECTION_API_KEY,
+          "X-RapidAPI-Host": "logo-recognition.p.rapidapi.com",
         },
-      ).then((res) => res.json());
+        body: JSON.stringify({
+          url: input_url,
+        }),
+      }).then((res) => res.json());
 
-      const response_embed = new EmbedBuilder()
-        .setTitle(lang.indentfied_logos)
-        .setColor("#ffffff");
+      const response_embed = new EmbedBuilder().setTitle(lang.indentfied_logos).setColor("#ffffff");
       let bot_answer =
-        response.length === 0
-          ? lang.none
-          : response.map((res) => res.logo).join(", ");
+        response.length === 0 ? lang.none : response.map((res) => res.logo).join(", ");
       response_embed.setDescription(bot_answer).setImage(input_url);
-      await interaction.editReply({ embeds: [response_embed] });
+      await interaction.editReply({
+        embeds: [
+          response_embed,
+        ],
+      });
     } catch (error) {
       return interaction.editReply({
         embeds: [

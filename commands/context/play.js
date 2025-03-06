@@ -22,9 +22,7 @@ module.exports = {
    * @param {import("discord.js").GuildContextMenuInteraction} interaction
    */
   run: async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -33,7 +31,9 @@ module.exports = {
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -64,7 +64,9 @@ module.exports = {
     if (query.includes("pornhub.com") && !interaction.channel.nsfw) {
       return interaction
         .reply({
-          embeds: [client.ErrorEmbed(lang.error_title, lang.play_nsfw_channel)],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, lang.play_nsfw_channel),
+          ],
           flags: MessageFlags.Ephemeral,
         })
         .then((msg) => setTimeout(() => msg.delete(), 20000));
@@ -85,9 +87,7 @@ module.exports = {
     try {
       ret = await interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor(client.config.embedColor)
-            .setDescription(lang.searching),
+          new EmbedBuilder().setColor(client.config.embedColor).setDescription(lang.searching),
         ],
       });
     } catch (e) {
@@ -109,9 +109,7 @@ module.exports = {
       return await interaction
         .editReply({
           embeds: [
-            new EmbedBuilder()
-              .setColor("#FF0000")
-              .setDescription(lang.error_while_searching),
+            new EmbedBuilder().setColor("#FF0000").setDescription(lang.error_while_searching),
           ],
         })
         .catch(this.warn);
@@ -124,9 +122,7 @@ module.exports = {
       return await interaction
         .editReply({
           embeds: [
-            new EmbedBuilder()
-              .setColor("#FF0000")
-              .setDescription(lang.no_result),
+            new EmbedBuilder().setColor("#FF0000").setDescription(lang.no_result),
           ],
         })
         .catch(this.warn);
@@ -164,9 +160,7 @@ module.exports = {
           name: lang.added_to_queue,
           iconURL: client.config.iconURL,
         })
-        .setDescription(
-          `[${title}](${res.tracks[0].info.uri})` || lang.no_title,
-        )
+        .setDescription(`[${title}](${res.tracks[0].info.uri})` || lang.no_title)
         .setURL(res.tracks[0].info.uri)
         .addFields(
           {
@@ -203,17 +197,19 @@ module.exports = {
         //  player.queue.previous = player.queue.current;
       }
 
-      await interaction.editReply({ embeds: [addQueueEmbed] }).catch(this.warn);
+      await interaction
+        .editReply({
+          embeds: [
+            addQueueEmbed,
+          ],
+        })
+        .catch(this.warn);
     }
 
     if (res.loadType === "playlist") {
       player.queue.add(res.tracks);
 
-      if (
-        !player.playing &&
-        !player.paused &&
-        player.queue.tracks.length === res.tracks.length
-      ) {
+      if (!player.playing && !player.paused && player.queue.tracks.length === res.tracks.length) {
         await player.play();
       }
 
@@ -241,7 +237,13 @@ module.exports = {
           },
         );
 
-      await interaction.editReply({ embeds: [playlistEmbed] }).catch(this.warn);
+      await interaction
+        .editReply({
+          embeds: [
+            playlistEmbed,
+          ],
+        })
+        .catch(this.warn);
     }
 
     if (ret) setTimeout(() => ret.delete().catch(this.warn), 10000);

@@ -24,9 +24,7 @@ const LoadDirectory = (dir) => {
         let cmd = require(CommandsDir + "/" + file);
         if (!cmd || (dir == "context" && !cmd.command)) {
           return console.log(
-            "Unable to load Command: " +
-              file.split(".")[0] +
-              ", File doesn't have either command"
+            "Unable to load Command: " + file.split(".")[0] + ", File doesn't have either command",
           );
         }
         if (dir == "context") {

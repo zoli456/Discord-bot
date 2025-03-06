@@ -25,9 +25,7 @@ const command = new SlashCommand()
       .setRequired(true),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     let lang = await guildSettings.settings_db.getData("/language");
 
     if (client.commandLimiter.take(interaction.member.id)) {
@@ -38,16 +36,18 @@ const command = new SlashCommand()
         await guildSettings.settings_db.getData("/language"),
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
 
-    if (
-      await client.is_it_word_game_channel(interaction.channel, guildSettings)
-    ) {
+    if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -128,8 +128,12 @@ const command = new SlashCommand()
         .replaceAll("E", "K")
         .replaceAll("S", "D")
         .replaceAll("W", "Ny");
-      sunset = moment(sunset, ["hh:mm A"]).format("HH:mm");
-      sunrise = moment(sunrise, ["hh:mm A"]).format("HH:mm");
+      sunset = moment(sunset, [
+        "hh:mm A",
+      ]).format("HH:mm");
+      sunrise = moment(sunrise, [
+        "hh:mm A",
+      ]).format("HH:mm");
       if (countryName === "Hongrie") countryName = "Hungary"; // Bug fix
     }
 

@@ -1,12 +1,9 @@
 const { EmbedBuilder, AuditLogEvent } = require("discord.js");
 
 module.exports = async (client, oldEmoji, newEmoji) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === oldEmoji.guild.id,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === oldEmoji.guild.id);
   if (await guildSettings.settings_db.exists("/log_channel")) {
-    const log_settings =
-      await guildSettings.settings_db.getData("/log_channel");
+    const log_settings = await guildSettings.settings_db.getData("/log_channel");
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -26,9 +23,7 @@ module.exports = async (client, oldEmoji, newEmoji) => {
             name: emojiLog.executor.tag,
             iconURL: emojiLog.executor.displayAvatarURL({ dynamic: true }),
           })
-          .setDescription(
-            lang.emoji_changed.replace("{u}", `<@${emojiLog.executorId}>`),
-          )
+          .setDescription(lang.emoji_changed.replace("{u}", `<@${emojiLog.executorId}>`))
           .addFields(
             {
               name: lang.old_identifier,

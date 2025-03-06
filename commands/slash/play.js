@@ -1,10 +1,5 @@
 const SlashCommand = require("../../lib/SlashCommand");
-const {
-  EmbedBuilder,
-  InteractionContextType,
-  ChannelType,
-  escapeMarkdown,
-} = require("discord.js");
+const { EmbedBuilder, InteractionContextType, ChannelType, escapeMarkdown } = require("discord.js");
 
 const command = new SlashCommand()
   .setName("play")
@@ -37,10 +32,7 @@ const command = new SlashCommand()
       .setDescription("Should I skip the sponsored segments?")
       .setAutocomplete(false)
       .setRequired(false)
-      .addChoices(
-        { name: "Yes", value: "true" },
-        { name: "No", value: "false" },
-      )
+      .addChoices({ name: "Yes", value: "true" }, { name: "No", value: "false" })
       .setNameLocalizations({
         hu: "sponzor_szűrő",
       })
@@ -49,9 +41,7 @@ const command = new SlashCommand()
       }),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -60,7 +50,9 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -69,7 +61,9 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit on the player: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_button)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_button),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -98,7 +92,9 @@ const command = new SlashCommand()
     if (query.includes("pornhub.com") && !interaction.channel.nsfw) {
       return interaction
         .reply({
-          embeds: [client.ErrorEmbed(lang.error_title, lang.play_nsfw_channel)],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, lang.play_nsfw_channel),
+          ],
           flags: MessageFlags.Ephemeral,
         })
         .then((msg) => setTimeout(() => msg.delete(), 20000));
@@ -123,9 +119,7 @@ const command = new SlashCommand()
     try {
       ret = await interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor(client.config.embedColor)
-            .setDescription(lang.searching),
+          new EmbedBuilder().setColor(client.config.embedColor).setDescription(lang.searching),
         ],
       });
     } catch (e) {
@@ -154,9 +148,7 @@ const command = new SlashCommand()
       return await interaction
         .editReply({
           embeds: [
-            new EmbedBuilder()
-              .setColor("#FF0000")
-              .setDescription(lang.error_while_searching),
+            new EmbedBuilder().setColor("#FF0000").setDescription(lang.error_while_searching),
           ],
         })
         .catch(this.warn);
@@ -168,9 +160,7 @@ const command = new SlashCommand()
       return await interaction
         .editReply({
           embeds: [
-            new EmbedBuilder()
-              .setColor("#FF0000")
-              .setDescription(lang.no_result),
+            new EmbedBuilder().setColor("#FF0000").setDescription(lang.no_result),
           ],
         })
         .catch(this.warn);
@@ -206,9 +196,7 @@ const command = new SlashCommand()
           name: lang.added_to_queue,
           iconURL: client.config.iconURL,
         })
-        .setDescription(
-          `[${title}](${res.tracks[0].info.uri})` || lang.no_title,
-        )
+        .setDescription(`[${title}](${res.tracks[0].info.uri})` || lang.no_title)
         .setURL(res.tracks[0].info.uri)
         .addFields(
           {
@@ -243,15 +231,17 @@ const command = new SlashCommand()
         // player.queue.previous = player.queue.current;
       }
 
-      await interaction.editReply({ embeds: [addQueueEmbed] }).catch(this.warn);
+      await interaction
+        .editReply({
+          embeds: [
+            addQueueEmbed,
+          ],
+        })
+        .catch(this.warn);
     }
     if (res.loadType === "playlist") {
       player.queue.add(res.tracks);
-      if (
-        !player.playing &&
-        !player.paused &&
-        player.queue.tracks.length === res.tracks.length
-      ) {
+      if (!player.playing && !player.paused && player.queue.tracks.length === res.tracks.length) {
         await player.play();
       }
       let playlistEmbed = new EmbedBuilder()
@@ -278,7 +268,13 @@ const command = new SlashCommand()
           },
         );
 
-      await interaction.editReply({ embeds: [playlistEmbed] }).catch(this.warn);
+      await interaction
+        .editReply({
+          embeds: [
+            playlistEmbed,
+          ],
+        })
+        .catch(this.warn);
     }
     if (ret) setTimeout(() => ret.delete().catch(this.warn), 10000);
     return ret;

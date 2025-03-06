@@ -49,17 +49,13 @@ const language = {
   disconnected: "Lecsatlakozva!",
   disc_due_to_inac: "A lejátszó lecsatlkozott inaktivitás miatt.",
   requested_by: "Kérte:",
-  you_must_be_in:
-    "Egy hangcsatornán kell lenned ennek a parancsnak a használatához!",
+  you_must_be_in: "Egy hangcsatornán kell lenned ennek a parancsnak a használatához!",
   you_must_same:
     "Ugyan abban a hangcsatornában kell lenned, mint én ennek a parancsnak a használatához!",
-  not_enough_permission:
-    "Nincs elég jogosultságom a te csatornádhoz való csatlakozáshoz.",
+  not_enough_permission: "Nincs elég jogosultságom a te csatornádhoz való csatlakozáshoz.",
   no_player: "**Nincs lejátszó amit lehetne irányítani ezen a szereren.**",
-  you_must_be_action:
-    "Egy hangcsatornán kell lenned ennek az akciónak a használatához!",
-  you_must_be_same:
-    "Ugyan abban a hagcsatornán kell lenned ennek az akciónak a használatához!",
+  you_must_be_action: "Egy hangcsatornán kell lenned ennek az akciónak a használatához!",
+  you_must_be_same: "Ugyan abban a hagcsatornán kell lenned ennek az akciónak a használatához!",
   successfully_stopped: "⏹️ | **Sikeresen megálltottad a lejátszót**",
   no_previous: "Nem található előző szám",
   no_song: "Most éppen egyetlen szám sem megy.",
@@ -163,17 +159,14 @@ const language = {
   invalid_filters: "❌ | Érvénytelen szűrő!",
   choose_a_song: "Válassz egy dalt",
   lyrics1: "Itt van néhány eredmény, amit találtam",
-  lyrics2:
-    "Válassz egy dalt a dalszövegek megjelenítéséhez `30 másodpercen belül`.",
+  lyrics2: "Válassz egy dalt a dalszövegek megjelenítéséhez `30 másodpercen belül`.",
   tips: "Tipp",
   source: "Forrás",
   lyrics_provided: "Dalszöveget Genius biztosítja",
-  not_authorized:
-    "**Sajnos nem vagyunk felhatalmazva arra, hogy megmutassuk a dalszövegeket.**",
+  not_authorized: "**Sajnos nem vagyunk felhatalmazva arra, hogy megmutassuk a dalszövegeket.**",
   resricted_lyrics: "MusixMatch korlátozta ezt a dalszöveget.",
   truncated_lyrics: "\nA dalszöveg túl hozzú, ezért le lett rövidítve.",
-  no_track_lyrics:
-    "Nincs kiválasztott dal. Túl sokáig tartott a zeneszám kiválasztása.",
+  no_track_lyrics: "Nincs kiválasztott dal. Túl sokáig tartott a zeneszám kiválasztása.",
   no_result_for1: "Nem találtam eredményt a",
   no_result_for2: "\nGyőződj meg róla, hogy helyesen írta be a kulcsszót.",
   lyrics_error: "Ismeretlen hiba történt, ellenőrizd a konzolt.",
@@ -195,12 +188,10 @@ const language = {
   seek_msg4: "a pozícióra",
   unable_to_seek:
     "Az aktuális lejátszott zeneszám tekerése nem lehetséges. Ennek oka lehet a sáv időtartamának túllépése vagy helytelen időformátum. Kérlek, ellenőrizd és próbáld újra.",
-  cant_use_in_this_channel:
-    "Ezt parancsot csak a <#%channel%> csatornán hasznáhatod!",
+  cant_use_in_this_channel: "Ezt parancsot csak a <#%channel%> csatornán hasznáhatod!",
   time_is_up: "Lejárt az idő! Kérlek használd újra a parancsot!",
   please_wait_between: "Kérlek várj 5 másodpercet a parancsok között!",
-  left_alone_in_channel:
-    "Elhagytam a csatornát, mert már nincs senki a hangcsatornán.",
+  left_alone_in_channel: "Elhagytam a csatornát, mert már nincs senki a hangcsatornán.",
   please_wait_button:
     "Valaki nem régiben adott ki egy parancsot a lejátszón. Kérlek várj egy kicsit!",
   flags: "Zászlók",
@@ -221,8 +212,7 @@ const language = {
   not_enough_char: "A beírt szó nem tartalmaz elég karaktert.",
   already_used_word: "Ez a szót már egyszer szerepelt ebben a játékban.",
   not_your_turn: "Most másnak kell küldenie egy szót!",
-  badword1:
-    "A beírt szó nem **${prev_letter}** betűvel kezdődik. A sorozat megszakadt.",
+  badword1: "A beírt szó nem **${prev_letter}** betűvel kezdődik. A sorozat megszakadt.",
   badword2: "Hibás szót irtál be. A sorozat megszakadt.",
   wordgame_over: "**Ez a játék véget ért. Új menet veszi kezdetét.**",
   server_details: "szerver adatai.",
@@ -231,24 +221,19 @@ const language = {
   number_of_bots: "Botok száma:",
   owner_of_the_server: "Szerver tulajdonos:",
   server_creation_date: "Létrehozás dátuma:",
-  failed_to_check_word1:
-    "Szerver nem tudta ellenőrizni a szót. Kérlek küldd újra!",
-  failed_to_check_word2:
-    "Szerver nem küldött választ. Kérlek küldd újra a szót!",
-  failed_to_check_word3:
-    "Az ellenőrzés során hiba lépett fel. Kérlek küld újra a szót később!",
+  failed_to_check_word1: "Szerver nem tudta ellenőrizni a szót. Kérlek küldd újra!",
+  failed_to_check_word2: "Szerver nem küldött választ. Kérlek küldd újra a szót!",
+  failed_to_check_word3: "Az ellenőrzés során hiba lépett fel. Kérlek küld újra a szót később!",
   or_separator: "vagy",
   logos: "Logók",
-  what_logo1:
-    "Lássuk hány logót tudsz kitalálni 60 mp alatt. Mit ábrázol ez a logó?",
+  what_logo1: "Lássuk hány logót tudsz kitalálni 60 mp alatt. Mit ábrázol ez a logó?",
   what_logo2: "Mit ábrázol ez a logó?",
   logos_wrong: "Rosszul tippeltél. A helyes válasz:",
   guessed_logos: "Kitalált logók:",
   logos_time_is_up: "Lejárt az időd. Az utolsó logó:",
   trivia_already_started: "Egy Trivia játék már folyamatban van.",
   no_trivia_game: "Nincs Trivia játék folyamatban.",
-  you_cant_stop_trivia:
-    "Csak az adminisztrátor vagy a játék indítója állíthatja meg a játékot.",
+  you_cant_stop_trivia: "Csak az adminisztrátor vagy a játék indítója állíthatja meg a játékot.",
   trivia_stopped: "Sikeresen megállítottad a Trivia játékot.",
   picture_failed:
     "Hiba lépett fel. Ha felhasználót adtál meg rendelkezni kell avatárral Discordon.",
@@ -289,10 +274,8 @@ const language = {
   tts_title: "Szövegfelolvasás",
   unexpected_happen: "Váratlan dolog törént. Kérlek próbáld meg újra.",
   dont_post_invite: "Kérlek ne küldj meghívókat más szerverekre!",
-  reaction_role_add:
-    "Odaadtam a(z) ``{role}`` rangot a(z) ``{guild}`` szerveren.",
-  reaction_role_remove:
-    "Elvettem a(z) ``{role}`` rangot a(z) ``{guild}`` szerveren.",
+  reaction_role_add: "Odaadtam a(z) ``{role}`` rangot a(z) ``{guild}`` szerveren.",
+  reaction_role_remove: "Elvettem a(z) ``{role}`` rangot a(z) ``{guild}`` szerveren.",
   short_days: "n",
   short_hours: "ó",
   short_minutes: "p",
@@ -311,12 +294,10 @@ const language = {
   temp_channel_limit: "Felhasználó limit",
   temp_channel_permit: "Beengedés",
   temp_channel_permit_description: "Jobb klikk>Alkalmazások>Beenged",
-  temp_channel_not_tempchannel:
-    "Ez a hangcsatorna nem ideiglenesen létrehozott.",
+  temp_channel_not_tempchannel: "Ez a hangcsatorna nem ideiglenesen létrehozott.",
   temp_channel_not_yours: "Nem tiéd ez a hangcsatorna!",
   temp_channel_owner_still_here: "A hangcsatorna tulajdonosa még itt van.",
-  temp_channel_successful_claim:
-    "Sikeresen átvetted a hangcsatorna tulajdonát!",
+  temp_channel_successful_claim: "Sikeresen átvetted a hangcsatorna tulajdonát!",
   temp_channel_your_are_the_owner: "A hangcsatorna tulajdonosa **te** vagy.",
   temp_channel_rename_label: "Mire nevezzem át a csatornádat?",
   temp_channel_rename_title: "Átnevezés",
@@ -328,8 +309,7 @@ const language = {
   temp_channel_limit_title: "Maximális felhasználó",
   temp_channel_limit_not_number: "Nem számot írtál be.",
   temp_channel_limit_bad_number: "0 és 100 közötti számot írj be!",
-  temp_channel_successful_limit:
-    "Sikeresen beállítottad a felhasználó limitet->",
+  temp_channel_successful_limit: "Sikeresen beállítottad a felhasználó limitet->",
   temp_channel_successful_hide: "Sikeresen elrejtetted a csatornádat!",
   temp_channel_successful_unhide: "Sikeresen láthatóvá tetted a csatornádat!",
   temp_channel_successful_lock: "Sikeresen lezártad csatornádat!",
@@ -341,15 +321,13 @@ const language = {
   temp_channel_successful_kick: "Sikeresen kirúgtad {target} a csatornádról!",
   temp_channel_successful_ban: "Sikeresen kitiltottad {target} a csatornádról!",
   temp_channel_you_didnt_select: "Nem választottál ki időben célpontot.",
-  temp_channel_successful_permit:
-    "Sikeresen beengedted {target} a csatornádra!",
+  temp_channel_successful_permit: "Sikeresen beengedted {target} a csatornádra!",
   play_nsfw_channel: "Ilyen tartalmakat csak NSFW csatornáról kérhetsz.",
   poll_description:
     "*A szavazáshoz használd a megfelelő emojit.\nA szavazás véget ér **{relative}**.\nAdminisztrátorok és az indító megszakíthatja a szavazást a(z) {forceEndPollEmoji} emojival.\nEzen a szavazáson csak {limit} lehetőséget választhatsz ki.*\n\n",
   poll_created_by: "Szavazást indította:",
   poll_title: "Szavazás -",
-  pool_over_description:
-    "*Az idő lejárt! A szavazás eredménye a következő lett:*",
+  pool_over_description: "*Az idő lejárt! A szavazás eredménye a következő lett:*",
   pool_vote: "szavazat",
   automod_links_bad_link: "Kérlek ne küldj ilyen linkeket!",
   automod_url_shortener: "Kérlek ne használj url rövidítőket!",
@@ -367,8 +345,7 @@ const language = {
   log_channel_create: ":house: Csatorna létrehozva: {c}",
   responsible_moderator: "Felelős moderátor:",
   reason: "Indok:",
-  log_temporary_channel_created:
-    ":house: Létrejött egy új ideiglenes csatorna: {c}",
+  log_temporary_channel_created: ":house: Létrejött egy új ideiglenes csatorna: {c}",
   log_channel_deleted: ":house: Csatorna törölve: {c}",
   overrides: "Felülírások:",
   log_channel_updated: ":writing_hand: Csatorna frissítve: {c}",
@@ -410,8 +387,7 @@ const language = {
   log_invite_removed: ":link: {u} eltávolított egy meghívást: {i}`",
   responsible_user: "Felelős felhasználó:",
   content_of_message: "Üzenet szövege:",
-  log_message_removed:
-    ":wastebasket: {u} által küldött üzenet törölve itt: {c}.",
+  log_message_removed: ":wastebasket: {u} által küldött üzenet törölve itt: {c}.",
   log_message_updated:
     ":pencil2: {u} által küldött üzenet szerkesztve itt: {c}. [Ugrás az üzenetre]({url})",
   old_message: "Régi üzenet:",
@@ -472,11 +448,9 @@ const language = {
   giveaway_drawing: "Sorsolás: {timestamp}",
   giveaway_dropMessage: "Légy te az első, aki reagál a 🎉 emojival!",
   giveaway_inviteToParticipate: "Reagálj a 🎉 emojival a részvételhez!",
-  giveaway_winMessage:
-    "Gratulálunk, {winners}! Megnyerted: **{this.prize}**!\n{this.messageURL}",
+  giveaway_winMessage: "Gratulálunk, {winners}! Megnyerted: **{this.prize}**!\n{this.messageURL}",
   giveaway_embedFooter: "{this.winnerCount} győztes",
-  giveaway_noWinner:
-    "A nyereményjáték törlésre került, nincs érvényes részvétel.",
+  giveaway_noWinner: "A nyereményjáték törlésre került, nincs érvényes részvétel.",
   giveaway_hostedBy: "Házigazda: {this.hostedBy}",
   giveaway_winners: "Győztesek:",
   giveaway_endedAt: "Végetért:",
@@ -485,10 +459,8 @@ const language = {
   rating: "Értékelés:",
   original_title: "Eredeti cím:",
   release_date: "Megjelenés:",
-  trap_channel_kick:
-    "**⚠️!FIGYELEM!⚠️**\nHa erre a csatornára küldesz üzenetet kirúgásra kerülsz!",
-  trap_channel_ban:
-    "**⚠️!FIGYELEM!⚠️**\nHa erre a csatornára küldesz üzenetet kitiltásra kerülsz!",
+  trap_channel_kick: "**⚠️!FIGYELEM!⚠️**\nHa erre a csatornára küldesz üzenetet kirúgásra kerülsz!",
+  trap_channel_ban: "**⚠️!FIGYELEM!⚠️**\nHa erre a csatornára küldesz üzenetet kitiltásra kerülsz!",
   viewers_title: "Nézők:",
   twitch_live_message: "{u} elindított egy közvetítést Twitchen.",
   game_title: "Játék:",

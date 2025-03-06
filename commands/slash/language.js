@@ -20,9 +20,7 @@ const command = new SlashCommand()
   })
   .setContexts(InteractionContextType.Guild)
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -31,14 +29,14 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       let buttons = new ActionRowBuilder().addComponents(
@@ -59,8 +57,12 @@ const command = new SlashCommand()
         .setTimestamp();
       interaction
         ?.reply({
-          embeds: [embed],
-          components: [buttons],
+          embeds: [
+            embed,
+          ],
+          components: [
+            buttons,
+          ],
           flags: MessageFlags.Ephemeral,
         })
         .then(async (Message) => {

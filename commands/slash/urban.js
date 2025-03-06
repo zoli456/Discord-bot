@@ -51,9 +51,7 @@ command.addSubcommand((subcommand) =>
     }),
 );
 command.setRun(async (client, interaction, options) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === interaction.guildId,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
   const lang = client.localization_manager.getLanguage(
     await guildSettings.settings_db.getData("/language"),
   );
@@ -62,15 +60,17 @@ command.setRun(async (client, interaction, options) => {
       `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
     );
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
-  if (
-    await client.is_it_word_game_channel(interaction.channel, guildSettings)
-  ) {
+  if (await client.is_it_word_game_channel(interaction.channel, guildSettings)) {
     return interaction.reply({
-      embeds: [client.ErrorEmbed(lang.error_title, lang.cant_use_it_here)],
+      embeds: [
+        client.ErrorEmbed(lang.error_title, lang.cant_use_it_here),
+      ],
       flags: MessageFlags.Ephemeral,
     });
   }
@@ -87,15 +87,15 @@ command.setRun(async (client, interaction, options) => {
       }
       if (doesContainBadWords(word, client.wordFilter)) {
         return interaction.reply({
-          embeds: [client.ErrorEmbed(lang.error_title, lang.bad_word_on_image)],
+          embeds: [
+            client.ErrorEmbed(lang.error_title, lang.bad_word_on_image),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       }
       interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setTitle(results[0].word)
-            .setDescription(results[0].definition),
+          new EmbedBuilder().setTitle(results[0].word).setDescription(results[0].definition),
         ],
         ephemeral: false,
       });
@@ -106,9 +106,7 @@ command.setRun(async (client, interaction, options) => {
       .then((results) => {
         interaction.reply({
           embeds: [
-            new EmbedBuilder()
-              .setTitle(results[0].word)
-              .setDescription(results[0].definition),
+            new EmbedBuilder().setTitle(results[0].word).setDescription(results[0].definition),
           ],
           ephemeral: false,
         });

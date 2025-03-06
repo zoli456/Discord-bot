@@ -1,8 +1,4 @@
-const {
-  EmbedBuilder,
-  InteractionContextType,
-  escapeMarkdown,
-} = require("discord.js");
+const { EmbedBuilder, InteractionContextType, escapeMarkdown } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 const prettyMilliseconds = require("pretty-ms");
 
@@ -17,9 +13,7 @@ const command = new SlashCommand()
   })
   .setContexts(InteractionContextType.Guild)
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -28,7 +22,9 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -43,9 +39,7 @@ const command = new SlashCommand()
     } else {
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.lavalink_not_connected),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.lavalink_not_connected),
         ],
       });
     }
@@ -53,9 +47,7 @@ const command = new SlashCommand()
     if (!player) {
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.isnt_in_channel),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.isnt_in_channel),
         ],
         flags: MessageFlags.Ephemeral,
       });
@@ -64,9 +56,7 @@ const command = new SlashCommand()
     if (!player.playing) {
       return interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("#FF0000")
-            .setDescription(lang.nothing_playing),
+          new EmbedBuilder().setColor("#FF0000").setDescription(lang.nothing_playing),
         ],
         flags: MessageFlags.Ephemeral,
       });
@@ -85,8 +75,7 @@ const command = new SlashCommand()
           name: lang.requested_by,
           value: `${song.requester}`, //player.queue.current.requester
           inline: true,
-        },
-        // show duration, if live show live
+        }, // show duration, if live show live
         {
           name: lang.duration,
           value: song.info.isStream
@@ -103,6 +92,10 @@ const command = new SlashCommand()
       .setThumbnail(song.info.artworkUrl)
       // show the title of the song and link to it
       .setDescription(`[${title}](${song.info.uri})`);
-    return interaction.reply({ embeds: [embed] });
+    return interaction.reply({
+      embeds: [
+        embed,
+      ],
+    });
   });
 module.exports = command;

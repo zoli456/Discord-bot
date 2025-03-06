@@ -1,9 +1,5 @@
 const SlashCommand = require("../../lib/SlashCommand");
-const {
-  PermissionsBitField,
-  InteractionContextType,
-  ChannelType,
-} = require("discord.js");
+const { PermissionsBitField, InteractionContextType, ChannelType } = require("discord.js");
 const ms = require("ms");
 
 const command = new SlashCommand()
@@ -188,9 +184,7 @@ const command = new SlashCommand()
       ),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -199,14 +193,14 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       if (interaction.options.getSubcommand() === "create") {
@@ -248,7 +242,9 @@ const command = new SlashCommand()
           })
           .then(() => {
             interaction.reply({
-              embeds: [client.SuccessEmbed("Success! Giveaway created!")],
+              embeds: [
+                client.SuccessEmbed("Success! Giveaway created!"),
+              ],
               flags: MessageFlags.Ephemeral,
             });
           })
@@ -269,16 +265,16 @@ const command = new SlashCommand()
           .reroll(messageId)
           .then(() => {
             interaction.reply({
-              embeds: [client.SuccessEmbed("Success! Giveaway rerolled!")],
+              embeds: [
+                client.SuccessEmbed("Success! Giveaway rerolled!"),
+              ],
               flags: MessageFlags.Ephemeral,
             });
           })
           .catch((err) => {
             interaction.reply({
               embeds: [
-                client.ErrorEmbed(
-                  `An error has occurred, please check and try again.\n\`${err}\``,
-                ),
+                client.ErrorEmbed(`An error has occurred, please check and try again.\n\`${err}\``),
               ],
               flags: MessageFlags.Ephemeral,
             });
@@ -287,10 +283,7 @@ const command = new SlashCommand()
       if (interaction.options.getSubcommand() === "edit") {
         const messageId = interaction.options.getString("message_id", true);
         const addTime = interaction.options.getString("add_time", false);
-        const newWinnerCount = interaction.options.getInteger(
-          "new_winner_count",
-          false,
-        );
+        const newWinnerCount = interaction.options.getInteger("new_winner_count", false);
         const newPrize = interaction.options.getString("newPrize", false);
         client.giveawaysManager
           .edit(messageId, {
@@ -300,16 +293,16 @@ const command = new SlashCommand()
           })
           .then(() => {
             interaction.reply({
-              embeds: [client.SuccessEmbed("Success! Giveaway updated!")],
+              embeds: [
+                client.SuccessEmbed("Success! Giveaway updated!"),
+              ],
               flags: MessageFlags.Ephemeral,
             });
           })
           .catch((err) => {
             interaction.reply({
               embeds: [
-                client.ErrorEmbed(
-                  `An error has occurred, please check and try again.\n\`${err}\``,
-                ),
+                client.ErrorEmbed(`An error has occurred, please check and try again.\n\`${err}\``),
               ],
               flags: MessageFlags.Ephemeral,
             });
@@ -321,16 +314,16 @@ const command = new SlashCommand()
           .delete(messageId)
           .then(() => {
             interaction.reply({
-              embeds: [client.SuccessEmbed("Success! Giveaway deleted!")],
+              embeds: [
+                client.SuccessEmbed("Success! Giveaway deleted!"),
+              ],
               flags: MessageFlags.Ephemeral,
             });
           })
           .catch((err) => {
             interaction.reply({
               embeds: [
-                client.ErrorEmbed(
-                  `An error has occurred, please check and try again.\n\`${err}\``,
-                ),
+                client.ErrorEmbed(`An error has occurred, please check and try again.\n\`${err}\``),
               ],
               flags: MessageFlags.Ephemeral,
             });
@@ -342,16 +335,16 @@ const command = new SlashCommand()
           .end(messageId)
           .then(() => {
             interaction.reply({
-              embeds: [client.SuccessEmbed("Success! Giveaway ended!")],
+              embeds: [
+                client.SuccessEmbed("Success! Giveaway ended!"),
+              ],
               flags: MessageFlags.Ephemeral,
             });
           })
           .catch((err) => {
             interaction.reply({
               embeds: [
-                client.ErrorEmbed(
-                  `An error has occurred, please check and try again.\n\`${err}\``,
-                ),
+                client.ErrorEmbed(`An error has occurred, please check and try again.\n\`${err}\``),
               ],
               flags: MessageFlags.Ephemeral,
             });
@@ -372,16 +365,16 @@ const command = new SlashCommand()
           })
           .then(() => {
             interaction.reply({
-              embeds: [client.SuccessEmbed("Success! Giveaway paused!")],
+              embeds: [
+                client.SuccessEmbed("Success! Giveaway paused!"),
+              ],
               flags: MessageFlags.Ephemeral,
             });
           })
           .catch((err) => {
             interaction.reply({
               embeds: [
-                client.ErrorEmbed(
-                  `An error has occurred, please check and try again.\n\`${err}\``,
-                ),
+                client.ErrorEmbed(`An error has occurred, please check and try again.\n\`${err}\``),
               ],
               flags: MessageFlags.Ephemeral,
             });
@@ -393,16 +386,16 @@ const command = new SlashCommand()
           .unpause(messageId)
           .then(() => {
             interaction.reply({
-              embeds: [client.SuccessEmbed("Success! Giveaway unpaused!")],
+              embeds: [
+                client.SuccessEmbed("Success! Giveaway unpaused!"),
+              ],
               flags: MessageFlags.Ephemeral,
             });
           })
           .catch((err) => {
             interaction.reply({
               embeds: [
-                client.ErrorEmbed(
-                  `An error has occurred, please check and try again.\n\`${err}\``,
-                ),
+                client.ErrorEmbed(`An error has occurred, please check and try again.\n\`${err}\``),
               ],
               flags: MessageFlags.Ephemeral,
             });

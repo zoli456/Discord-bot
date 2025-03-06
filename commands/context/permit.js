@@ -21,9 +21,7 @@ module.exports = {
    */
   run: async (client, interaction, options) => {
     if (interaction.targetUser.id === client.config.clientId) returnn;
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -32,7 +30,9 @@ module.exports = {
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
@@ -57,10 +57,7 @@ module.exports = {
       return interaction
         .reply({
           embeds: [
-            client.ErrorEmbed(
-              lang.error_title,
-              lang.temp_channel_not_tempchannel,
-            ),
+            client.ErrorEmbed(lang.error_title, lang.temp_channel_not_tempchannel),
           ],
           flags: MessageFlags.Ephemeral,
         })
@@ -80,10 +77,10 @@ module.exports = {
           setTimeout(() => msg.delete(), 20000);
         });
     }
-    await interaction.member.voice.channel.permissionOverwrites.edit(
-      interaction.targetUser.id,
-      { Connect: true, ViewChannel: true },
-    );
+    await interaction.member.voice.channel.permissionOverwrites.edit(interaction.targetUser.id, {
+      Connect: true,
+      ViewChannel: true,
+    });
     client.logger.log(
       `${colors.blue(interaction.guild.name)}(${interaction.guild.id}) 🔑 ${colors.blue(interaction.user.username)}(${interaction.user.id}) gave access to ${colors.red(interaction.targetUser.username)}(${interaction.targetUser.id}) to his channel.`,
     );

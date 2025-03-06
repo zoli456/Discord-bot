@@ -1,8 +1,4 @@
-const {
-  EmbedBuilder,
-  InteractionContextType,
-  PermissionsBitField,
-} = require("discord.js");
+const { EmbedBuilder, InteractionContextType, PermissionsBitField } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 
 const { EType } = require("../../lib/ReactionRole/types");
@@ -236,9 +232,7 @@ const command = new SlashCommand()
       }),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -247,24 +241,21 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       if (interaction.options.getSubcommand() === "everyone") {
         const role = interaction.options.getRole("role", true);
         interaction.guild.members.cache.forEach((member) => {
           // Check if user has a higher role than the bot
-          if (
-            member.roles.highest.position >
-            interaction.member.roles.highest.position
-          ) {
+          if (member.roles.highest.position > interaction.member.roles.highest.position) {
             return;
           }
           if (member.user.bot) return;
@@ -276,9 +267,7 @@ const command = new SlashCommand()
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | I gave everybody the `" + role.name + "` role.",
-              ),
+              .setDescription("✅ | I gave everybody the `" + role.name + "` role."),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -287,10 +276,7 @@ const command = new SlashCommand()
         const role = interaction.options.getRole("role", true);
         interaction.guild.members.cache.forEach((member) => {
           // Check if user has a higher role than the bot
-          if (
-            member.roles.highest.position >
-            interaction.member.roles.highest.position
-          ) {
+          if (member.roles.highest.position > interaction.member.roles.highest.position) {
             return;
           }
           if (member.user.bot) return;
@@ -302,9 +288,7 @@ const command = new SlashCommand()
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                "✅ | I took away from everybody the `" + role.name + "` role.",
-              ),
+              .setDescription("✅ | I took away from everybody the `" + role.name + "` role."),
           ],
           flags: MessageFlags.Ephemeral,
         });
@@ -313,9 +297,7 @@ const command = new SlashCommand()
         const settings_db = new JsonDB(
           new Config("./db/" + interaction.guildId + ".json", true, true, "/"),
         );
-        const guild_settings = client.guild_settings.find(
-          (e) => e.guildId === interaction.guildId,
-        );
+        const guild_settings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
         let role_on_join = interaction.options.getRole("role", false);
         if (role_on_join) {
           let config = {};
@@ -338,9 +320,7 @@ const command = new SlashCommand()
               embeds: [
                 new EmbedBuilder()
                   .setColor(client.config.embedColor)
-                  .setDescription(
-                    "❌ | You have already disabled the autorole.",
-                  ),
+                  .setDescription("❌ | You have already disabled the autorole."),
               ],
               flags: MessageFlags.Ephemeral,
             });
@@ -351,9 +331,7 @@ const command = new SlashCommand()
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  `✅ | Now user will no longer receive a role on join.`,
-                ),
+                .setDescription(`✅ | Now user will no longer receive a role on join.`),
             ],
             flags: MessageFlags.Ephemeral,
           });
@@ -361,9 +339,7 @@ const command = new SlashCommand()
       }
       if (interaction.options.getSubcommand() === "create-reactionrole") {
         const channel = interaction.options.getChannel("channel", true);
-        const message_id = interaction.options
-          .getString("message_id", true)
-          .trim();
+        const message_id = interaction.options.getString("message_id", true).trim();
         let target_emoji = interaction.options.getString("emoji", true).trim();
         const role = interaction.options.getRole("role", true);
         let type = interaction.options.getString("type", true);
@@ -390,7 +366,9 @@ const command = new SlashCommand()
         }
         const option = client.reactionRole.createOption({
           clickable_id: emoji_id,
-          roles: [role.id],
+          roles: [
+            role.id,
+          ],
           type: type,
         });
         const message = await channel.messages.fetch(message_id);
@@ -403,7 +381,9 @@ const command = new SlashCommand()
         } else {
           await client.reactionRole.createMessage({
             channel_id: channel.id,
-            clickables: [option],
+            clickables: [
+              option,
+            ],
             message_id: message_id,
           });
         }
@@ -411,20 +391,14 @@ const command = new SlashCommand()
           embeds: [
             new EmbedBuilder()
               .setColor(client.config.embedColor)
-              .setDescription(
-                `✅ | Succesfully set the reaction role for ${role.name}.`,
-              ),
+              .setDescription(`✅ | Succesfully set the reaction role for ${role.name}.`),
           ],
           flags: MessageFlags.Ephemeral,
         });
       }
       if (interaction.options.getSubcommand() === "remove_reaction_role") {
-        const message_id = interaction.options
-          .getString("message_id", true)
-          .trim();
-        await client.reactionRole.importConfig(
-          await client.reactionRole.deleteMessage(message_id),
-        );
+        const message_id = interaction.options.getString("message_id", true).trim();
+        await client.reactionRole.importConfig(await client.reactionRole.deleteMessage(message_id));
         return interaction.reply({
           embeds: [
             new EmbedBuilder()
@@ -455,9 +429,7 @@ const command = new SlashCommand()
             embeds: [
               new EmbedBuilder()
                 .setColor(client.config.embedColor)
-                .setDescription(
-                  "❌ | You are not authorized to use this command!",
-                ),
+                .setDescription("❌ | You are not authorized to use this command!"),
             ],
             flags: MessageFlags.Ephemeral,
           });
@@ -473,9 +445,7 @@ const command = new SlashCommand()
     }
     if (interaction.options.getSubcommand() === "limit") {
       const limit = interaction.options.getInteger("number", false);
-      const message_id = interaction.options
-        .getString("message_id", true)
-        .trim();
+      const message_id = interaction.options.getString("message_id", true).trim();
       if (!client.reactionRole.config[message_id]) {
         return interaction.reply({
           embeds: [
@@ -495,9 +465,7 @@ const command = new SlashCommand()
         embeds: [
           new EmbedBuilder()
             .setColor(client.config.embedColor)
-            .setDescription(
-              `✅ | Succesfully set the selection limit on the message.`,
-            ),
+            .setDescription(`✅ | Succesfully set the selection limit on the message.`),
         ],
         flags: MessageFlags.Ephemeral,
       });

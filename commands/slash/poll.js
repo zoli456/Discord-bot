@@ -139,9 +139,7 @@ const command = new SlashCommand()
       }),
   )
   .setRun(async (client, interaction, options) => {
-    const guildSettings = client.guild_settings.find(
-      (e) => e.guildId === interaction.guildId,
-    );
+    const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
@@ -150,27 +148,20 @@ const command = new SlashCommand()
         `${interaction.guild.name}(${interaction.guildId}) | User hit the rate limit: ${interaction.user.username}(${interaction.member.id}).`,
       );
       return interaction.reply({
-        embeds: [client.ErrorEmbed(lang.error_title, lang.please_wait_between)],
+        embeds: [
+          client.ErrorEmbed(lang.error_title, lang.please_wait_between),
+        ],
         flags: MessageFlags.Ephemeral,
       });
     }
     if (
-      interaction.memberPermissions.has(
-        PermissionsBitField.Flags.Administrator,
-      ) ||
+      interaction.memberPermissions.has(PermissionsBitField.Flags.Administrator) ||
       interaction.user.id === process.env.ADMINID
     ) {
       const defEmojiList = [
-        "\u0031\u20E3",
-        "\u0032\u20E3",
-        "\u0033\u20E3",
-        "\u0034\u20E3",
-        "\u0035\u20E3",
-        "\u0036\u20E3",
-        "\u0037\u20E3",
-        "\u0038\u20E3",
-        "\u0039\u20E3",
-        "\uD83D\uDD1F",
+        "\u0031\u20E3", "\u0032\u20E3", "\u0033\u20E3", "\u0034\u20E3",
+        "\u0035\u20E3", "\u0036\u20E3", "\u0037\u20E3", "\u0038\u20E3",
+        "\u0039\u20E3", "\uD83D\uDD1F",
       ];
       const embedBuilderError = (error) =>
         new EmbedBuilder().setColor("Red").setDescription(`**❌ - ${error}**`);
@@ -202,7 +193,9 @@ const command = new SlashCommand()
       if (image) {
         if (await check_image.validateURL(image)) {
           return interaction.editReply({
-            embeds: [client.ErrorEmbed(lang.error_title, lang.invalid_link)],
+            embeds: [
+              client.ErrorEmbed(lang.error_title, lang.invalid_link),
+            ],
             flags: MessageFlags.Ephemeral,
           });
         }
@@ -213,7 +206,9 @@ const command = new SlashCommand()
 
       if (!interaction && !interaction.channel) {
         return interaction.reply({
-          embeds: [embedBuilderError("Channel is inaccessible.")],
+          embeds: [
+            embedBuilderError("Channel is inaccessible."),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       }
@@ -235,7 +230,9 @@ const command = new SlashCommand()
       }
       if (choices.length < 2) {
         return interaction.reply({
-          embeds: [embedBuilderError("Please provide more than one choice.")],
+          embeds: [
+            embedBuilderError("Please provide more than one choice."),
+          ],
           flags: MessageFlags.Ephemeral,
         });
       }
@@ -251,16 +248,16 @@ const command = new SlashCommand()
         if (!embedColor.startsWith("#")) {
           return interaction.reply({
             embeds: [
-              embedBuilderError(
-                "Embed color only accepts colors in the hex format: `#000000`",
-              ),
+              embedBuilderError("Embed color only accepts colors in the hex format: `#000000`"),
             ],
             flags: MessageFlags.Ephemeral,
           });
         }
         if (embedColor.length !== 7 && embedColor.length !== 4) {
           return interaction.reply({
-            embeds: [embedBuilderError("Invalid color.")],
+            embeds: [
+              embedBuilderError("Invalid color."),
+            ],
             flags: MessageFlags.Ephemeral,
           });
         }
@@ -298,7 +295,9 @@ const command = new SlashCommand()
       if (image) embed.setThumbnail(image);
       await interaction
         .reply({
-          embeds: [embed],
+          embeds: [
+            embed,
+          ],
         })
         .then(async (msg) => {
           usedEmojis.forEach((emoji) => msg.react(emoji));
@@ -313,9 +312,7 @@ const command = new SlashCommand()
           new_poll.limit = limit;
           new_poll.image = image;
           new_poll.embedColor = embedColor;
-          new_poll.endTime = moment(Date.now())
-            .add(duration, "ms")
-            .format("YYYY M D H m");
+          new_poll.endTime = moment(Date.now()).add(duration, "ms").format("YYYY M D H m");
           new_poll.forceEndPollEmoji = forceEndPollEmoji;
           const poll_data_db = new JsonDB(
             new Config(`././info/poll/${msg.id}_poll`, false, true, "/"),

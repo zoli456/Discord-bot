@@ -1,15 +1,12 @@
 const { EmbedBuilder, AuditLogEvent } = require("discord.js");
 
 module.exports = async (client, invite) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === invite.guild.id,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === invite.guild.id);
   if (await guildSettings.settings_db.exists("/log_channel")) {
     const lang = client.localization_manager.getLanguage(
       await guildSettings.settings_db.getData("/language"),
     );
-    const log_settings =
-      await guildSettings.settings_db.getData("/log_channel");
+    const log_settings = await guildSettings.settings_db.getData("/log_channel");
     const logChannel = client.channels.cache.get(log_settings.log_channel_id);
     const fetchedLogs1 = await invite.guild.fetchAuditLogs({
       limit: 1,

@@ -1,14 +1,15 @@
 const { EmbedBuilder, AuditLogEvent } = require("discord.js");
 
 module.exports = async (client, channel) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === channel.guildId,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === channel.guildId);
 
   if (await guildSettings.settings_db.exists("/log_channel")) {
-    const [log_settings, languageSetting] = await Promise.all([
-      guildSettings.settings_db.getData("/log_channel"),
-      guildSettings.settings_db.getData("/language"),
+    const [
+      log_settings, languageSetting,
+    ] = await Promise.all([
+      guildSettings.settings_db.getData("/log_channel"), guildSettings.settings_db.getData(
+        "/language",
+      ),
     ]);
 
     const log_channel = client.channels.cache.get(log_settings.log_channel_id);
@@ -37,22 +38,18 @@ module.exports = async (client, channel) => {
         iconURL: createLog.executor.displayAvatarURL({ dynamic: true }),
       });
 
-    if (
-      createLog.executor.id !== client.user.id &&
-      createLog.targetId === channel.id
-    ) {
-      embed.setDescription(
-        lang.log_channel_create.replace("{c}", `\`${channel.name}\``),
-      );
+    if (createLog.executor.id !== client.user.id && createLog.targetId === channel.id) {
+      embed.setDescription(lang.log_channel_create.replace("{c}", `\`${channel.name}\``));
     } else {
       embed.setDescription(
-        lang.log_temporary_channel_created.replace(
-          "{c}",
-          `\`${channel.name}\``,
-        ),
+        lang.log_temporary_channel_created.replace("{c}", `\`${channel.name}\``),
       );
     }
 
-    log_channel.send({ embeds: [embed] });
+    log_channel.send({
+      embeds: [
+        embed,
+      ],
+    });
   }
 };

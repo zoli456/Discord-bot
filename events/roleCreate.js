@@ -1,14 +1,15 @@
 const { EmbedBuilder, AuditLogEvent } = require("discord.js");
 
 module.exports = async (client, role) => {
-  const guildSettings = client.guild_settings.find(
-    (e) => e.guildId === role.guild.id,
-  );
+  const guildSettings = client.guild_settings.find((e) => e.guildId === role.guild.id);
 
   if (await guildSettings.settings_db.exists("/log_channel")) {
-    const [log_settings, languageSetting] = await Promise.all([
-      guildSettings.settings_db.getData("/log_channel"),
-      guildSettings.settings_db.getData("/language"),
+    const [
+      log_settings, languageSetting,
+    ] = await Promise.all([
+      guildSettings.settings_db.getData("/log_channel"), guildSettings.settings_db.getData(
+        "/language",
+      ),
     ]);
 
     const lang = client.localization_manager.getLanguage(languageSetting);
@@ -39,13 +40,15 @@ module.exports = async (client, role) => {
           name: roleLog.executor.tag,
           iconURL: roleLog.executor.displayAvatarURL({ dynamic: true }),
         })
-        .setDescription(
-          lang.log_role_created1.replace("{u}", `<@${roleLog.executorId}>`),
-        );
+        .setDescription(lang.log_role_created1.replace("{u}", `<@${roleLog.executorId}>`));
     } else {
       embed.setDescription(lang.log_role_crated2);
     }
 
-    logChannel.send({ embeds: [embed] });
+    logChannel.send({
+      embeds: [
+        embed,
+      ],
+    });
   }
 };
