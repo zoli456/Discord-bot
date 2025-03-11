@@ -9304,10 +9304,10 @@
   },
   {
     "name": "Snap.png",
-    "shortname": "snap.png",
-    "url": "http://sna.png.io/",
+    "shortname": "snap-svg",
+    "url": "http://snapsvg.io/",
     "files": [
-      "snap.png.png"
+      "snap-svg.png"
     ]
   },
   {
@@ -9942,18 +9942,18 @@
   },
   {
     "name": "SVG",
-    "shortname": .png",
+    "shortname": "svg",
     "url": "http://www.w3.org/Graphics/SVG/",
     "files": [
-      .png.png"
+      "svg.png"
     ]
   },
   {
     "name": "Svgator",
-    "shortname": .pngator",
-    "url": "https://www.pngator.com/",
+    "shortname": "svgator",
+    "url": "https://www.svgator.com/",
     "files": [
-      .pngator.png"
+      "svgator.png"
     ]
   },
   {
