@@ -1,4 +1,4 @@
-const { EmbedBuilder, InteractionContextType } = require("discord.js");
+const { EmbedBuilder, InteractionContextType, MessageFlags } = require("discord.js");
 const SlashCommand = require("../../lib/SlashCommand");
 const moment = require("moment");
 
