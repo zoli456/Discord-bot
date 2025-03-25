@@ -58,7 +58,7 @@
     "gifencoder": "github:nugraizy/gifencoder",
     "is-discord-invite": "3.0.6",
     "jimp": "1.6.0",
-    "lavalink-client": "2.4.7",
+    "lavalink-client": "2.5.0",
     "lodash": "^4.17.21",
     "moment": "2.30.1",
     "moment-duration-format": "2.3.2",

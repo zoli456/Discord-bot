@@ -107,12 +107,24 @@ const command = new SlashCommand()
       player.destroy();
       return;
     }
+    const voice = "Noemi";
+    const speed = "0.9";
+
+    const fttsParams = new URLSearchParams();
+    if (voice) fttsParams.append("voice", voice);
+    if (speed) fttsParams.append("speed", speed);
 
     let query = options.getString("text", true).trim();
     let provider = options.getString("provider", false);
     if (!provider) provider = "microsoft";
     let res = await player
-      .search({ query, source: provider === "google" ? "speak" : "ftts" }, interaction.user)
+      .search(
+        {
+          query: `${encodeURI(query)}${fttsParams.size ? `?${fttsParams.toString()}` : ""}`,
+          source: provider === "google" ? "speak" : "ftts",
+        },
+        interaction.user,
+      )
       .catch((err) => {
         client.error(err);
         return {
