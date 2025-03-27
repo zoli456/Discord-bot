@@ -239,7 +239,7 @@ command.setRun(async (client, interaction, options) => {
   let input_url = options.getString("url", false)?.trim();
   if (interaction.options.getSubcommand() === "nsfw") {
     if (!interaction.channel.nsfw) {
-      return interaction.reply({
+      return interaction.editReply({
         embeds: [
           client.ErrorEmbed(lang.error_title, lang.not_nsfw_channel),
         ],
@@ -293,7 +293,7 @@ command.setRun(async (client, interaction, options) => {
       } else {
         response_embed.setTitle(lang.safe_picture).setColor("#00ff00");
       }
-
+      console.log(response);
       let bot_answer =
         response.objects.length === 0
           ? `${lang.detected_elements} ${lang.none}`
@@ -306,6 +306,7 @@ command.setRun(async (client, interaction, options) => {
         ],
       });
     } catch (error) {
+      console.log(error);
       return interaction.editReply({
         embeds: [
           client.ErrorEmbed(lang.error_title, lang.no_response_question),
@@ -377,6 +378,7 @@ command.setRun(async (client, interaction, options) => {
           },
         );
       });
+      console.log(nsfw_check_response);
       if (!nsfw_check_response?.ok) {
         throw new Error("Network response was not ok");
       }
