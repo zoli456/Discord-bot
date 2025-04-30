@@ -1,5 +1,11 @@
 const SlashCommand = require("../../lib/SlashCommand");
-const { EmbedBuilder, InteractionContextType, ChannelType, escapeMarkdown } = require("discord.js");
+const {
+  EmbedBuilder,
+  InteractionContextType,
+  ChannelType,
+  escapeMarkdown,
+  MessageFlags,
+} = require("discord.js");
 
 const command = new SlashCommand()
   .setName("play")
@@ -131,7 +137,7 @@ const command = new SlashCommand()
     if (sponsor_blocker) {
       if (sponsor_blocker === "true") player.setSponsorBlock();
       else {
-        player.deleteSponsorBlock();
+        await player.deleteSponsorBlock();
       }
     }
     let res = await player.search(query, interaction.user).catch((err) => {
@@ -145,7 +151,7 @@ const command = new SlashCommand()
       if (!player.queue.current) {
         await player.destroy();
       }
-      return await interaction
+      return interaction
         .editReply({
           embeds: [
             new EmbedBuilder().setColor("#FF0000").setDescription(lang.error_while_searching),
@@ -157,7 +163,7 @@ const command = new SlashCommand()
       if (!player.queue.current) {
         await player.destroy();
       }
-      return await interaction
+      return interaction
         .editReply({
           embeds: [
             new EmbedBuilder().setColor("#FF0000").setDescription(lang.no_result),
@@ -194,7 +200,7 @@ const command = new SlashCommand()
         .setColor(client.config.embedColor)
         .setAuthor({
           name: lang.added_to_queue,
-          iconURL: client.config.iconURL,
+          iconURL: { url: client.config.iconURL, dynamic: true },
         })
         .setDescription(`[${title}](${res.tracks[0].info.uri})` || lang.no_title)
         .setURL(res.tracks[0].info.uri)

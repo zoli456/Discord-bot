@@ -102,10 +102,3 @@ const command = new SlashCommand()
   });
 
 module.exports = command;
-// check above message, it is a little bit confusing. and erros are not handled. probably should be fixed.
-// ok use catch ez kom  follow meh ;_;
-// the above message meaning error, if it cant find it or take too long the bot crashed
-// play commanddddd, if timeout or takes 1000 years to find song it crashed
-// OKIE, leave the comment here for idk
-// Comment very useful, 247 good :+1:
-// twentyFourSeven = best;
