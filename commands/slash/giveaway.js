@@ -1,6 +1,6 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const { PermissionsBitField, InteractionContextType, ChannelType } = require("discord.js");
-const ms = require("ms");
+import SlashCommand from "../../lib/SlashCommand.js";
+import { PermissionsBitField, InteractionContextType, ChannelType, MessageFlags } from "discord.js";
+import ms from "ms";
 
 const command = new SlashCommand()
   .setName("giveaway")
@@ -410,4 +410,4 @@ const command = new SlashCommand()
       });
     }
   });
-module.exports = command;
+export default command;

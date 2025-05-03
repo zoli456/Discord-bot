@@ -1,5 +1,10 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const { EmbedBuilder, InteractionContextType, PermissionsBitField } = require("discord.js");
+import SlashCommand from "../../lib/SlashCommand.js";
+import {
+  EmbedBuilder,
+  InteractionContextType,
+  MessageFlags,
+  PermissionsBitField,
+} from "discord.js";
 
 const command = new SlashCommand()
   .setName("clean")
@@ -92,4 +97,4 @@ const command = new SlashCommand()
     }
   });
 
-module.exports = command;
+export default command;

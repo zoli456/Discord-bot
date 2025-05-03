@@ -476,4 +476,4 @@ const language = {
   repeat_queue: "The bot will repeat this queue.",
   repeat_off: "You switched off the repeat mode.",
 };
-module.exports = language;
+export default language;

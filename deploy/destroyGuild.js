@@ -1,8 +1,9 @@
 //Deletes every commands from every server yikes!!1!!11!!
-const readline = require("readline");
-const { REST } = require("discord.js");
-const { Routes } = require("discord.js");
-const getConfig = require("../util/getConfig");
+import readline from 'readline';
+
+import { REST } from 'discord.js';
+import { Routes } from 'discord.js';
+import getConfig from '../util/getConfig';
 
 const rl = readline.createInterface({
   input: process.stdin,

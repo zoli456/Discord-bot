@@ -1,4 +1,4 @@
-const {
+import {
   ActionRowBuilder,
   ButtonBuilder,
   EmbedBuilder,
@@ -6,8 +6,9 @@ const {
   PermissionsBitField,
   InteractionContextType,
   MessageFlags,
-} = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
+} from "discord.js";
+
+import SlashCommand from "../../lib/SlashCommand.js";
 
 const command = new SlashCommand()
   .setName("language")
@@ -115,4 +116,4 @@ const command = new SlashCommand()
       });
     }
   });
-module.exports = command;
+export default command;

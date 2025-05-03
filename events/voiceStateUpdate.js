@@ -1,4 +1,4 @@
-const { EmbedBuilder, AuditLogEvent } = require("discord.js");
+import { EmbedBuilder, AuditLogEvent } from 'discord.js';
 
 /**
  *
@@ -7,7 +7,7 @@ const { EmbedBuilder, AuditLogEvent } = require("discord.js");
  * @param {import("discord.js").VoiceState} newState
  * @returns {Promise<void>}
  */
-module.exports = async (client, oldState, newState) => {
+export default async (client, oldState, newState) => {
   const guildId = newState.guild.id;
   const guildSettings = client.guild_settings.find((e) => e.guildId === guildId);
   const settingsDb = await guildSettings.settings_db.getData("/");

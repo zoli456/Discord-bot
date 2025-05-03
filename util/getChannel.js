@@ -4,8 +4,9 @@
  * @param {import("discord.js").GuildCommandInteraction} interaction
  * @returns
  */
-const { MessageFlags } = require("discord.js");
-module.exports = async (client, interaction) => {
+import { MessageFlags } from 'discord.js';
+
+export default async (client, interaction) => {
   return new Promise(async (resolve) => {
     const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
     const lang = client.localization_manager.getLanguage(

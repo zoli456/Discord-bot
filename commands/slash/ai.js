@@ -1,7 +1,7 @@
-const { EmbedBuilder, MessageFlags, InteractionContextType } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const { question } = require("../..//lib/hercai");
-const check_image = require("../../lib/Image-Generation/module/functions");
+import { EmbedBuilder, MessageFlags, InteractionContextType } from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
+import { question } from "../..//lib/hercai/index.js";
+import check_image from "../../lib/Image-Generation/module/functions.js";
 
 const command = new SlashCommand()
   .setName("ai")
@@ -505,4 +505,4 @@ command.setRun(async (client, interaction, options) => {
   }
 });
 
-module.exports = command;
+export default command;

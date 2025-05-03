@@ -1,5 +1,5 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const { EmbedBuilder, InteractionContextType } = require("discord.js");
+import SlashCommand from "../../lib/SlashCommand.js";
+import { EmbedBuilder, InteractionContextType, MessageFlags } from "discord.js";
 
 const command = new SlashCommand()
   .setName("shuffle")
@@ -81,4 +81,4 @@ const command = new SlashCommand()
     });
   });
 
-module.exports = command;
+export default command;

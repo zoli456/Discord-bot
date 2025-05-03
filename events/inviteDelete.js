@@ -1,6 +1,6 @@
-const { EmbedBuilder, AuditLogEvent } = require("discord.js");
+import { EmbedBuilder, AuditLogEvent } from 'discord.js';
 
-module.exports = async (client, invite) => {
+export default async (client, invite) => {
   const guildSettings = client.guild_settings.find((e) => e.guildId === invite.guild.id);
   if (await guildSettings.settings_db.exists("/log_channel")) {
     const lang = client.localization_manager.getLanguage(

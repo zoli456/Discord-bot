@@ -1,12 +1,13 @@
-const {
+import {
   ContextMenuCommandBuilder,
   ApplicationCommandType,
   EmbedBuilder,
   InteractionContextType,
-} = require("discord.js");
-const colors = require("@colors/colors");
+} from 'discord.js';
 
-module.exports = {
+import colors from '@colors/colors';
+
+export default {
   command: new ContextMenuCommandBuilder()
     .setName("Permit")
     .setNameLocalizations({

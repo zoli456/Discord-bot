@@ -1,8 +1,12 @@
-const { EmbedBuilder, InteractionContextType, PermissionsBitField } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-
-const { EType } = require("../../lib/ReactionRole/types");
-const { JsonDB, Config } = require("node-json-db");
+import {
+  EmbedBuilder,
+  InteractionContextType,
+  MessageFlags,
+  PermissionsBitField,
+} from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
+import { EType } from "../../lib/ReactionRole/types.js";
+import { JsonDB, Config } from "node-json-db";
 
 const command = new SlashCommand()
   .setName("role")
@@ -472,4 +476,4 @@ const command = new SlashCommand()
     }
   });
 
-module.exports = command;
+export default command;

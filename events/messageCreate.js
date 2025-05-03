@@ -1,13 +1,15 @@
-const { EmbedBuilder, MessageFlags, PermissionsBitField } = require("discord.js");
-const fs = require("node:fs");
-const { encode } = require("@msgpack/msgpack");
-const IsInvitation = require("is-discord-invite");
-const clone = require("../lib/discord-cloner");
-const { request } = require(".././lib/easy-anti-fishing");
-const { textToLatin, doesContainBadWords, findBadWordLocations } = require("deep-profanity-filter");
-const { tall } = require("tall");
+import { EmbedBuilder, MessageFlags, PermissionsBitField } from "discord.js";
+import fs from "node:fs";
+import { encode } from "@msgpack/msgpack";
+import IsInvitation from "is-discord-invite";
+import clone from "../lib/discord-cloner/index.js";
+import { textToLatin, doesContainBadWords, findBadWordLocations } from "deep-profanity-filter";
+import { tall } from "tall";
+import { numberEmojis } from "../util/Data.js";
+import UpdateCommands from "../deploy/deployGlobal.js";
+import { check } from "../lib/easy-anti-fishing/checker.js";
 
-module.exports = async (client, message) => {
+export default async (client, message) => {
   if (
     !message.author ||
     message.author.bot ||
@@ -97,7 +99,7 @@ module.exports = async (client, message) => {
       const emojis = chain
         .toString()
         .split("")
-        .map((num) => client.numberEmojis.find((ne) => ne.string === num)?.emojis[0]);
+        .map((num) => numberEmojis.find((ne) => ne.string === num)?.emojis[0]);
       for (const emoji of emojis) {
         if (emoji) {
           await message.react(emoji).catch(console.error);
@@ -356,7 +358,7 @@ module.exports = async (client, message) => {
     message.author.id === process.env.ADMINID &&
     message.content.match(`^<@${client.config.clientId}> deploy$`)
   ) {
-    const globalstart = require("../deploy/deployGlobal.js");
+    UpdateCommands();
     return message.channel
       .send({
         embeds: [
@@ -457,7 +459,7 @@ module.exports = async (client, message) => {
         }
         const checked_data = await checkData(client, message, matched_data, lang);
         if (checked_data === "") return;
-        const checker = await request(checked_data);
+        const checker = await check(checked_data);
         if (checker && checker.match) {
           message.channel
             .send({
@@ -577,6 +579,7 @@ module.exports = async (client, message) => {
     await client.antiSpam.message(message, lang, settingsDb.automod_spam);
   }
 };
+
 function insertAtIndex(str, substring, index) {
   return str.slice(0, index) + substring + str.slice(index);
 }

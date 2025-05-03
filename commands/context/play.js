@@ -1,13 +1,14 @@
-const {
+import {
   ContextMenuCommandBuilder,
   escapeMarkdown,
   ChannelType,
   ApplicationCommandType,
   InteractionContextType,
-} = require("discord.js");
-const { EmbedBuilder } = require("discord.js");
+} from 'discord.js';
 
-module.exports = {
+import { EmbedBuilder } from 'discord.js';
+
+export default {
   command: new ContextMenuCommandBuilder()
     .setName("Play Song")
     .setNameLocalizations({

@@ -1,5 +1,5 @@
-const { PermissionsBitField, InteractionContextType, ChannelType } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
+import { PermissionsBitField, InteractionContextType, ChannelType, MessageFlags } from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
 
 const command = new SlashCommand()
   .setName("rss")
@@ -289,4 +289,4 @@ command.setRun(async (client, interaction, options) => {
   }
 });
 
-module.exports = command;
+export default command;

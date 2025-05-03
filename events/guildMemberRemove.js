@@ -1,7 +1,7 @@
-const moment = require("moment/moment");
-const { EmbedBuilder, AuditLogEvent } = require("discord.js");
+import moment from "moment";
+import { EmbedBuilder, AuditLogEvent } from "discord.js";
 
-module.exports = async (client, member) => {
+export default async (client, member) => {
   if (member.user.bot) return;
 
   const guildSettings = client.guild_settings.find((e) => e.guildId === member.guild.id);

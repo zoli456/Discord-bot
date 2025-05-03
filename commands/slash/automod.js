@@ -1,11 +1,12 @@
-const {
+import {
   EmbedBuilder,
   InteractionContextType,
   PermissionsBitField,
   ChannelType,
   MessageFlags,
-} = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
+} from "discord.js";
+
+import SlashCommand from "../../lib/SlashCommand.js";
 const command = new SlashCommand()
   .setName("automod")
   .setDescription("Changing the automod settings on the server.")
@@ -758,4 +759,4 @@ command.setRun(async (client, interaction) => {
     }
   }
 });
-module.exports = command;
+export default command;

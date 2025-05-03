@@ -1,6 +1,6 @@
-const { EmbedBuilder, InteractionContextType, escapeMarkdown } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const prettyMilliseconds = require("pretty-ms");
+import { EmbedBuilder, InteractionContextType, escapeMarkdown, MessageFlags } from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
+import prettyMilliseconds from "pretty-ms";
 
 const command = new SlashCommand()
   .setName("nowplaying")
@@ -75,8 +75,8 @@ const command = new SlashCommand()
           name: lang.requested_by,
           value: `${song.requester}`, //player.queue.current.requester
           inline: true,
-        }, // show duration, if live show live
-        {
+        }, {
+          // show duration, if live show live
           name: lang.duration,
           value: song.info.isStream
             ? lang.LIVE
@@ -98,4 +98,4 @@ const command = new SlashCommand()
       ],
     });
   });
-module.exports = command;
+export default command;

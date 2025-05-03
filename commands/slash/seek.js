@@ -1,6 +1,6 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const { EmbedBuilder, InteractionContextType } = require("discord.js");
-const ms = require("ms");
+import SlashCommand from "../../lib/SlashCommand.js";
+import { EmbedBuilder, InteractionContextType, MessageFlags } from "discord.js";
+import ms from "ms";
 
 const command = new SlashCommand()
   .setName("seek")
@@ -110,4 +110,4 @@ const command = new SlashCommand()
     }
   });
 
-module.exports = command;
+export default command;

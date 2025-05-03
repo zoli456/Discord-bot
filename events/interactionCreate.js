@@ -1,85 +1,83 @@
-const Controller = require("../util/Controller");
-const voice_controller = require("../util/voice_controller");
-const yt = require("youtube-sr").default;
-const colors = require("@colors/colors");
+import Controller from "../util/Controller.js";
+import voice_controller from "../util/voice_controller.js";
+import { YouTube } from "youtube-sr";
+import colors from "@colors/colors";
+
 /**
- *
  * @param {import("../lib/DiscordMusicBot")} client
- * @param {import("discord.js").Interaction}interaction
+ * @param {import("discord.js").Interaction} interaction
  */
-module.exports = async (client, interaction) => {
+export default async (client, interaction) => {
   if (interaction.isChatInputCommand()) {
-    let command = client.slashCommands.find((x) => x.name === interaction.commandName);
-    if (!command || !command.run) {
+    const command = client.slashCommands.find((x) => x.name === interaction.commandName);
+    if (!command?.run) {
       return interaction.reply("Sorry the command you used doesn't have any run function");
     }
-    let options = "";
-    for (let i = 0; i < interaction.options._hoistedOptions.length; i++) {
-      options += `${interaction.options._hoistedOptions[i].name}(${interaction.options._hoistedOptions[i].value}) `;
-    }
-    if (interaction.options._subcommand) {
-      client.logger.log(
-        `${colors.blue(interaction.user.username)}(${interaction.user.id}) ran ${colors.blue(interaction.commandName)}->${colors.yellow(interaction.options._subcommand)} command in ${colors.blue(interaction.guild.name)}(${interaction.guild.id}): ${options}`,
-      );
-    } else {
-      client.logger.log(
-        `${colors.blue(interaction.user.username)}(${interaction.user.id}) ran ${colors.blue(interaction.commandName)} command in ${colors.blue(interaction.guild.name)}(${interaction.guild.id}): ${options}`,
-      );
-    }
 
+    const options = interaction.options._hoistedOptions
+      .map((opt) => `${opt.name}(${opt.value})`)
+      .join(" ");
+
+    const logMessage = interaction.options._subcommand
+      ? `${colors.blue(interaction.user.username)}(${interaction.user.id}) ran ${colors.blue(interaction.commandName)}->${colors.yellow(interaction.options._subcommand)} command in ${colors.blue(interaction.guild.name)}(${interaction.guild.id}): ${options}`
+      : `${colors.blue(interaction.user.username)}(${interaction.user.id}) ran ${colors.blue(interaction.commandName)} command in ${colors.blue(interaction.guild.name)}(${interaction.guild.id}): ${options}`;
+
+    client.logger.log(logMessage);
     client.commandsRan++;
-    command.run(client, interaction, interaction.options);
-    return;
+
+    return command.run(client, interaction, interaction.options);
   }
+
   if (interaction.isCommand()) {
-    let command = client.contextCommands.find((x) => x.command.name === interaction.commandName);
-    if (!command || !command.run) {
+    const command = client.contextCommands.find((x) => x.command.name === interaction.commandName);
+    if (!command?.run) {
       return interaction.reply("Sorry the command you used doesn't have any run function");
     }
 
     client.commandsRan++;
-    command.run(client, interaction, interaction.options);
-    return;
+    return command.run(client, interaction, interaction.options);
   }
+
   if (interaction.isButton()) {
     if (interaction.customId.startsWith("controller")) {
-      await Controller(client, interaction);
+      return Controller(client, interaction);
     }
     if (interaction.customId.startsWith("voice_controller")) {
-      await voice_controller(client, interaction);
+      return voice_controller(client, interaction);
     }
   }
 
   if (interaction.isAutocomplete()) {
     const url = interaction.options.getString("query");
-    if (url === "") return;
+    if (!url) return;
 
-    const match = [
-      /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/,
-    ].some(function (match) {
-      return match.test(url) === true;
-    });
+    const urlRegex =
+      /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/;
+    const isUrl = urlRegex.test(url);
 
-    async function checkRegex() {
-      if (match === true) {
-        let choice = [];
-        choice.push({ name: url, value: url });
-        await interaction.respond(choice).catch(() => {});
+    const checkRegex = async () => {
+      if (isUrl) {
+        await interaction
+          .respond([
+            { name: url, value: url },
+          ])
+          .catch(() => {});
       }
-    }
+    };
 
-    const Random = "ytsearch"[Math.floor(Math.random() * "ytsearch".length)];
+    const randomChar = "ytsearch"[Math.floor(Math.random() * "ytsearch".length)];
 
     if (interaction.commandName === "play") {
       await checkRegex();
-      await checkRegex();
-      let choice = [];
-      await yt.search(url || Random, { safeSearch: false, limit: 25 }).then((result) => {
-        result.forEach((x) => {
-          choice.push({ name: x.title, value: x.url });
-        });
-      });
-      return await interaction.respond(choice).catch(() => {});
-    } else if (result.loadType === "error" || "empty") return;
+
+      try {
+        const results = await YouTube.search(url || randomChar, { safeSearch: false, limit: 25 });
+        const choices = results.map((x) => ({ name: x.title, value: x.url }));
+        return interaction.respond(choices).catch(() => {});
+      } catch (error) {
+        console.error("YouTube search error:", error);
+        return interaction.respond([]).catch(() => {});
+      }
+    }
   }
 };

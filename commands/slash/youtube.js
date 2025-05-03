@@ -1,6 +1,6 @@
-const { ChannelType, InteractionContextType, PermissionsBitField } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const YoutubeChecker = require("../..//lib/YoutubeChecker");
+import { ChannelType, InteractionContextType, MessageFlags, PermissionsBitField } from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
+import YoutubeChecker from "../..//lib/YoutubeChecker.js";
 
 const command = new SlashCommand()
   .setName("youtube")
@@ -332,4 +332,4 @@ command.setRun(async (client, interaction, options) => {
   }
 });
 
-module.exports = command;
+export default command;

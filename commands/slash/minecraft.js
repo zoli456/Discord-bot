@@ -1,6 +1,6 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const { ServerStatus } = require("@hardxploit/mc-status");
-const { EmbedBuilder, InteractionContextType, AttachmentBuilder } = require("discord.js");
+import SlashCommand from "../../lib/SlashCommand.js";
+import { ServerStatus } from "@hardxploit/mc-status";
+import { EmbedBuilder, InteractionContextType, AttachmentBuilder, MessageFlags } from "discord.js";
 
 const command = new SlashCommand()
   .setName("minecraft")
@@ -309,4 +309,4 @@ const command = new SlashCommand()
       }
     }
   });
-module.exports = command;
+export default command;

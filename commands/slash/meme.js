@@ -1,12 +1,7 @@
-const {
-  EmbedBuilder,
-  InteractionContextType,
-  AttachmentBuilder,
-  MessageFlags,
-} = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const pop = require("../../lib/Popcat-wrapper");
-const content_filter = require("deep-profanity-filter");
+import { EmbedBuilder, InteractionContextType, AttachmentBuilder, MessageFlags } from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
+import pop from "../../lib//Popcat-wrapper/index.js";
+import content_filter from "deep-profanity-filter";
 
 const command = new SlashCommand()
   .setName("meme")
@@ -665,4 +660,4 @@ command.setRun(async (client, interaction, options) => {
   });
 });
 
-module.exports = command;
+export default command;

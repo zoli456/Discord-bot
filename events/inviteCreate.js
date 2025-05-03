@@ -1,7 +1,7 @@
-const { EmbedBuilder } = require("discord.js");
-const moment = require("moment");
+import { EmbedBuilder } from 'discord.js';
+import moment from 'moment';
 
-module.exports = async (client, invite) => {
+export default async (client, invite) => {
   const guildSettings = client.guild_settings.find((e) => e.guildId === invite.guild.id);
   if (await guildSettings.settings_db.exists("/log_channel")) {
     const log_settings = await guildSettings.settings_db.getData("/log_channel");

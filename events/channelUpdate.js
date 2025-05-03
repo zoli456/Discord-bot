@@ -1,7 +1,7 @@
-const { EmbedBuilder, AuditLogEvent } = require("discord.js");
-const { PermissionsBitField } = require("discord.js");
+import { EmbedBuilder, AuditLogEvent } from 'discord.js';
+import { PermissionsBitField } from 'discord.js';
 
-module.exports = async (client, oldChannel, newChannel) => {
+export default async (client, oldChannel, newChannel) => {
   const guildSettings = client.guild_settings.find((e) => e.guildId === oldChannel.guildId);
   if (await guildSettings.settings_db.exists("/log_channel")) {
     const log_settings = await guildSettings.settings_db.getData("/log_channel");
@@ -237,6 +237,7 @@ module.exports = async (client, oldChannel, newChannel) => {
     }
   }
 };
+
 function compareOverrides(map1, map2) {
   let testVal;
   if (map1.size !== map2.size) {

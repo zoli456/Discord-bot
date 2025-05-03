@@ -1,6 +1,6 @@
-const { EmbedBuilder, AuditLogEvent } = require("discord.js");
+import { EmbedBuilder, AuditLogEvent } from 'discord.js';
 
-module.exports = async (client, oldEmoji, newEmoji) => {
+export default async (client, oldEmoji, newEmoji) => {
   const guildSettings = client.guild_settings.find((e) => e.guildId === oldEmoji.guild.id);
   if (await guildSettings.settings_db.exists("/log_channel")) {
     const log_settings = await guildSettings.settings_db.getData("/log_channel");

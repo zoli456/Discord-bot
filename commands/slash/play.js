@@ -1,11 +1,12 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const {
+import SlashCommand from "../../lib/SlashCommand.js";
+import {
   EmbedBuilder,
   InteractionContextType,
   ChannelType,
   escapeMarkdown,
   MessageFlags,
-} = require("discord.js");
+} from "discord.js";
+import prettyMilliseconds from "pretty-ms";
 
 const command = new SlashCommand()
   .setName("play")
@@ -137,7 +138,7 @@ const command = new SlashCommand()
     if (sponsor_blocker) {
       if (sponsor_blocker === "true") player.setSponsorBlock();
       else {
-        await player.deleteSponsorBlock();
+        player.deleteSponsorBlock();
       }
     }
     let res = await player.search(query, interaction.user).catch((err) => {
@@ -157,7 +158,7 @@ const command = new SlashCommand()
             new EmbedBuilder().setColor("#FF0000").setDescription(lang.error_while_searching),
           ],
         })
-        .catch(this.warn);
+        .catch((err) => client.error(`Failed to edit reply: ${err}`));
     }
     if (res.loadType === "empty") {
       if (!player.queue.current) {
@@ -169,7 +170,7 @@ const command = new SlashCommand()
             new EmbedBuilder().setColor("#FF0000").setDescription(lang.no_result),
           ],
         })
-        .catch(this.warn);
+        .catch((err) => client.error(`Failed to edit reply: ${err}`));
     }
     if (!player.connected) {
       await player.connect();
@@ -200,7 +201,7 @@ const command = new SlashCommand()
         .setColor(client.config.embedColor)
         .setAuthor({
           name: lang.added_to_queue,
-          iconURL: { url: client.config.iconURL, dynamic: true },
+          iconURL: client.config.iconURL,
         })
         .setDescription(`[${title}](${res.tracks[0].info.uri})` || lang.no_title)
         .setURL(res.tracks[0].info.uri)
@@ -219,7 +220,7 @@ const command = new SlashCommand()
             name: lang.duration,
             value: res.tracks[0].info.isStream
               ? lang.LIVE
-              : `\`${client.ms(res.tracks[0].info.duration, {
+              : `\`${prettyMilliseconds(res.tracks[0].info.duration, {
                   colonNotation: true,
                   secondsDecimalDigits: 0,
                 })}\``,
@@ -243,7 +244,7 @@ const command = new SlashCommand()
             addQueueEmbed,
           ],
         })
-        .catch(this.warn);
+        .catch((err) => client.error(`Failed to edit reply: ${err}`));
     }
     if (res.loadType === "playlist") {
       player.queue.add(res.tracks);
@@ -266,7 +267,7 @@ const command = new SlashCommand()
           },
           {
             name: lang.playlist_duration,
-            value: `\`${client.ms(player.queue.utils.totalDuration(), {
+            value: `\`${prettyMilliseconds(player.queue.utils.totalDuration(), {
               colonNotation: true,
               secondsDecimalDigits: 0,
             })}\``,
@@ -280,10 +281,14 @@ const command = new SlashCommand()
             playlistEmbed,
           ],
         })
-        .catch(this.warn);
+        .catch((err) => client.error(`Failed to edit reply: ${err}`));
     }
-    if (ret) setTimeout(() => ret.delete().catch(this.warn), 10000);
+    if (ret)
+      setTimeout(
+        () => ret.delete().catch((err) => client.error(`Failed to edit reply: ${err}`)),
+        10000,
+      );
     return ret;
   });
 
-module.exports = command;
+export default command;

@@ -1,11 +1,14 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const {
+import SlashCommand from "../../lib/SlashCommand.js";
+
+import {
   EmbedBuilder,
   InteractionContextType,
   ActionRowBuilder,
   StringSelectMenuBuilder,
-} = require("discord.js");
-const prettyMilliseconds = require("pretty-ms");
+  MessageFlags,
+} from "discord.js";
+
+import prettyMilliseconds from "pretty-ms";
 
 const command = new SlashCommand()
   .setName("movie")
@@ -156,4 +159,4 @@ const command = new SlashCommand()
     });
   });
 
-module.exports = command;
+export default command;

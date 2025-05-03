@@ -1,6 +1,6 @@
-const { EmbedBuilder, MessageFlags, InteractionContextType } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const { EQList } = require("lavalink-client");
+import { EmbedBuilder, MessageFlags, InteractionContextType } from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
+import { EQList } from "lavalink-client";
 
 const command = new SlashCommand()
   .setName("filters")
@@ -167,4 +167,4 @@ const command = new SlashCommand()
     });
   });
 
-module.exports = command;
+export default command;

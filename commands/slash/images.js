@@ -1,12 +1,31 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const {
-  EmbedBuilder,
-  InteractionContextType,
-  AttachmentBuilder,
-  MessageFlags,
-} = require("discord.js");
-const DIG = require("../../lib/Image-Generation");
-const content_filter = require("deep-profanity-filter");
+import SlashCommand from "../../lib/SlashCommand.js";
+import { EmbedBuilder, InteractionContextType, AttachmentBuilder, MessageFlags } from "discord.js";
+import content_filter from "deep-profanity-filter";
+import Blur from "../../lib/Image-Generation/module/filters/blur.js";
+import Gay from "../../lib/Image-Generation/module/filters/gay.js";
+import Greyscale from "../../lib/Image-Generation/module/gif/blink.js";
+import invertImage from "../../lib/Image-Generation/module/filters/invert.js";
+import Changemymind from "../../lib/Image-Generation/module/montage/changemymind.js";
+import Ad from "../../lib/Image-Generation/module/montage/ad.js";
+import Batslap from "../../lib/Image-Generation/module/montage/batslap.js";
+import Beautiful from "../../lib/Image-Generation/module/montage/beautiful.js";
+import Bed from "../../lib/Image-Generation/module/montage/bed.js";
+import Bobross from "../../lib/Image-Generation/module/montage/bobross.js";
+import Deepfry from "../../lib/Image-Generation/module/montage/deepfry.js";
+import Delete from "../../lib/Image-Generation/module/montage/delete.js";
+import Facepalm from "../../lib/Image-Generation/module/montage/facepalm.js";
+import Hitler from "../../lib/Image-Generation/module/montage/hitler.js";
+import Jail from "../../lib/Image-Generation/module/montage/jail.js";
+import Kiss from "../../lib/Image-Generation/module/montage/kiss.js";
+import LisaPresentation from "../../lib/Image-Generation/module/montage/lisaPresentation.js";
+import Podium from "../../lib/Image-Generation/module/montage/podium.js";
+import Poutine from "../../lib/Image-Generation/module/montage/poutine.js";
+import Rip from "../../lib/Image-Generation/module/montage/rip.js";
+import Spank from "../../lib/Image-Generation/module/montage/spank.js";
+import Thomas from "../../lib/Image-Generation/module/montage/thomas.js";
+import Trash from "../../lib/Image-Generation/module/montage/trash.js";
+import Wanted from "../../lib/Image-Generation/module/montage/wanted.js";
+import Triggered from "../../lib/Image-Generation/module/gif/triggered.js";
 
 const command = new SlashCommand()
   .setName("image")
@@ -769,7 +788,7 @@ command.setRun(async (client, interaction, options) => {
   try {
     if (interaction.options.getSubcommand() === "blur") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Blur().getImage(
+        img = await new Blur().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -785,7 +804,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "gay") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Gay().getImage(
+        img = await new Gay().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -801,7 +820,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "greyscale") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Greyscale().getImage(
+        img = await new Greyscale().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -817,7 +836,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "invert") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Invert().getImage(
+        img = await new invertImage().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -848,13 +867,13 @@ command.setRun(async (client, interaction, options) => {
           .then((msg) => setTimeout(() => msg.delete(), 20000));
       }
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Changemymind().getImage(options.getString("text", true));
+        img = await new Changemymind().getImage(options.getString("text", true));
       });
       filename = "changemymind.jpeg";
     }
     if (interaction.options.getSubcommand() === "triggered") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Triggered().getImage(
+        img = await new Triggered().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -870,7 +889,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "ad") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Ad().getImage(
+        img = await new Ad().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -886,7 +905,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "batslap") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Batslap().getImage(
+        img = await new Batslap().getImage(
           options.getUser("batman", true).displayAvatarURL({
             forceStatic: true,
             extension: "jpg",
@@ -901,7 +920,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "beautiful") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Beautiful().getImage(
+        img = await new Beautiful().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -917,7 +936,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "bed") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Bed().getImage(
+        img = await new Bed().getImage(
           options.getUser("upper", true).displayAvatarURL({
             forceStatic: true,
             extension: "jpg",
@@ -932,7 +951,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "bobross") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Bobross().getImage(
+        img = await new Bobross().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -948,7 +967,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "deepfry") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Deepfry().getImage(
+        img = await new Deepfry().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -964,7 +983,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "delete") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Delete().getImage(
+        img = await new Delete().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -980,7 +999,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "facepalm") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Facepalm().getImage(
+        img = await new Facepalm().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -996,7 +1015,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "hitler") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Hitler().getImage(
+        img = await new Hitler().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -1012,7 +1031,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "jail") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Jail().getImage(
+        img = await new Jail().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -1028,7 +1047,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "kiss") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Kiss().getImage(
+        img = await new Kiss().getImage(
           options.getUser("target_user1", true).displayAvatarURL({
             forceStatic: true,
             extension: "jpg",
@@ -1058,7 +1077,7 @@ command.setRun(async (client, interaction, options) => {
           .then((msg) => setTimeout(() => msg.delete(), 20000));
       }
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.LisaPresentation().getImage(options.getString("text", true));
+        img = await new LisaPresentation().getImage(options.getString("text", true));
       });
       filename = "lisa_presentation.jpeg";
     }
@@ -1087,7 +1106,7 @@ command.setRun(async (client, interaction, options) => {
           .then((msg) => setTimeout(() => msg.delete(), 20000));
       }
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Podium().getImage(
+        img = await new Podium().getImage(
           options.getUser("first_user", true).displayAvatarURL({
             forceStatic: true,
             extension: "png",
@@ -1109,7 +1128,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "poutine") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Poutine().getImage(
+        img = await new Poutine().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -1125,7 +1144,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "rip") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Rip().getImage(
+        img = await new Rip().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -1141,7 +1160,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "spank") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Spank().getImage(
+        img = await new Spank().getImage(
           options.getUser("target_user1", true).displayAvatarURL({
             forceStatic: true,
             extension: "jpg",
@@ -1156,7 +1175,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "thomas") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Thomas().getImage(
+        img = await new Thomas().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -1172,7 +1191,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "trash") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Trash().getImage(
+        img = await new Trash().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -1188,7 +1207,7 @@ command.setRun(async (client, interaction, options) => {
     }
     if (interaction.options.getSubcommand() === "wanted") {
       await client.imageGeneratorThrottle.add(async () => {
-        img = await new DIG.Wanted().getImage(
+        img = await new Wanted().getImage(
           options.getUser("target_user", false)
             ? options.getUser("target_user", false).displayAvatarURL({
                 forceStatic: true,
@@ -1204,6 +1223,7 @@ command.setRun(async (client, interaction, options) => {
       filename = "wanted.jpeg";
     }
   } catch (error) {
+    console.log(error);
     return interaction.editReply({
       embeds: [
         client.ErrorEmbed(lang.error_title, lang.picture_failed),
@@ -1223,4 +1243,4 @@ command.setRun(async (client, interaction, options) => {
   });
 });
 
-module.exports = command;
+export default command;

@@ -477,4 +477,4 @@ const language = {
   repeat_queue: "A bot ismételni fogja az egész hátralévő várólistát.",
   repeat_off: "Kikapcsoltad az ismétlés módot.",
 };
-module.exports = language;
+export default language;

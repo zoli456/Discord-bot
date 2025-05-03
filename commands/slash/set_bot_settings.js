@@ -1,4 +1,4 @@
-const {
+import {
   EmbedBuilder,
   ActivityType,
   ChannelType,
@@ -8,13 +8,14 @@ const {
   ButtonStyle,
   InteractionContextType,
   MessageFlags,
-} = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const schedule = require("node-schedule");
-const fs = require("fs");
-const { encode } = require("@msgpack/msgpack");
-const moment = require("moment");
-const momentDurationFormatSetup = require("moment-duration-format");
+} from "discord.js";
+
+import SlashCommand from "../../lib/SlashCommand.js";
+import schedule from "node-schedule";
+import fs from "fs";
+import { encode } from "@msgpack/msgpack";
+import moment from "moment";
+import momentDurationFormatSetup from "moment-duration-format";
 
 const command = new SlashCommand()
   .setName("set")
@@ -1411,4 +1412,4 @@ command.setRun(async (client, interaction, options) => {
   }
 });
 
-module.exports = command;
+export default command;

@@ -1,5 +1,5 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const { EmbedBuilder, InteractionContextType } = require("discord.js");
+import SlashCommand from "../../lib/SlashCommand.js";
+import { EmbedBuilder, InteractionContextType, MessageFlags } from "discord.js";
 
 const command = new SlashCommand()
   .setName("clear")
@@ -71,7 +71,9 @@ const command = new SlashCommand()
       });
     }
 
-    player.queue.tracks = [];
+    for (let i = 0; i < player.queue.tracks.length; i++) {
+      player.queue.tracks.pop();
+    }
 
     let clearEmbed = new EmbedBuilder()
       .setColor(client.config.embedColor)
@@ -84,4 +86,4 @@ const command = new SlashCommand()
     });
   });
 
-module.exports = command;
+export default command;

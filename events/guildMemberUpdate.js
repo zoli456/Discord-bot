@@ -1,8 +1,8 @@
-const { EmbedBuilder, AuditLogEvent, PermissionsBitField } = require("discord.js");
-const moment = require("moment/moment");
-const { textToLatin, doesContainBadWords } = require("deep-profanity-filter");
+import { EmbedBuilder, AuditLogEvent, PermissionsBitField } from "discord.js";
+import moment from "moment";
+import { textToLatin, doesContainBadWords } from "deep-profanity-filter";
 
-module.exports = async (client, oldMember, newMember) => {
+export default async (client, oldMember, newMember) => {
   if (oldMember.id === client.config.clientId || oldMember.user.bot) return;
   const guildSettings = client.guild_settings.find((e) => e.guildId === oldMember.guild.id);
   const setttings_db = await guildSettings.settings_db.getData("/");

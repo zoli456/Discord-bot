@@ -1,4 +1,4 @@
-const { EmbedBuilder, AuditLogEvent } = require("discord.js");
+import { EmbedBuilder, AuditLogEvent } from 'discord.js';
 
 /**
  * On messageDelete events, adds the message to a WeakSet within the bot's client
@@ -7,7 +7,7 @@ const { EmbedBuilder, AuditLogEvent } = require("discord.js");
  * @param {Client} client
  * @param {Message} message
  */
-module.exports = async (client, message) => {
+export default async (client, message) => {
   if (message.webhookId || message.partial || message.channel.isDMBased() || message.content === "")
     return;
   if (message.author && message.author.bot) return;

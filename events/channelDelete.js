@@ -1,8 +1,8 @@
-const { EmbedBuilder, AuditLogEvent } = require("discord.js");
-const schedule = require("node-schedule");
-const fs = require("fs");
+import { EmbedBuilder, AuditLogEvent } from 'discord.js';
+import schedule from 'node-schedule';
+import fs from 'fs';
 
-module.exports = async (client, channel) => {
+export default async (client, channel) => {
   const guildSettings = client.guild_settings.find((e) => e.guildId === channel.guildId);
   const settings_db = await guildSettings.settings_db.getData("/");
 

@@ -1,7 +1,13 @@
-const colors = require("@colors/colors");
-const { EmbedBuilder, PermissionsBitField, Colors, InteractionContextType } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const { GameManager } = require("discord-trivia");
+import colors from "@colors/colors";
+import {
+  EmbedBuilder,
+  PermissionsBitField,
+  Colors,
+  InteractionContextType,
+  MessageFlags,
+} from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
+import { GameManager } from "discord-trivia";
 
 const command = new SlashCommand()
   .setName("trivia")
@@ -251,4 +257,4 @@ const command = new SlashCommand()
       });
     }
   });
-module.exports = command;
+export default command;

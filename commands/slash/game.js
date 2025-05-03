@@ -1,5 +1,6 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const {
+import SlashCommand from "../../lib/SlashCommand.js";
+
+import {
   TwoZeroFourEight,
   FindEmoji,
   GuessThePokemon,
@@ -14,19 +15,20 @@ const {
   Wordle,
   MatchPairs,
   WouldYouRather,
-} = require("../../lib/Falgames");
+} from "../../lib/Falgames/index.js";
 
-const {
+import {
   EmbedBuilder,
   ComponentType,
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
   InteractionContextType,
-} = require("discord.js");
+  MessageFlags,
+} from "discord.js";
 
-const blackjack = require("discord-blackjack");
-const TicTacToe = require("discord-tictactoe");
+import blackjack from "discord-blackjack";
+import TicTacToe from "discord-tictactoe";
 
 const command = new SlashCommand()
   .setName("game")
@@ -954,4 +956,4 @@ const command = new SlashCommand()
       await Game.roll("1d6");
     }
   });
-module.exports = command;
+export default command;

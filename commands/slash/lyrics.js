@@ -1,13 +1,15 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const {
+import SlashCommand from "../../lib/SlashCommand.js";
+
+import {
   ActionRowBuilder,
   StringSelectMenuBuilder,
   ButtonBuilder,
   EmbedBuilder,
   ButtonStyle,
   InteractionContextType,
-} = require("discord.js");
-const Genius = require("genius-lyrics");
+} from "discord.js";
+
+import Genius from "genius-lyrics";
 
 const command = new SlashCommand()
   .setName("lyrics")
@@ -244,4 +246,4 @@ const command = new SlashCommand()
     });
   });
 
-module.exports = command;
+export default command;

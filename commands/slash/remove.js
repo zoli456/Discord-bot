@@ -1,5 +1,5 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const { EmbedBuilder, MessageFlags, InteractionContextType } = require("discord.js");
+import SlashCommand from "../../lib/SlashCommand.js";
+import { EmbedBuilder, MessageFlags, InteractionContextType } from "discord.js";
 
 const command = new SlashCommand()
   .setName("remove")
@@ -104,4 +104,4 @@ const command = new SlashCommand()
     });
   });
 
-module.exports = command;
+export default command;

@@ -1,6 +1,6 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const { EmbedBuilder, InteractionContextType } = require("discord.js");
-const prettyMilliseconds = require("pretty-ms");
+import SlashCommand from "../../lib/SlashCommand.js";
+import { EmbedBuilder, InteractionContextType, MessageFlags } from "discord.js";
+import prettyMilliseconds from "pretty-ms";
 
 const command = new SlashCommand()
   .setName("save")
@@ -95,4 +95,4 @@ const command = new SlashCommand()
     });
   });
 
-module.exports = command;
+export default command;

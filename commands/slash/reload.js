@@ -1,7 +1,7 @@
-const { EmbedBuilder, MessageFlags, InteractionContextType } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const fs = require("fs");
-const path = require("path");
+import { EmbedBuilder, MessageFlags, InteractionContextType } from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
+import fs from "fs";
+import path from "path";
 
 const command = new SlashCommand()
   .setName("reload")
@@ -93,4 +93,4 @@ const command = new SlashCommand()
     }
   });
 
-module.exports = command;
+export default command;

@@ -1,5 +1,5 @@
-const { ChannelType, InteractionContextType, PermissionsBitField } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
+import { ChannelType, InteractionContextType, MessageFlags, PermissionsBitField } from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
 
 const command = new SlashCommand()
   .setName("twitch")
@@ -318,4 +318,4 @@ command.setRun(async (client, interaction, options) => {
   }
 });
 
-module.exports = command;
+export default command;

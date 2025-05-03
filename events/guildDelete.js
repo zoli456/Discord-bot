@@ -1,6 +1,7 @@
-const fs = require("fs");
-const schedule = require("node-schedule");
-module.exports = async (client, guild) => {
+import fs from 'fs';
+import schedule from 'node-schedule';
+
+export default async (client, guild) => {
   client.log(`The bot left from a server! ${guild.name}(${guild.id}).`);
   const guild_settings_pos = client.guild_settings.map((e) => e.guildId).indexOf(guild.id);
   const setttings_db = await client.guild_settings[guild_settings_pos].settings_db.getData("/");

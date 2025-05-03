@@ -1,5 +1,6 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const {
+import SlashCommand from "../../lib/SlashCommand.js";
+
+import {
   EmbedBuilder,
   ButtonBuilder,
   ActionRowBuilder,
@@ -7,9 +8,9 @@ const {
   ButtonStyle,
   InteractionContextType,
   MessageFlags,
-} = require("discord.js");
-const load = require("lodash");
-const pms = require("pretty-ms");
+} from "discord.js";
+import * as load from "lodash-es";
+import prettyMilliseconds from "pretty-ms";
 
 const command = new SlashCommand()
   .setName("queue")
@@ -87,7 +88,7 @@ const command = new SlashCommand()
             name: lang.duration,
             value: player.queue.current.info.isStream
               ? lang.LIVE
-              : `\`${pms(player.position, { colonNotation: true })} / ${pms(
+              : `\`${prettyMilliseconds(player.position, { colonNotation: true })} / ${prettyMilliseconds(
                   player.queue.current.info.duration,
                   { colonNotation: true },
                 )}\``,
@@ -156,7 +157,7 @@ const command = new SlashCommand()
               name: lang.track_duration,
               value: player.queue.current.isStream
                 ? lang.LIVE
-                : `\`${pms(player.position, { colonNotation: true })} / ${pms(
+                : `\`${prettyMilliseconds(player.position, { colonNotation: true })} / ${prettyMilliseconds(
                     player.queue.current.info.duration,
                     { colonNotation: true },
                   )}\``,
@@ -164,7 +165,7 @@ const command = new SlashCommand()
             },
             {
               name: lang.total_tracks_duration,
-              value: `\`${pms(queueDuration, {
+              value: `\`${prettyMilliseconds(queueDuration, {
                 colonNotation: true,
               })}\``,
               inline: true,
@@ -201,7 +202,7 @@ const command = new SlashCommand()
               name: lang.track_duration,
               value: player.queue.current.isStream
                 ? lang.LIVE
-                : `\`${pms(player.position, { colonNotation: true })} / ${pms(
+                : `\`${prettyMilliseconds(player.position, { colonNotation: true })} / ${prettyMilliseconds(
                     player.queue.current.info.duration,
                     { colonNotation: true },
                   )}\``,
@@ -209,7 +210,7 @@ const command = new SlashCommand()
             },
             {
               name: lang.total_tracks_duration,
-              value: `\`${pms(queueDuration, {
+              value: `\`${prettyMilliseconds(queueDuration, {
                 colonNotation: true,
               })}\``,
               inline: true,
@@ -281,16 +282,16 @@ const command = new SlashCommand()
                   name: lang.track_duration,
                   value: player.queue.current.info.isStream
                     ? lang.LIVE
-                    : `\`${pms(player.position, {
+                    : `\`${prettyMilliseconds(player.position, {
                         colonNotation: true,
-                      })} / ${pms(player.queue.current.info.duration, {
+                      })} / ${prettyMilliseconds(player.queue.current.info.duration, {
                         colonNotation: true,
                       })}\``,
                   inline: true,
                 },
                 {
                   name: lang.total_tracks_duration,
-                  value: `\`${pms(queueDuration, {
+                  value: `\`${prettyMilliseconds(queueDuration, {
                     colonNotation: true,
                   })}\``,
                   inline: true,
@@ -332,16 +333,16 @@ const command = new SlashCommand()
                   name: lang.track_duration,
                   value: player.queue.current.info.isStream
                     ? lang.LIVE
-                    : `\`${pms(player.position, {
+                    : `\`${prettyMilliseconds(player.position, {
                         colonNotation: true,
-                      })} / ${pms(player.queue.current.info.duration, {
+                      })} / ${prettyMilliseconds(player.queue.current.info.duration, {
                         colonNotation: true,
                       })}\``,
                   inline: true,
                 },
                 {
                   name: lang.total_tracks_duration,
-                  value: `\`${pms(queueDuration, {
+                  value: `\`${prettyMilliseconds(queueDuration, {
                     colonNotation: true,
                   })}\``,
                   inline: true,
@@ -388,4 +389,4 @@ const command = new SlashCommand()
     }
   });
 
-module.exports = command;
+export default command;

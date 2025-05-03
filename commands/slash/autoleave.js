@@ -1,6 +1,11 @@
-const colors = require("@colors/colors");
-const { EmbedBuilder, InteractionContextType, PermissionsBitField } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
+import colors from "@colors/colors";
+import {
+  EmbedBuilder,
+  InteractionContextType,
+  MessageFlags,
+  PermissionsBitField,
+} from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
 
 const command = new SlashCommand()
   .setName("autoleave")
@@ -92,4 +97,4 @@ const command = new SlashCommand()
     }
   });
 
-module.exports = command;
+export default command;

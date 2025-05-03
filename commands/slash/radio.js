@@ -1,5 +1,12 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const { EmbedBuilder, InteractionContextType, ChannelType, escapeMarkdown } = require("discord.js");
+import SlashCommand from "../../lib/SlashCommand.js";
+import {
+  EmbedBuilder,
+  InteractionContextType,
+  ChannelType,
+  escapeMarkdown,
+  MessageFlags,
+} from "discord.js";
+import prettyMilliseconds from "pretty-ms";
 
 const command = new SlashCommand()
   .setName("radio")
@@ -177,7 +184,7 @@ const command = new SlashCommand()
             new EmbedBuilder().setColor("#FF0000").setDescription(lang.error_while_searching),
           ],
         })
-        .catch(this.warn);
+        .catch((err) => client.error(`Failed to edit reply: ${err}`));
     }
 
     if (res.loadType === "empty") {
@@ -190,7 +197,7 @@ const command = new SlashCommand()
             new EmbedBuilder().setColor("#FF0000").setDescription(lang.no_result),
           ],
         })
-        .catch(this.warn);
+        .catch((err) => client.error(`Failed to edit reply: ${err}`));
     }
 
     if (!player.connected) {
@@ -240,7 +247,7 @@ const command = new SlashCommand()
             name: lang.duration,
             value: res.tracks[0].info.isStream
               ? lang.LIVE
-              : `\`${client.ms(res.tracks[0].info.duration, {
+              : `\`${prettyMilliseconds(res.tracks[0].info.duration, {
                   colonNotation: true,
                   secondsDecimalDigits: 0,
                 })}\``,
@@ -266,7 +273,7 @@ const command = new SlashCommand()
             addQueueEmbed,
           ],
         })
-        .catch(this.warn);
+        .catch((err) => client.error(`Failed to edit reply: ${err}`));
     }
 
     if (res.loadType === "playlist") {
@@ -292,7 +299,7 @@ const command = new SlashCommand()
           },
           {
             name: lang.playlist_duration,
-            value: `\`${client.ms(res.playlist.duration, {
+            value: `\`${prettyMilliseconds(res.playlist.duration, {
               colonNotation: true,
               secondsDecimalDigits: 0,
             })}\``,
@@ -306,11 +313,15 @@ const command = new SlashCommand()
             playlistEmbed,
           ],
         })
-        .catch(this.warn);
+        .catch((err) => client.error(`Failed to edit reply: ${err}`));
     }
 
-    if (ret) setTimeout(() => ret.delete().catch(this.warn), 10000);
+    if (ret)
+      setTimeout(
+        () => ret.delete().catch((err) => client.error(`Failed to edit reply: ${err}`)),
+        10000,
+      );
     return ret;
   });
 
-module.exports = command;
+export default command;

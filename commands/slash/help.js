@@ -1,13 +1,18 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const {
+import SlashCommand from "../../lib/SlashCommand.js";
+
+import {
   ActionRowBuilder,
   ButtonBuilder,
   EmbedBuilder,
   ButtonStyle,
   ComponentType,
   InteractionContextType,
-} = require("discord.js");
-const LoadCommands = require("../../util/loadCommands");
+  MessageFlags,
+} from "discord.js";
+
+import LoadCommands from "../../util/loadCommands.js";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 
 const command = new SlashCommand()
   .setName("help")
@@ -166,5 +171,4 @@ const command = new SlashCommand()
       setTimeout(() => interaction.deleteReply(), 30000);
     });
   });
-
-module.exports = command;
+export default command;

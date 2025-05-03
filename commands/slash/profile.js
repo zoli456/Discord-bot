@@ -1,6 +1,6 @@
-const { EmbedBuilder, InteractionContextType, GuildMember, MessageFlags } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const moment = require("moment");
+import { EmbedBuilder, InteractionContextType, GuildMember, MessageFlags } from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
+import moment from "moment";
 
 const command = new SlashCommand()
   .setName("profile")
@@ -244,4 +244,4 @@ const command = new SlashCommand()
     }
     moment.locale("en");
   });
-module.exports = command;
+export default command;

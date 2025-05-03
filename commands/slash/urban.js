@@ -1,7 +1,7 @@
-const { EmbedBuilder, InteractionContextType } = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const ud = require("ud-api");
-const { doesContainBadWords } = require("deep-profanity-filter");
+import { EmbedBuilder, InteractionContextType, MessageFlags } from "discord.js";
+import SlashCommand from "../../lib/SlashCommand.js";
+import ud from "ud-api";
+import { doesContainBadWords } from "deep-profanity-filter";
 
 const command = new SlashCommand()
   .setName("urban")
@@ -115,4 +115,4 @@ command.setRun(async (client, interaction, options) => {
   }
 });
 
-module.exports = command;
+export default command;

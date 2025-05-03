@@ -1,11 +1,12 @@
-const { EmbedBuilder, MessageFlags } = require("discord.js");
-const colors = require("@colors/colors");
+import { EmbedBuilder, MessageFlags } from 'discord.js';
+import colors from '@colors/colors';
+
 /**
  *
  * @param {import("../lib/DiscordMusicBot")} client
  * @param {import("discord.js").ButtonInteraction} interaction
  */
-module.exports = async (client, interaction) => {
+export default async (client, interaction) => {
   let guild = client.guilds.cache.get(interaction.customId.split(":")[1]);
   let property = interaction.customId.split(":")[2];
   let player = client.manager.getPlayer(guild.id);

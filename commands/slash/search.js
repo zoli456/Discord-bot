@@ -1,12 +1,13 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const prettyMilliseconds = require("pretty-ms");
-const {
+import SlashCommand from "../../lib/SlashCommand.js";
+import {
   EmbedBuilder,
+  InteractionContextType,
+  ChannelType,
+  MessageFlags,
   ActionRowBuilder,
   StringSelectMenuBuilder,
-  InteractionContextType,
-  MessageFlags,
-} = require("discord.js");
+} from "discord.js";
+import prettyMilliseconds from "pretty-ms";
 
 const command = new SlashCommand()
   .setName("search")
@@ -224,7 +225,7 @@ const command = new SlashCommand()
                 name: lang.duration,
                 value: res.tracks[0].info.isStream
                   ? lang.LIVE
-                  : `\`${client.ms(res.tracks[0].info.duration, {
+                  : `\`${prettyMilliseconds(res.tracks[0].info.duration, {
                       colonNotation: true,
                     })}\``,
                 inline: true,
@@ -267,4 +268,4 @@ const command = new SlashCommand()
     }
   });
 
-module.exports = command;
+export default command;

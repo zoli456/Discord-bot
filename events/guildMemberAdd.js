@@ -1,9 +1,11 @@
 //const { EmbedBuilder } = require("discord.js");
 //const moment = require("moment");
-const { AttachmentBuilder, EmbedBuilder } = require("discord.js");
-const { WelcomeBuilder } = require("../lib/discord-cards");
-const { doesContainBadWords, textToLatin } = require("deep-profanity-filter");
-module.exports = async (client, member) => {
+import { AttachmentBuilder, EmbedBuilder } from "discord.js";
+
+import { WelcomeBuilder } from "../lib/discord-cards/index.js";
+import { doesContainBadWords, textToLatin } from "deep-profanity-filter";
+
+export default async (client, member) => {
   if (member.user.bot) return;
   const guildSettings = client.guild_settings.find((e) => e.guildId === member.guild.id);
   const settings_db = await guildSettings.settings_db.getData("/");
@@ -68,6 +70,7 @@ module.exports = async (client, member) => {
         await guildSettings.settings_db.delete("/welcome_image");
       }
     } catch (e) {
+      console.log(e);
       client.error(`Failed to make a welcome card in ${member.guild.id} guild`);
     }
   }

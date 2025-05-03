@@ -1,15 +1,16 @@
-const {
+import {
   EmbedBuilder,
   MessageFlags,
   InteractionContextType,
   PermissionsBitField,
   time,
-} = require("discord.js");
-const SlashCommand = require("../../lib/SlashCommand");
-const check_image = require("../../lib/Image-Generation/module/functions");
-const { JsonDB, Config } = require("node-json-db");
-const moment = require("moment");
-const ms = require("ms");
+} from "discord.js";
+
+import SlashCommand from "../../lib/SlashCommand.js";
+import check_image from "../../lib/Image-Generation/module/functions.js";
+import { JsonDB, Config } from "node-json-db";
+import moment from "moment";
+import ms from "ms";
 
 const command = new SlashCommand()
   .setName("poll")
@@ -337,4 +338,4 @@ const command = new SlashCommand()
     }
   });
 
-module.exports = command;
+export default command;

@@ -1,15 +1,13 @@
-module.exports = () => {
-  return new Promise((res, rej) => {
+export default async () => {
+  try {
+    const devConfig = await import("../dev-config.js");
+    return devConfig.default;
+  } catch {
     try {
-      const config = require("../dev-config");
-      res(config);
+      const prodConfig = await import("../config.js");
+      return prodConfig.default;
     } catch {
-      try {
-        const config = require("../config");
-        res(config);
-      } catch {
-        rej("No config file found.");
-      }
+      throw new Error("No config file found.");
     }
-  });
+  }
 };

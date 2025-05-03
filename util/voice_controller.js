@@ -1,4 +1,4 @@
-const {
+import {
   EmbedBuilder,
   StringSelectMenuBuilder,
   ActionRowBuilder,
@@ -7,11 +7,12 @@ const {
   TextInputBuilder,
   PermissionsBitField,
   MessageFlags,
-} = require("discord.js");
-const { doesContainBadWords, textToLatin } = require("deep-profanity-filter");
-const colors = require("@colors/colors");
+} from 'discord.js';
 
-module.exports = async (client, interaction) => {
+import { doesContainBadWords, textToLatin } from 'deep-profanity-filter';
+import colors from '@colors/colors';
+
+export default async (client, interaction) => {
   const _db = client.guild_settings.find((e) => e.guildId === interaction.guildId);
 
   if (!(await _db.settings_db.exists("/voice_controller"))) {

@@ -1,6 +1,6 @@
-const { EmbedBuilder, AuditLogEvent } = require("discord.js");
+import { EmbedBuilder, AuditLogEvent } from 'discord.js';
 
-module.exports = async (client, role) => {
+export default async (client, role) => {
   const guildSettings = client.guild_settings.find((e) => e.guildId === role.guild.id);
 
   if (await guildSettings.settings_db.exists("/log_channel")) {

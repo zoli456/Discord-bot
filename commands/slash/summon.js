@@ -1,5 +1,5 @@
-const SlashCommand = require("../../lib/SlashCommand");
-const { InteractionContextType, MessageFlags, PermissionsBitField } = require("discord.js");
+import SlashCommand from "../../lib/SlashCommand.js";
+import { InteractionContextType, MessageFlags, PermissionsBitField } from "discord.js";
 
 const command = new SlashCommand()
   .setName("summon")
@@ -55,4 +55,4 @@ const command = new SlashCommand()
       });
     }
   });
-module.exports = command;
+export default command;

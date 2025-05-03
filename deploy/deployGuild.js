@@ -1,8 +1,8 @@
-const readline = require("readline");
-const { REST } = require("discordjs");
-const { Routes } = require("discord-api-types");
-const getConfig = require("../util/getConfig");
-const LoadCommands = require("../util/loadCommands");
+import readline from 'readline';
+import { REST } from 'discordjs';
+import { Routes } from 'discord-api-types';
+import getConfig from '../util/getConfig';
+import LoadCommands from '../util/loadCommands';
 
 const rl = readline.createInterface({
   input: process.stdin,

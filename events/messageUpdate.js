@@ -1,9 +1,9 @@
-const { EmbedBuilder, PermissionsBitField } = require("discord.js");
-const IsInvitation = require("is-discord-invite");
-const { doesContainBadWords, textToLatin } = require("deep-profanity-filter");
-const clone = require("../lib/discord-cloner");
-const { request } = require(".././lib/easy-anti-fishing");
-module.exports = async (client, oldMessage, newMessage) => {
+import { EmbedBuilder, PermissionsBitField } from "discord.js";
+import IsInvitation from "is-discord-invite";
+import { doesContainBadWords, textToLatin } from "deep-profanity-filter";
+import request from "../lib/easy-anti-fishing/checker.js";
+
+export default async (client, oldMessage, newMessage) => {
   if (oldMessage.partial) oldMessage = await oldMessage.fetch();
   if (newMessage.partial) newMessage = await newMessage.fetch();
   if (
