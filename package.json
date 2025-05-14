@@ -54,7 +54,7 @@
     "discord-trivia": "^3.0.2",
     "discord.js": "^14.19.3",
     "discord.js-rate-limiter": "^1.3.2",
-    "fast-xml-parser": "^5.2.2",
+    "fast-xml-parser": "^5.2.3",
     "genius-lyrics": "^4.4.7",
     "gifencoder": "github:nugraizy/gifencoder",
     "html-entities": "^2.6.0",
@@ -84,11 +84,11 @@
   },
   "overrides": {
     "node-fetch": "npm:node-fetch-native@latest",
-    "undici": "6.21.2",
-    "ws": "8.18.1",
+    "undici": "6.21.3",
+    "ws": "8.18.2",
     "xml2js": "0.6.2",
     "node-html-parser": "7.0.1",
-    "deepmerge-ts": "5.1.0",
+    "deepmerge-ts": "7.1.5",
     "sorted-array-functions": "1.3.0",
     "cron-parser": "4.9.0"
   }
