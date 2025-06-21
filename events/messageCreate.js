@@ -96,10 +96,17 @@ export default async (client, message) => {
 
     const addEmoji = async (message, chain, client) => {
       await message.react("✅").catch(console.error);
+      const counts = {};
       const emojis = chain
         .toString()
         .split("")
-        .map((num) => numberEmojis.find((ne) => ne.string === num)?.emojis[0]);
+        .map((num) => {
+          const ne = numberEmojis.find((ne) => ne.string === num);
+          if (!ne) return null;
+          counts[num] = (counts[num] || 0) + 1;
+          const idx = (counts[num] - 1) % ne.emojis.length;
+          return ne.emojis[idx];
+        });
       for (const emoji of emojis) {
         if (emoji) {
           await message.react(emoji).catch(console.error);
