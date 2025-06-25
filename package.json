@@ -47,7 +47,7 @@
     "@msgpack/msgpack": "3.1.2",
     "bufferutil": "^4.0.9",
     "canvas": "^3.1.1",
-    "deep-profanity-filter": "2.6.0",
+    "deep-profanity-filter": "2.7.0",
     "discord-blackjack": "github:zoli456/discord-blackjack",
     "discord-giveaways": "^6.0.1",
     "discord-tictactoe": "^4.2.0",
@@ -79,7 +79,7 @@
     "youtube-sr": "^4.3.11"
   },
   "devDependencies": {
-    "prettier": "3.5.3",
+    "prettier": "3.6.1",
     "prettier-plugin-multiline-arrays": "^4.0.3"
   },
   "overrides": {
