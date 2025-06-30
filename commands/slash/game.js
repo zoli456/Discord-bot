@@ -15,7 +15,7 @@ import {
   Wordle,
   MatchPairs,
   WouldYouRather,
-} from "../../lib/Falgames/index.js";
+} from "falgames";
 
 import {
   EmbedBuilder,
@@ -348,6 +348,8 @@ const command = new SlashCommand()
         stopButton: "Stop",
         buttonStyle: "PRIMARY",
         playerOnlyMessage: "Only {player} can use these buttons.",
+        scoreText: "Current Score",
+        totalScoreText: "Total Score",
       });
 
       await Game.startGame();
@@ -358,21 +360,19 @@ const command = new SlashCommand()
         message: interaction,
         isSlashGame: true,
         embed: {
-          title: "Find Emoji",
-          color: "#5865F2",
-          description: "Remember the emojis from the board below.",
-          findDescription: "Find the {emoji} emoji before the time runs out.",
+          title: "Match Pairs",
+          color: "#551476",
+          description: "**Click on the buttons to match emojis with their pairs.**",
         },
         timeoutTime: timeoutTime,
-        hideEmojiTime: 5000,
-        buttonStyle: "PRIMARY",
         emojis: [
-          "🍉", "🍇", "🍊", "🍋",
-          "🥭", "🍎", "🍏", "🥝",
+          "🍉", "🍇", "🍊", "🥭",
+          "🍎", "🍏", "🥝", "🥥",
+          "🍓", "🫐", "🍍", "🥕",
+          "🥔",
         ],
-        winMessage: "You won! You selected the correct emoji. {emoji}",
-        loseMessage: "You lost! You selected the wrong emoji. {emoji}",
-        timeoutMessage: "You lost! You ran out of time. The emoji is {emoji}",
+        winMessage: "**You won the Game! You turned a total of `{tilesTurned}` tiles.**",
+        loseMessage: "**You lost the Game! You turned a total of `{tilesTurned}` tiles.**",
         playerOnlyMessage: "Only {player} can use these buttons.",
       });
 
@@ -404,15 +404,9 @@ const command = new SlashCommand()
         isSlashGame: true,
         embed: {
           title: "Hangman",
-          color: "#5865F2",
+          color: "#551476",
         },
-        hangman: {
-          hat: "🎩",
-          head: "😟",
-          shirt: "👕",
-          pants: "🩳",
-          boots: "👞👞",
-        },
+        hangman: { hat: "🎩", head: "😟", shirt: "👕", pants: "🩳", boots: "👞👞" },
         //customWord: 'Gamecord',
         timeoutTime: timeoutTime,
         theme: topic,
@@ -430,7 +424,7 @@ const command = new SlashCommand()
         isSlashGame: true,
         embed: {
           title: "Minesweeper",
-          color: "#5865F2",
+          color: "#551476",
           description: "Click on the buttons to reveal the blocks except mines.",
         },
         emojis: { flag: "🚩", mine: "💣" },
@@ -451,7 +445,7 @@ const command = new SlashCommand()
         opponent: options.getUser("enemy", true),
         embed: {
           title: "Rock Paper Scissors",
-          color: "#5865F2",
+          color: "#551476",
           description: "Press a button below to make a choice.",
         },
         buttons: {
@@ -460,11 +454,10 @@ const command = new SlashCommand()
           scissors: "Scissors",
         },
         emojis: {
-          rock: "🌑",
-          paper: "📰",
+          rock: "🪨",
+          paper: "📄",
           scissors: "✂️",
         },
-        mentionUser: true,
         timeoutTime: timeoutTime,
         buttonStyle: "PRIMARY",
         pickMessage: "You choose {emoji}.",
@@ -472,6 +465,9 @@ const command = new SlashCommand()
         tieMessage: "The Game tied! No one won the Game!",
         timeoutMessage: "The Game went unfinished! No one won the Game!",
         playerOnlyMessage: "Only {player} and {opponent} can use these buttons.",
+        requestMessage:
+          "{opponent}, {player} has invited you for a round of **Rock Paper Scissors**.",
+        rejectMessage: "The player denied your request for a round of **Rock Paper Scissors**.",
       });
 
       await Game.startGame();
@@ -483,7 +479,7 @@ const command = new SlashCommand()
         isSlashGame: true,
         embed: {
           title: "Slot Machine",
-          color: "#5865F2",
+          color: "#551476",
         },
         slots: [
           "🍇", "🍊", "🍋", "🍌",
@@ -539,14 +535,13 @@ const command = new SlashCommand()
         embed: {
           title: "Connect4 Game",
           statusTitle: "Status",
-          color: "#5865F2",
+          color: "#551476",
         },
         emojis: {
           board: "⚪",
           player1: "🔴",
           player2: "🟡",
         },
-        mentionUser: true,
         timeoutTime: timeoutTime,
         buttonStyle: "PRIMARY",
         turnMessage: "{emoji} | Its turn of player **{player}**.",
@@ -565,7 +560,7 @@ const command = new SlashCommand()
         isSlashGame: true,
         embed: {
           title: "Wordle",
-          color: "#5865F2",
+          color: "#551476",
         },
         customWord: null,
         timeoutTime: timeoutTime,
@@ -756,10 +751,10 @@ const command = new SlashCommand()
       await interaction.deferReply();
 
       let sentence;
-      await fetch("https://api.quotable.io/random")
+      await fetch("https://api.quotable.kurokeita.dev/api/quotes/random")
         .then((response) => response.json())
         .then((data) => {
-          sentence = data.content;
+          sentence = data.quote.content;
         });
 
       const Game = new FastType({
@@ -767,10 +762,10 @@ const command = new SlashCommand()
         isSlashGame: true,
         embed: {
           title: "Fast Type",
-          color: "#5865F2",
+          color: "#551476",
           description: "You have {time} seconds to type the sentence below.",
         },
-        timeoutTime: timeoutTime,
+        timeoutTime: sentence.length * 2 * 1000,
         sentence: sentence,
         winMessage: "You won! You finished the type race in {time} seconds with wpm of {wpm}.",
         loseMessage: "You lost! You didn't type the correct sentence in time.",
