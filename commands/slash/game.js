@@ -93,7 +93,7 @@ const command = new SlashCommand()
           .setName("topic")
           .setDescription("Please select a topic.")
           .setAutocomplete(false)
-          .setRequired(true)
+          .setRequired(false)
           .setNameLocalizations({
             hu: "téma",
           })
@@ -398,22 +398,47 @@ const command = new SlashCommand()
       Game.on("gameOver", (result) => {});
     }
     if (interaction.options.getSubcommand() === "hangman") {
-      let topic = options.getString("topic", true);
-      const Game = new Hangman({
-        message: interaction,
-        isSlashGame: true,
-        embed: {
-          title: "Hangman",
-          color: "#551476",
-        },
-        hangman: { hat: "🎩", head: "😟", shirt: "👕", pants: "🩳", boots: "👞👞" },
-        //customWord: 'Gamecord',
-        timeoutTime: timeoutTime,
-        theme: topic,
-        winMessage: "You won! The word was **{word}**.",
-        loseMessage: "You lost! The word was **{word}**.",
-        playerOnlyMessage: "Only {player} can use these buttons.",
-      });
+      let topic = options.getString("topic", false);
+      let Game;
+      if (topic) {
+        Game = new Hangman({
+          message: interaction,
+          isSlashGame: true,
+          embed: {
+            title: "Hangman",
+            color: "#551476",
+          },
+          hangman: { hat: "🎩", head: "😟", shirt: "👕", pants: "🩳", boots: "👞👞" },
+          //customWord: 'Gamecord',
+          timeoutTime: timeoutTime,
+          theme: topic,
+          winMessage: "You won! The word was **{word}**.",
+          loseMessage: "You lost! The word was **{word}**.",
+          playerOnlyMessage: "Only {player} can use these buttons.",
+        });
+      } else {
+        let customWord;
+        await fetch("https://random-word-api.vercel.app/api?words=1")
+          .then((response) => response.json())
+          .then((data) => {
+            customWord = data[0];
+          });
+        Game = new Hangman({
+          message: interaction,
+          isSlashGame: true,
+          embed: {
+            title: "Hangman",
+            color: "#551476",
+          },
+          hangman: { hat: "🎩", head: "😟", shirt: "👕", pants: "🩳", boots: "👞👞" },
+          customWord: customWord,
+          timeoutTime: timeoutTime,
+          theme: topic,
+          winMessage: "You won! The word was **{word}**.",
+          loseMessage: "You lost! The word was **{word}**.",
+          playerOnlyMessage: "Only {player} can use these buttons.",
+        });
+      }
 
       await Game.startGame();
       Game.on("gameOver", (result) => {});
