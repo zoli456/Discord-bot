@@ -77,7 +77,7 @@
     "tall": "^8.0.0",
     "ud-api": "^3.0.2-2",
     "winston": "^3.17.0",
-    "youtube-sr": "^4.3.11"
+    "youtube-sr": "^4.3.12"
   },
   "devDependencies": {
     "prettier": "3.6.2",
