@@ -1,8 +1,12 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 import SlashCommand from "../../lib/SlashCommand.js";
 import moment from "moment";
 import "moment-duration-format";
 import { EmbedBuilder, MessageFlags, InteractionContextType } from "discord.js";
 import os from "os";
+import { execSync } from "child_process";
 
 const command = new SlashCommand()
   .setName("stats")
@@ -48,8 +52,8 @@ const command = new SlashCommand()
       // get OS info
       const osver = os.platform() + " " + os.release();
 
-      // Get nodejs version
-      const nodeVersion = process.version;
+      // Get nodejs version (without leading 'v')
+      const nodeVersion = process.version.replace(/^v/, "");
 
       // get the uptime in a human readable format
       const runtime = moment
@@ -65,56 +69,65 @@ const command = new SlashCommand()
         1024 /
         1024
       ).toFixed(2);
-      // sow lavalink memory alocated in a nice format
+      // show lavalink memory allocated in a nice format
       const lavamemalocated = (
         client.manager.nodeManager.nodes.values().next().value.stats.memory.allocated /
         1024 /
         1024
       ).toFixed(2);
       // show system uptime
-      var sysuptime = moment
+      const sysuptime = moment
         .duration(os.uptime() * 1000)
         .format("d[ Days]・h[ Hrs]・m[ Mins]・s[ Secs]");
 
-      // get commit hash and date
+      // get commit hash
       let gitHash = "unknown";
       try {
-        gitHash = require("child_process").execSync("git rev-parse HEAD").toString().trim();
+        gitHash = execSync("git rev-parse HEAD").toString().trim();
       } catch (e) {
-        // do nothing
         gitHash = "unknown";
       }
-      let apiPing = client.ws.ping;
+
+      const apiPing = client.ws.ping;
       const statsEmbed = new EmbedBuilder()
         .setTitle(`${client.user.username} Information`)
         .setColor(client.config.embedColor)
         .setDescription(
-          `\`\`\`yml\nName: ${client.user.username}#${client.user.discriminator} [${client.user.id}]\nAPI: ${apiPing}ms\nRuntime: ${runtime}\`\`\``,
+          `\`\`\`yml
+Name: ${client.user.username}#${client.user.discriminator} [${client.user.id}]
+API: ${apiPing}ms
+Runtime: ${runtime}\`\`\``,
         )
         .setFields([
           {
             name: `Lavalink stats`,
-            value: `\`\`\`yml\nUptime: ${lavauptime}\nRAM: ${lavaram} MB\nPlaying: ${
+            value: `\`\`\`yml
+Uptime: ${lavauptime}
+RAM: ${lavaram} MB
+Playing: ${
               client.manager.nodeManager.nodes.values().next().value.stats.playingPlayers
             } out of ${client.manager.nodeManager.nodes.values().next().value.stats.players}\`\`\``,
             inline: true,
           }, {
             name: "Bot stats",
-            value: `\`\`\`yml\nGuilds: ${
-              client.guilds.cache.size
-            }\nNodeJS: ${nodeVersion}\nDiscord.js: v${
-              require("../../package.json").dependencies["discord.js"]
-            }\`\`\``,
+            value: `\`\`\`yml
+Guilds: ${client.guilds.cache.size}
+NodeJS: ${nodeVersion}
+Discord.js: v${require("../../package.json").dependencies["discord.js"]}\`\`\``,
             inline: true,
           }, {
             name: "System stats",
-            value: `\`\`\`yml\nOS: ${osver}\nUptime: ${sysuptime}\n\`\`\``,
+            value: `\`\`\`yml
+OS: ${osver}
+Uptime: ${sysuptime}
+\`\`\``,
             inline: false,
           },
         ])
         .setFooter({
           text: `Build: ${gitHash} Caitlyn Bot: v${require("../../package.json").version}`,
         });
+
       if (hidden_answer) {
         return interaction.reply({
           embeds: [
