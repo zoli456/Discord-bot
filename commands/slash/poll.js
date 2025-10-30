@@ -8,7 +8,8 @@ import {
 
 import SlashCommand from "../../lib/SlashCommand.js";
 import check_image from "../../lib/Image-Generation/module/functions.js";
-import { JsonDB, Config } from "node-json-db";
+import { JsonDB } from "node-json-db";
+import { Config } from "node-json-db/dist/lib/JsonDBConfig.js";
 import moment from "moment";
 import ms from "ms";
 

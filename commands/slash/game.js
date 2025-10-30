@@ -29,6 +29,7 @@ import {
 
 import blackjack from "discord-blackjack";
 import TicTacToe from "discord-tictactoe";
+import { createBattle } from "../../lib/battle/battle.js";
 
 const command = new SlashCommand()
   .setName("game")
@@ -290,6 +291,17 @@ const command = new SlashCommand()
       .setDescriptionLocalizations({
         hu: "Dobsz egyet a kockával.",
       }),
+  )
+  .addSubcommand((subcommand) =>
+    subcommand
+      .setName("battle")
+      .setDescription("Challenge another user to a battle!")
+      .addUserOption((option) =>
+        option
+          .setName("opponent")
+          .setDescription("The user you want to challenge")
+          .setRequired(true),
+      ),
   )
   .setRun(async (client, interaction, options) => {
     const guildSettings = client.guild_settings.find((e) => e.guildId === interaction.guildId);
@@ -974,6 +986,10 @@ const command = new SlashCommand()
         rollLimitMessage: "You can't roll this much dice.",
       });
       await Game.roll("1d6");
+    }
+    if (interaction.options.getSubcommand() === "battle") {
+      const opponent = interaction.options.getUser("opponent");
+      await createBattle(interaction, opponent);
     }
   });
 export default command;

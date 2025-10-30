@@ -6,7 +6,8 @@ import {
 } from "discord.js";
 import SlashCommand from "../../lib/SlashCommand.js";
 import { EType } from "../../lib/ReactionRole/types.js";
-import { JsonDB, Config } from "node-json-db";
+import { JsonDB } from "node-json-db";
+import { Config } from "node-json-db/dist/lib/JsonDBConfig.js";
 
 const command = new SlashCommand()
   .setName("role")

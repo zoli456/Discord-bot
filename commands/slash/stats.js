@@ -49,11 +49,16 @@ const command = new SlashCommand()
     if (interaction.user.id === process.env.ADMINID) {
       let hidden_answer = interaction.options.getBoolean("hidden", false);
       if (!hidden_answer) hidden_answer = false;
+
       // get OS info
       const osver = os.platform() + " " + os.release();
 
       // Get nodejs version (without leading 'v')
       const nodeVersion = process.version.replace(/^v/, "");
+
+      // Get discord.js version and strip any non-numeric prefix like '^'
+      const rawDiscordVersion = require("../../package.json").dependencies["discord.js"];
+      const discordVersion = rawDiscordVersion.replace(/^[^\d]*/, "");
 
       // get the uptime in a human readable format
       const runtime = moment
@@ -113,7 +118,8 @@ Playing: ${
             value: `\`\`\`yml
 Guilds: ${client.guilds.cache.size}
 NodeJS: ${nodeVersion}
-Discord.js: v${require("../../package.json").dependencies["discord.js"]}\`\`\``,
+Discord.js: ${discordVersion}
+\`\`\``,
             inline: true,
           }, {
             name: "System stats",

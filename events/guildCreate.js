@@ -1,5 +1,6 @@
-import fs from 'fs';
-import { JsonDB, Config } from 'node-json-db';
+import fs from "fs";
+import { JsonDB } from "node-json-db";
+import { Config } from "node-json-db/dist/lib/JsonDBConfig.js";
 
 export default async (client, guild) => {
   client.log(`The bot joined to a new server! ${guild.name}(${guild.id}).`);
